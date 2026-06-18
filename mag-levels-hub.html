@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAG Levels Hub — Men's Artistic Gymnastics (Australia / NSW)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --bg:#f4f7fc;
+    --blue:#1f5fd6;
+    --blue-dark:#143b8f;
+    --blue-2:#2f74ec;
+    --blue-soft:#e8f0fe;
+    --blue-tint:#f1f6ff;
+    --red:#e02434;
+    --red-dark:#b71523;
+    --red-soft:#fdecee;
+    --ink:#15233f;
+    --muted:#5f6e87;
+    --line:#e3e9f4;
+    --line-2:#eef2f9;
+    --ok:#16a34a;
+    --ok-soft:#e7f6ec;
+    --shadow:0 10px 30px -12px rgba(20,59,143,.22);
+    --shadow-sm:0 4px 14px -8px rgba(20,59,143,.30);
+    --r:18px;
+    --r-sm:12px;
+  }
+  *{box-sizing:border-box}
+  /* safety: keep all inline glyph icons small regardless of where they're used */
+  .ti{width:18px;height:18px;flex:none}
+  .tip h5 svg{width:16px;height:16px;flex:none}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:'Nunito',system-ui,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(900px 500px at 100% -10%, rgba(224,36,52,.06), transparent 60%),
+      radial-gradient(900px 600px at -10% 0%, rgba(31,95,214,.08), transparent 55%),
+      var(--bg);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.display{font-family:'Fredoka',sans-serif;font-weight:600;letter-spacing:.1px;color:var(--ink)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+  /* Header */
+  header.topbar{
+    position:sticky;top:0;z-index:40;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{display:flex;align-items:center;gap:14px;height:68px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .logo .mark{height:52px;display:grid;place-items:center;flex:none}
+  .logo .mark img{height:52px;width:auto;display:block}
+  .logo b{font-family:'Fredoka';font-size:20px;color:var(--ink);line-height:1}
+  .logo small{display:block;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.3px}
+  .flag-chip{margin-left:auto;display:inline-flex;align-items:center;gap:7px;background:var(--blue-soft);color:var(--blue-dark);
+    font-weight:800;font-size:12px;padding:7px 12px;border-radius:999px;border:1px solid #d6e4fd}
+  .flag-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--red)}
+
+  /* Hero */
+  .hero{padding:40px 0 8px}
+  .hero h1{font-size:clamp(30px,4.6vw,46px);font-weight:700;line-height:1.05;margin:0 0 12px}
+  .hero h1 .hl{color:var(--blue)}
+  .hero h1 .hl-r{color:var(--red)}
+  .hero p.lede{font-size:clamp(16px,2.2vw,19px);color:var(--muted);max-width:680px;margin:0 0 22px;font-weight:500}
+  .legend{display:flex;flex-wrap:wrap;gap:10px}
+  .legend .tag{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+    padding:8px 13px;border-radius:999px;font-weight:700;font-size:13px;box-shadow:var(--shadow-sm)}
+  .legend .sw{width:11px;height:11px;border-radius:4px}
+
+  section{padding:30px 0}
+  .sec-head{display:flex;align-items:flex-end;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+  .sec-head .num{font-family:'Fredoka';font-size:13px;font-weight:600;color:#fff;background:var(--red);
+    width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none}
+  .sec-head h2{font-size:clamp(22px,3vw,28px);margin:0}
+  .sec-head p{margin:0;color:var(--muted);font-weight:600;font-size:14px;flex:1 1 240px}
+
+  /* Level selector */
+  .band{margin-bottom:14px}
+  .band-label{display:flex;align-items:center;gap:9px;font-family:'Fredoka';font-weight:600;font-size:13px;
+    color:var(--muted);text-transform:uppercase;letter-spacing:1.4px;margin:0 2px 9px}
+  .band-label .bar{height:3px;width:22px;border-radius:3px;background:var(--blue)}
+  .band-label.r .bar{background:var(--red)}
+  .levels{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
+  .lvl{
+    cursor:pointer;background:#fff;border:1.5px solid var(--line);border-radius:14px;
+    padding:13px 12px;text-align:left;transition:.16s;position:relative;overflow:hidden;
+  }
+  .lvl:hover{border-color:#bcd0f6;transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+  .lvl .n{font-family:'Fredoka';font-weight:600;font-size:22px;line-height:1;color:var(--ink)}
+  .lvl .t{font-size:11.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-top:5px}
+  .lvl[data-active="true"]{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%);border-color:transparent;box-shadow:var(--shadow)}
+  .lvl[data-active="true"] .n,.lvl[data-active="true"] .t{color:#fff}
+  .lvl[data-active="true"] .t{opacity:.85}
+
+  /* Level overview card */
+  .ov{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;margin-top:22px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-sm)}
+  .ov .about{padding:24px}
+  .ov .about .kicker{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:12px;letter-spacing:.5px;
+    text-transform:uppercase;color:var(--blue-dark);background:var(--blue-soft);padding:6px 11px;border-radius:999px}
+  .ov .about h3{font-size:26px;margin:14px 0 6px}
+  .ov .about .scoretype{font-weight:800;color:var(--red-dark);font-size:13px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.4px}
+  .ov .about p{margin:0;color:var(--muted);font-weight:500}
+  .ov .bench{padding:22px 24px;display:flex;flex-direction:column;gap:14px;
+    background:linear-gradient(160deg,#fbfdff,#f1f6ff);border:1px solid #e1ebfb}
+  .ov .bench h4{margin:0;font-size:14px;letter-spacing:.4px;text-transform:uppercase;color:var(--muted)}
+  .benchrow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .benchrow .lab{display:flex;align-items:center;gap:9px;font-weight:700;font-size:14px}
+  .benchrow .lab .pip{width:11px;height:11px;border-radius:50%;flex:none}
+  .benchrow .val{font-family:'Fredoka';font-weight:600;font-size:20px}
+  .benchrow .val small{font-size:12px;color:var(--muted);font-weight:700;font-family:'Nunito'}
+
+  /* Apparatus selector */
+  .app-pills{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:18px}
+  .app{cursor:pointer;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px 8px;
+    display:flex;flex-direction:column;align-items:center;gap:8px;transition:.16s;text-align:center}
+  .app:hover{border-color:#bcd0f6;transform:translateY(-2px)}
+  .app svg{width:30px;height:30px;color:var(--blue)}
+  .app .ab{font-family:'Fredoka';font-weight:600;font-size:15px}
+  .app .af{font-size:10.5px;font-weight:800;color:var(--muted);letter-spacing:.3px}
+  .app[data-active="true"]{background:var(--blue);border-color:var(--blue)}
+  .app[data-active="true"] svg{color:#fff}
+  .app[data-active="true"] .ab{color:#fff}
+  .app[data-active="true"] .af{color:#cfe0ff}
+
+  /* Apparatus detail */
+  .detail{padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .detail .head{grid-column:1/-1;display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--line-2);padding-bottom:18px}
+  .detail .head .ic{width:54px;height:54px;border-radius:14px;background:var(--blue-soft);display:grid;place-items:center;flex:none}
+  .detail .head .ic svg{width:30px;height:30px;color:var(--blue-dark)}
+  .detail .head h3{margin:0;font-size:22px}
+  .detail .head p{margin:3px 0 0;color:var(--muted);font-weight:600;font-size:13.5px}
+  .block h5{font-family:'Fredoka';font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--blue-dark);margin:0 0 12px;display:flex;align-items:center;gap:8px}
+  .block h5 .ti{width:18px;height:18px;color:var(--blue)}
+  ul.elist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+  ul.elist li{display:flex;gap:10px;font-weight:600;font-size:14.5px;color:#2a3a59}
+  ul.elist li .chk{width:20px;height:20px;flex:none;border-radius:6px;background:var(--blue-soft);color:var(--blue-dark);
+    display:grid;place-items:center;font-weight:800;font-size:12px;margin-top:1px}
+  .ded{display:flex;flex-direction:column;gap:0}
+  .ded .row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .ded .row:last-child{border-bottom:0}
+  .ded .row span{font-weight:600;font-size:14px;color:#2a3a59}
+  .ded .row b{font-family:'Fredoka';font-weight:500;color:var(--red-dark);white-space:nowrap}
+  .scorebox{grid-column:1/-1;background:var(--blue-tint);border:1px solid #e1ebfb;border-radius:var(--r-sm);padding:16px 18px;
+    display:flex;gap:14px;align-items:flex-start}
+  .scorebox .badge{font-family:'Fredoka';font-weight:600;background:var(--blue);color:#fff;padding:6px 12px;border-radius:999px;font-size:13px;flex:none}
+  .scorebox p{margin:0;font-weight:600;font-size:14px;color:#27395c}
+  .scorebox b{color:var(--blue-dark)}
+
+  /* Tracker */
+  .track-grid{display:grid;grid-template-columns:1fr;gap:18px}
+  .tracker{padding:24px}
+  .t-intro{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .t-intro .lvlpick{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--muted);font-size:14px}
+  .t-intro .lvlpick b{font-family:'Fredoka';font-weight:600;color:var(--blue-dark);background:var(--blue-soft);padding:5px 12px;border-radius:999px;font-size:14px}
+  .btn-reset{cursor:pointer;border:1.5px solid var(--line);background:#fff;color:var(--muted);font-weight:800;
+    font-size:13px;padding:9px 15px;border-radius:10px;font-family:'Nunito';transition:.15s}
+  .btn-reset:hover{border-color:var(--red);color:var(--red)}
+
+  .inputs{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:6px}
+  .inp{display:flex;flex-direction:column;gap:7px}
+  .inp label{display:flex;align-items:center;gap:6px;font-weight:800;font-size:12px;color:var(--muted);letter-spacing:.3px}
+  .inp label svg{width:16px;height:16px;color:var(--blue)}
+  .inp input{font-family:'Fredoka';font-weight:500;font-size:18px;text-align:center;padding:11px 6px;border-radius:11px;
+    border:1.5px solid var(--line);background:#fff;color:var(--ink);width:100%;transition:.15s;-moz-appearance:textfield}
+  .inp input::-webkit-outer-spin-button,.inp input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .inp input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+  .inp input.over{border-color:var(--red);box-shadow:0 0 0 3px var(--red-soft)}
+
+  /* AA gauge */
+  .aa{margin-top:24px;background:linear-gradient(160deg,#fbfdff,#eef4ff);border:1px solid #e1ebfb;border-radius:var(--r-sm);padding:20px 22px}
+  .aa .top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .aa .top .big{font-family:'Fredoka';font-weight:600;font-size:38px;line-height:1;color:var(--blue-dark)}
+  .aa .top .of{color:var(--muted);font-weight:700;font-size:15px}
+  .aa .top .verdict{margin-left:auto;font-weight:800;font-size:13px;padding:7px 14px;border-radius:999px}
+  .v-pass{background:var(--ok-soft);color:var(--ok)}
+  .v-near{background:#fff3e0;color:#c2700b}
+  .v-build{background:var(--red-soft);color:var(--red-dark)}
+  .v-none{background:#eef2f9;color:var(--muted)}
+  .gauge{position:relative;height:16px;border-radius:999px;background:#e6edf8;overflow:hidden}
+  .gauge .fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--blue-2));transition:width .5s cubic-bezier(.2,.7,.2,1)}
+  .gauge .mk{position:absolute;top:-5px;bottom:-5px;width:2px;}
+  .gauge-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:12.5px;font-weight:700;color:var(--muted)}
+  .gauge-legend span{display:inline-flex;align-items:center;gap:7px}
+  .gauge-legend i{width:14px;height:3px;border-radius:3px;display:inline-block}
+
+  /* per apparatus scales */
+  .scales{margin-top:10px;display:flex;flex-direction:column;gap:4px}
+  .scale-row{display:grid;grid-template-columns:128px 1fr 96px;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line-2)}
+  .scale-row:last-child{border-bottom:0}
+  .scale-row .name{display:flex;align-items:center;gap:9px;font-weight:800;font-size:13.5px}
+  .scale-row .name svg{width:18px;height:18px;color:var(--blue);flex:none}
+  .scale-row .name small{display:block;color:var(--muted);font-weight:700;font-size:11px}
+  .strip{position:relative;height:22px;border-radius:8px;background:#eef3fb;border:1px solid var(--line)}
+  .strip .seg{position:absolute;top:0;bottom:0;border-radius:7px;background:linear-gradient(90deg,#9fc0f7,#5d92ee);opacity:.8}
+  .strip .tick{position:absolute;top:-4px;bottom:-4px;width:2px;z-index:2}
+  .strip .tick.pass{background:var(--blue-dark)}
+  .strip .tick.comp{background:#e8a32a}
+  .strip .tick.pod{background:var(--red)}
+  .strip .you{position:absolute;top:50%;transform:translate(-50%,-50%);width:18px;height:18px;border-radius:50%;
+    background:#fff;border:3px solid var(--ink);z-index:3;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+  .scale-row .gap{text-align:right;font-weight:800;font-size:12.5px}
+  .gap.good{color:var(--ok)}.gap.mid{color:#c2700b}.gap.low{color:var(--red-dark)}.gap.empty{color:#aeb8ca}
+
+  /* focus tips */
+  .tips{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .tip{border-radius:var(--r-sm);padding:18px 20px;border:1px solid var(--line)}
+  .tip.focus{background:var(--red-soft);border-color:#f6cdd2}
+  .tip.win{background:var(--ok-soft);border-color:#c7ecd2}
+  .tip h5{font-family:'Fredoka';font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.8px;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+  .tip.focus h5{color:var(--red-dark)}.tip.win h5{color:var(--ok)}
+  .tip p{margin:0;font-weight:600;font-size:14px;color:#34425f}
+  .tip p b{font-family:'Fredoka';font-weight:600}
+  .tip.focus p b{color:var(--red-dark)}.tip.win p b{color:var(--ok)}
+
+  /* Scoring explainer */
+  .acc{display:flex;flex-direction:column;gap:12px}
+  .acc .item{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;box-shadow:var(--shadow-sm)}
+  .acc .q{width:100%;text-align:left;background:none;border:0;cursor:pointer;padding:18px 20px;display:flex;
+    align-items:center;gap:14px;font-family:'Fredoka';font-weight:500;font-size:16.5px;color:var(--ink)}
+  .acc .q .pl{margin-left:auto;width:26px;height:26px;border-radius:8px;background:var(--blue-soft);color:var(--blue-dark);
+    display:grid;place-items:center;font-weight:800;transition:.2s;flex:none}
+  .acc .item[open] .q .pl{transform:rotate(45deg);background:var(--red-soft);color:var(--red)}
+  .acc .a{padding:0 20px 20px;color:var(--muted);font-weight:600;font-size:14.5px}
+  .acc .a strong{color:var(--ink)}
+  details>summary{list-style:none}
+  details>summary::-webkit-details-marker{display:none}
+
+  .note{margin-top:18px;background:#fff;border:1px dashed #c9d6ee;border-radius:var(--r-sm);padding:16px 20px;
+    display:flex;gap:13px;align-items:flex-start}
+  .note svg{width:22px;height:22px;color:var(--blue);flex:none;margin-top:1px}
+  .note p{margin:0;font-size:13px;font-weight:600;color:var(--muted)}
+  .note b{color:var(--ink)}
+
+  footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:13px;font-weight:600}
+  footer a{color:var(--blue);font-weight:800;text-decoration:none}
+
+  @media(max-width:860px){
+    .ov{grid-template-columns:1fr}
+    .detail{grid-template-columns:1fr;gap:20px}
+    .inputs{grid-template-columns:repeat(3,1fr)}
+    .tips{grid-template-columns:1fr}
+  }
+  @media(max-width:600px){
+    .app-pills{grid-template-columns:repeat(3,1fr)}
+    .scale-row{grid-template-columns:96px 1fr 64px;gap:9px}
+    .scale-row .name small{display:none}
+  }
+  @media(max-width:430px){
+    .inputs{grid-template-columns:repeat(2,1fr)}
+  }
+
+  /* Routine builder */
+  .rb-tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:18px}
+  .rb-tab{cursor:pointer;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 6px;display:flex;flex-direction:column;align-items:center;gap:7px;transition:.16s;text-align:center}
+  .rb-tab:hover{border-color:#bcd0f6;transform:translateY(-2px)}
+  .rb-tab svg{width:26px;height:26px;color:var(--blue)}
+  .rb-tab .ab{font-family:'Fredoka';font-weight:600;font-size:14px}
+  .rb-tab[data-active="true"]{background:var(--blue);border-color:var(--blue)}
+  .rb-tab[data-active="true"] svg{color:#fff}.rb-tab[data-active="true"] .ab{color:#fff}
+  .rb-card{padding:24px}
+  .rb-add{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+  .rb-dd{position:relative;flex:1 1 280px}
+  .rb-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:'Nunito';font-weight:700;font-size:15px;color:var(--muted);padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;transition:.15s}
+  .rb-trigger:hover{border-color:#bcd0f6}
+  .rb-dd.open .rb-trigger{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft);color:var(--ink)}
+  .rb-trigger .chev{width:18px;height:18px;color:var(--muted);transition:transform .2s;flex:none}
+  .rb-dd.open .rb-trigger .chev{transform:rotate(180deg)}
+  .rb-panel{position:absolute;z-index:30;top:calc(100% + 8px);left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:10px;max-height:344px;display:flex;flex-direction:column}
+  .rb-panel[hidden]{display:none}
+  .rb-search{font-family:'Nunito';font-weight:600;font-size:14px;color:var(--ink);padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;margin-bottom:8px;width:100%}
+  .rb-search:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+  .rb-options{overflow-y:auto;display:flex;flex-direction:column;gap:2px}
+  .rb-optgroup{font-family:'Fredoka';font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--blue-dark);padding:11px 8px 4px;position:sticky;top:0;background:#fff;z-index:1}
+  .rb-opt{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:8px 10px;cursor:pointer;transition:.12s}
+  .rb-opt:hover{background:var(--blue-soft)}
+  .rb-opt .dv{min-width:26px;height:26px;font-size:12px;border-radius:8px}
+  .rb-opt .rb-opt-n{flex:1;font-weight:700;font-size:14.5px;color:var(--ink)}
+  .rb-opt .rb-opt-v{font-family:'Fredoka';font-weight:600;font-size:13px;color:var(--muted)}
+  .rb-noopt{padding:18px;text-align:center;color:var(--muted);font-weight:600}
+  .rb-clear{cursor:pointer;border:1.5px solid var(--line);background:#fff;color:var(--muted);font-weight:800;font-size:13px;padding:0 16px;border-radius:12px;transition:.15s}
+  .rb-clear:hover{border-color:var(--red);color:var(--red)}
+  .rb-empty{text-align:center;color:var(--muted);font-weight:600;padding:26px 12px;border:1.5px dashed var(--line);border-radius:14px}
+  .rb-list{display:flex;flex-direction:column;gap:10px}
+  .rb-item{display:grid;grid-template-columns:34px 1fr auto;gap:13px;align-items:center;background:var(--blue-tint);border:1px solid #e1ebfb;border-radius:13px;padding:12px 15px}
+  .rb-handle{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:grab;user-select:none}
+  .rb-handle:active{cursor:grabbing}
+  .rb-handle .grip{color:#9fb2d4;font-size:15px;line-height:1}
+  .rb-handle .ord{font-family:'Fredoka';font-weight:600;color:var(--muted);font-size:13px}
+  .rb-ctrls{display:flex;align-items:center;gap:8px}
+  .rb-mvwrap{display:flex;flex-direction:column;gap:3px}
+  .rb-mv{width:28px;height:18px;border:1px solid var(--line);background:#fff;border-radius:7px;cursor:pointer;color:var(--muted);font-size:9px;display:grid;place-items:center;padding:0;line-height:1;transition:.12s}
+  .rb-mv:hover:not(:disabled){border-color:var(--blue);color:var(--blue)}
+  .rb-mv:disabled{opacity:.3;cursor:default}
+  .rb-item.dragging{opacity:.45;border-color:var(--blue)}
+  .rb-item.drop-before{box-shadow:inset 0 3px 0 0 var(--blue)}
+  .rb-item.drop-after{box-shadow:inset 0 -3px 0 0 var(--blue)}
+  .rb-item .ord{font-family:'Fredoka';font-weight:600;color:var(--muted);font-size:15px;text-align:center}
+  .rb-item .nm{font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .rb-item .grp{font-size:10.5px;font-weight:800;color:var(--blue-dark);background:#fff;border:1px solid #d6e4fd;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.3px}
+  .rb-item .ex{margin:5px 0 0;font-size:13px;font-weight:600;color:var(--muted)}
+  .dv{font-family:'Fredoka';font-weight:600;font-size:13px;color:#fff;min-width:30px;height:30px;padding:0 6px;border-radius:9px;display:grid;place-items:center;flex:none}
+  .rb-item .rm{cursor:pointer;background:#fff;color:var(--muted);width:32px;height:32px;border-radius:9px;font-size:18px;font-weight:800;border:1px solid var(--line);transition:.15s;line-height:1}
+  .rb-item .rm:hover{border-color:var(--red);color:var(--red)}
+  .rb-summary{margin-top:20px;background:linear-gradient(160deg,#fbfdff,#eef4ff);border:1px solid #e1ebfb;border-radius:14px;padding:20px 22px;display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+  .rb-summary:empty{display:none}
+  .rb-summary .d-lab{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:3px}
+  .rb-summary .d-big{font-family:'Fredoka';font-weight:600;font-size:34px;color:var(--blue-dark);line-height:1}
+  .rb-summary .brk{font-weight:700;font-size:13.5px;color:#34425f;flex:1 1 260px}
+  .rb-summary .brk b{font-family:'Fredoka';font-weight:500;color:var(--blue-dark)}
+  .rb-note{margin-top:8px;font-size:12.5px;font-weight:600;color:var(--muted)}
+  @media(max-width:600px){.rb-tabs{grid-template-columns:repeat(3,1fr)}}
+  .rb-tab .rb-count{font-family:'Fredoka';font-weight:600;font-size:10.5px;color:var(--blue-dark);background:#eaf1fe;border:1px solid #d6e4fd;border-radius:999px;padding:1px 8px;margin-top:3px}
+  .rb-tab[data-active="true"] .rb-count{background:rgba(255,255,255,.22);color:#fff;border-color:transparent}
+  .rb-opt-tp{font-size:10.5px;font-weight:800;color:var(--muted);background:#eef2f9;border-radius:999px;padding:3px 9px;white-space:nowrap;flex:none}
+  .rb-opt .rb-opt-n{min-width:0}
+  .rb-band{font-family:'Fredoka';font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:#fff;background:var(--blue);border-radius:8px;padding:6px 11px;margin:10px 0 5px;position:sticky;top:0;z-index:2}
+  .rb-band:first-child{margin-top:0}
+  .rb-type{font-family:'Nunito';font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--blue-dark);padding:8px 8px 3px 4px}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="#top">
+      <span class="mark"><img class="logo-img" alt="MAG Gymnastics" src="data:image/png;base64,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"></span>
+      <span>
+        <b>MAG Levels Hub</b>
+        <small>Men's Artistic Gymnastics</small>
+      </span>
+    </a>
+    <span class="flag-chip"><span class="dot"></span> Australia · NSW</span>
+  </div>
+</header>
+
+<a id="top"></a>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Master every <span class="hl">MAG level</span>,<br>track your <span class="hl-r">scores</span>.</h1>
+    <p class="lede">Explore the official Gymnastics Australia Australian Levels Program (ALP) routines for all six apparatus, understand exactly how scoring works, and see how your scores stack up against the level benchmark and competitive targets in your state.</p>
+    <div class="legend">
+      <span class="tag"><span class="sw" style="background:var(--blue)"></span>Foundation · L1–2</span>
+      <span class="tag"><span class="sw" style="background:var(--blue-2)"></span>Junior Compulsory · L3–6</span>
+      <span class="tag"><span class="sw" style="background:var(--red)"></span>Senior Optional · L7–10</span>
+    </div>
+  </section>
+
+  <!-- LEVEL SELECTOR -->
+  <section>
+    <div class="sec-head">
+      <span class="num">1</span>
+      <h2>Choose a level</h2>
+      <p>Pick a level to load its routines, scoring and benchmarks below.</p>
+    </div>
+    <div class="band">
+      <div class="band-label"><span class="bar"></span>Foundation</div>
+      <div class="levels" id="band-foundation"></div>
+    </div>
+    <div class="band">
+      <div class="band-label"><span class="bar"></span>Junior · Compulsory routines</div>
+      <div class="levels" id="band-junior"></div>
+    </div>
+    <div class="band">
+      <div class="band-label r"><span class="bar"></span>Senior · Optional routines</div>
+      <div class="levels" id="band-senior"></div>
+    </div>
+
+    <!-- LEVEL OVERVIEW -->
+    <div class="ov">
+      <div class="card about" id="ov-about"></div>
+      <div class="card bench" id="ov-bench"></div>
+    </div>
+  </section>
+
+  <!-- ROUTINES BY APPARATUS -->
+  <section>
+    <div class="sec-head">
+      <span class="num">2</span>
+      <h2>Routines &amp; scoring by apparatus</h2>
+      <p>Six apparatus. Tap one to see what's required and where points are lost.</p>
+    </div>
+    <div class="app-pills" id="app-pills"></div>
+    <div class="card detail" id="app-detail"></div>
+  </section>
+
+  <!-- TRACK & COMPARE -->
+  <section>
+    <div class="sec-head">
+      <span class="num">3</span>
+      <h2>Track your scores &amp; see your gap</h2>
+      <p>Enter your scores to see where you sit versus the level benchmark and state targets.</p>
+    </div>
+    <div class="card tracker">
+      <div class="t-intro">
+        <div class="lvlpick">Showing targets for <b id="t-level">Level 3</b></div>
+        <button class="btn-reset" id="reset">Clear scores</button>
+      </div>
+      <div class="inputs" id="inputs"></div>
+
+      <div class="aa">
+        <div class="top">
+          <span class="big" id="aa-val">—</span>
+          <span class="of" id="aa-of"></span>
+          <span class="verdict v-none" id="aa-verdict">Enter scores to begin</span>
+        </div>
+        <div class="gauge"><div class="fill" id="aa-fill" style="width:0%"></div><div class="mk" id="mk-pass"></div><div class="mk" id="mk-comp"></div><div class="mk" id="mk-pod"></div></div>
+        <div class="gauge-legend">
+          <span><i style="background:var(--blue-dark)"></i> LAT pass (official)</span>
+          <span><i style="background:#e8a32a"></i> State competitive*</span>
+          <span><i style="background:var(--red)"></i> State podium*</span>
+        </div>
+      </div>
+
+      <div class="scales" id="scales"></div>
+
+      <div class="tips" id="tips"></div>
+    </div>
+  </section>
+
+  <!-- ROUTINE BUILDER -->
+  <section>
+    <div class="sec-head">
+      <span class="num">4</span>
+      <h2>Build your own routine</h2>
+      <p>Add skills to each apparatus — every skill shows its difficulty and what to clean for execution.</p>
+    </div>
+    <div class="rb-tabs" id="rb-tabs"></div>
+    <div class="card rb-card">
+      <div class="rb-add">
+        <div class="rb-dd" id="rb-dd">
+          <button class="rb-trigger" id="rb-trigger" type="button" aria-expanded="false">
+            <span id="rb-trigger-label">Choose a skill to add…</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="rb-panel" id="rb-panel" hidden>
+            <input class="rb-search" id="rb-search" type="text" placeholder="Search skills…" autocomplete="off">
+            <div class="rb-options" id="rb-options"></div>
+          </div>
+        </div>
+        <button class="rb-clear" id="rb-clear" type="button">Clear</button>
+      </div>
+      <div class="rb-list" id="rb-list"></div>
+      <div class="rb-summary" id="rb-summary"></div>
+    </div>
+  </section>
+
+  <!-- SCORING EXPLAINER -->
+  <section>
+    <div class="sec-head">
+      <span class="num">5</span>
+      <h2>How MAG scoring works</h2>
+      <p>The quick version for gymnasts, parents and new judges.</p>
+    </div>
+    <div class="acc">
+      <details class="item" open>
+        <summary class="q">Compulsory levels (1–6): start from 10.0 (+ bonus) <span class="pl">+</span></summary>
+        <div class="a">In the <strong>Foundation and Junior levels</strong>, every gymnast performs the <strong>same set (compulsory) routine</strong> on each apparatus, beginning at a <strong>Start Value of 10.0</strong>. Judges <strong>subtract deductions</strong> for execution errors (bent arms/legs, separated legs, poor form), missing or altered elements, balance checks, low amplitude and falls. On top of the 10.0, the harder levels add a <strong>bonus</strong>: <strong>+0.5 at Level 4</strong> and <strong>+1.0 at Levels 5–6</strong> — lifting the start value to 10.5 and 11.0 — on every apparatus <strong>except Vault</strong>, which always starts from 10.0. So your score = start value (+ any bonus) − total deductions, and the all-around (AA) is the sum of all six apparatus.</div>
+      </details>
+      <details class="item">
+        <summary class="q">Optional routines — build your own (age rules) <span class="pl">+</span></summary>
+        <div class="a">An <strong>optional routine</strong> is one the gymnast composes themselves to meet a set of <strong>Special Requirements</strong>. The score combines a <strong>Difficulty score (D)</strong> — built from the value of the counted skills and connections — and an <strong>Execution score (E)</strong> out of 10.0. Final = D + E − any neutral deductions, and missing a Special Requirement or value part typically costs <strong>0.50 each</strong>. <strong>When you may build your own depends on age:</strong> an <strong>over-age</strong> gymnast can make their own routines from <strong>Level 6 and above</strong>, while an <strong>under-age</strong> gymnast competes set routines for longer and can only make their own from <strong>Level 9 and above</strong>. Below those points, routines are set for you.</div>
+      </details>
+      <details class="item">
+        <summary class="q">The six apparatus &amp; the all-around <span class="pl">+</span></summary>
+        <div class="a">MAG has six apparatus: <strong>Floor, Pommel Horse, Rings, Vault, Parallel Bars and Horizontal Bar</strong>. In junior squads, the <strong>mushroom</strong> is used to learn pommel circles before moving onto the horse. A gymnast's <strong>all-around (AA)</strong> score adds together their best score on each apparatus — this is the figure used for Level Award Test (LAT) benchmarks and most placings.</div>
+      </details>
+      <details class="item">
+        <summary class="q">What is the LAT pass mark? <span class="pl">+</span></summary>
+        <div class="a">The <strong>Level Award Test (LAT)</strong> is the all-around score a gymnast needs to be considered to have "passed" a level. Widely used ALP benchmarks are <strong>30.00 AA for Levels 3–6</strong>, then <strong>38.00 (L7), 39.00 (L8), 40.00 (L9) and 41.00 (L10)</strong>. Foundation levels (1–2) are generally assessed by the club rather than a fixed national mark.</div>
+      </details>
+    </div>
+
+    <div class="note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+      <p><b>About the data:</b> Routine summaries are representative and intended as a study guide — always confirm exact routines, value parts and deduction tables in the official <b>Gymnastics Australia MAG Australian Levels Program (ALP)</b> and current Code of Points. <b>LAT pass marks</b> are the published ALP benchmarks. Figures marked <b>*</b> (State competitive / State podium) are <b>illustrative training targets</b> to aim toward — they are not official statistics. A coach can replace them with real GymNSW results.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer class="wrap">
+  Built for young MAG gymnasts &amp; their coaches · Australia / NSW &nbsp;·&nbsp; Official source: <a href="https://www.gymnastics.org.au/mag-commission" target="_blank" rel="noopener">Gymnastics Australia — MAG</a>
+</footer>
+
+<script>
+/* ---------- ICONS ---------- */
+const ICONS = {
+  FX:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M8 6v12"/></svg>',
+  PH:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="4" rx="2"/><path d="M8 9V6a1.5 1.5 0 0 1 3 0v3M13 9V6a1.5 1.5 0 0 1 3 0v3M6 13v5M18 13v5"/></svg>',
+  SR:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v6M17 3v6"/><circle cx="7" cy="14" r="4"/><circle cx="17" cy="14" r="4"/></svg>',
+  VT:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="6" width="12" height="5" rx="2.5"/><path d="M11 11v7M19 11v7"/><path d="M3 18h6"/><path d="M3 18l3-2"/></svg>',
+  PB:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18M3 13h18"/><path d="M6 8v9M18 8v9M6 13"/></svg>',
+  HB:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M6 6v13M18 6v13"/><path d="M4 19h4M16 19h4"/></svg>'
+};
+const TINY = {
+  el:'<svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-5"/><circle cx="12" cy="12" r="9"/></svg>',
+  de:'<svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 4l-7 12a2 2 0 0 0 1.7 3h14a2 2 0 0 0 1.7-3l-7-12a2 2 0 0 0-3.4 0z"/></svg>'
+};
+
+/* ---------- APPARATUS ---------- */
+const APP = [
+  {k:'FX',name:'Floor',full:'Floor Exercise',about:'Pure acrobatics on a sprung mat — tumbling power balanced with strength holds and clean body lines.'},
+  {k:'PH',name:'Pommel',full:'Pommel Horse',about:'Continuous circular and pendulum swinging with the legs, supported only on the hands. Learned first on the mushroom.'},
+  {k:'SR',name:'Rings',full:'Still Rings',about:'Swing and held strength elements on two suspended rings — the rings must stay as still as possible.'},
+  {k:'VT',name:'Vault',full:'Vault',about:'A fast run, hurdle and powerful push off the table into flight, finishing with a controlled landing.'},
+  {k:'PB',name:'P-Bars',full:'Parallel Bars',about:'Swinging above and below two rails with a few held elements, ending in a dynamic dismount.'},
+  {k:'HB',name:'High Bar',full:'Horizontal Bar',about:'Continuous giant swings with spectacular release-and-regrasp flight and a big dismount.'}
+];
+
+/* common compulsory deductions (apply to L1-6) */
+const DED_COMP = [
+  {n:'Bent arms or legs', v:'up to 0.30'},
+  {n:'Legs / feet apart (when together)', v:'up to 0.20'},
+  {n:'Toes not pointed', v:'0.05–0.10'},
+  {n:'Poor body posture / alignment', v:'up to 0.30'},
+  {n:'Balance check or extra step on landing', v:'0.10–0.30'},
+  {n:'Hold not maintained (2 sec)', v:'up to 0.30'},
+  {n:'Insufficient height / amplitude', v:'up to 0.30'},
+  {n:'Fall on apparatus or landing', v:'1.00'},
+  {n:'Element missing / altered', v:'up to value ×2'}
+];
+const DED_OPT = [
+  {n:'Missing a Special Requirement', v:'0.50 each'},
+  {n:'Short of difficulty requirement', v:'lowers SV'},
+  {n:'Execution: form, amplitude, control', v:'0.10 / 0.30 / 0.50'},
+  {n:'Steps / hop on landing', v:'0.10–0.30'},
+  {n:'Fall', v:'1.00'},
+  {n:'Routine / time / line neutral faults', v:'0.10–0.30'}
+];
+
+/* ---------- LEVELS ---------- */
+/* latPass = official ALP LAT all-around benchmark (illustrative for L1-2).
+   comp / pod = illustrative state training targets (all-around). max = per-apparatus display scale. */
+const LEVELS = {
+  1:{band:'Foundation',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'Club-assessed',
+     blurb:'The very first competitive step. Gymnasts learn safe shapes, basic support and simple swinging, often including mushroom circles to prepare for pommel horse.'},
+  2:{band:'Foundation',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'Club-assessed',
+     blurb:'Shapes get cleaner and stronger. Held positions, basic inversions and the first controlled landings appear across all six apparatus.'},
+  3:{band:'Junior',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
+     blurb:'The first true compulsory level. Clean basics — straight handstands, tidy circles and stable landings — score far better than risky difficulty.'},
+  4:{band:'Junior',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
+     blurb:'Skills connect into longer sequences. Amplitude, body tension and the first acrobatic flight begin to matter alongside form.'},
+  5:{band:'Junior',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
+     blurb:'Power meets precision: round-off flic-flacs, continuous circles, swing to support and salto dismounts on several apparatus.'},
+  6:{band:'Junior',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
+     blurb:'The bridge to optional gymnastics. Bigger acrobatics and the first salto dismounts, with handstand finishes rewarded across the bars.'},
+  7:{band:'Senior',type:'Optional routine · D-score + E-score',max:11,latPass:38,comp:44,pod:50,passLabel:'38.00 AA',
+     blurb:'Gymnasts build their own routines for the first time, choosing skills to meet Special Requirements while keeping execution clean.'},
+  8:{band:'Senior',type:'Optional routine · D-score + E-score',max:11,latPass:39,comp:45,pod:51,passLabel:'39.00 AA',
+     blurb:'Higher difficulty requirements and connections. Composition errors now cost as much as execution mistakes.'},
+  9:{band:'Senior',type:'Optional routine · D-score + E-score',max:11,latPass:40,comp:46,pod:52,passLabel:'40.00 AA',
+     blurb:'Approaching elite content — bigger releases, more value parts and the first double-salto dismount attempts.'},
+  10:{band:'Senior',type:'Optional routine · D-score + E-score',max:11,latPass:41,comp:48,pod:54,passLabel:'41.00 AA',
+     blurb:'The top of the levels pathway and the gateway to international streams. Difficulty is largely uncapped — full Code of Points requirements apply.'}
+};
+
+/* representative elements: ELEM[level][apparatus] = [3-4 short bullets] */
+const ELEM = {
+  1:{FX:['Forward & backward rolls','Straddle stand & bridge','Half turn (180°) in stand'],
+     PH:['Front support hold on mushroom','Single-leg cuts (feet swing)','Controlled dismount to stand'],
+     SR:['Support hold (rings still)','Inverted (upside-down) hang','Tucked dismount to stand'],
+     VT:['Run, hurdle & two-foot take-off','Straight jump onto stacked mats','Squat-on to stand'],
+     PB:['Support hold in the bars','Small swings in support','Jump to straddle sit, dismount'],
+     HB:['Support hold on the bar','Cast (hips lift off bar)','Underswing dismount to stand']},
+  2:{FX:['Held handstand (3 sec)','Cartwheel & headstand','Straight jump full turn'],
+     PH:['Alternate leg cuts (scissor basics)','Front-support travel','Dismount with leg swing'],
+     SR:['Inverted hang to pike hang','Pull to inverted support','Controlled dismount'],
+     VT:['Handstand fall to flat back','Stretched body shape in flight','Stick the landing'],
+     PB:['Swing in support, toes to bar','Straddle sit & travel','Front dismount off the side'],
+     HB:['Cast & back hip circle','Single-leg cut (mill) basics','Underswing dismount'] },
+  3:{FX:['Handstand → forward roll','Round-off & rebound','Straddle lever (held) & bridge kickover'],
+     PH:['Single-leg circles on mushroom','Scissors forward & back','Travel along the horse'],
+     SR:['Muscle-up to support','L-sit hold (2 sec)','Back uprise & tuck dismount'],
+     VT:['Handstand fall to flat back','Strong block off the table','Controlled stand on landing'],
+     PB:['Glide / upper-arm swing','Straddle cut to support','Back uprise & dismount'],
+     HB:['Cast toward horizontal','Back hip circle','Single-leg cut & underswing dismount'] },
+  4:{FX:['Round-off → rebound to back','Headspring or dive roll','Handstand pirouette (½ turn)','V-sit hold'],
+     PH:['2–3 circles on the mushroom','Scissors forward & backward','Travel & simple dismount'],
+     SR:['Muscle-up & L-sit hold','Shoulder stand','Tucked salto dismount'],
+     VT:['Front handspring to feet','Push for repulsion & height','Stick with chest up'],
+     PB:['Upper-arm swing to support','Back uprise to support','Straddle cut & dismount'],
+     HB:['Cast above horizontal','Back hip circle & mill circle','Underswing with ½ turn'] },
+  5:{FX:['Round-off flic-flac (back handspring)','Front limber / walkover','Planche lean & strength hold'],
+     PH:['Continuous circles on horse','Travel across the horse','Simple dismount off the end'],
+     SR:['Swing to support','Dislocate','Salto dismount (tuck/pike)'],
+     VT:['Front handspring with flight','Body extension off the table','Controlled landing, small step max'],
+     PB:['Swing to support above the bars','Drop glide / under-bar swing','Straddle cut catch & dismount'],
+     HB:['Free hip circle attempt','Undershoot','Cast toward handstand'] },
+  6:{FX:['Round-off flic-flac → tucked back salto','Press to handstand','Strength hold & salto finish'],
+     PH:['Circles + travel + flair attempt','Continuous rhythm, no stops','Dismount off the end'],
+     SR:['Dislocate & inlocate','L-sit to support (strength)','Salto dismount'],
+     VT:['Front handspring, big repulsion','Height & body line in flight','Stick the landing'],
+     PB:['Upper-arm salto attempt','Swing toward handstand','Dismount with value'],
+     HB:['Free hip toward handstand','In-bar work','Tucked flyaway (salto) dismount'] },
+  7:{FX:['Acro line containing a salto','A non-acro / flexibility element','Held strength element (e.g. L-sit)','Clean connection'],
+     PH:['Circles & single-leg work','One travel element','Simple combination','Dismount with value'],
+     SR:['Swing elements to support','One held element','Salto dismount'],
+     VT:['Handspring + tucked salto, or Yamashita','Clear flight phase','Controlled landing'],
+     PB:['Swing to support / L-element','One swing toward handstand','Dismount with value'],
+     HB:['Long swing / giant attempt','One in-bar element','Layout or tucked flyaway'] },
+  8:{FX:['Tumbling pass: salto with twist','Strength hold','Required A/B value parts','Composition & connections'],
+     PH:['Flairs / spindle','Travel (B value)','Combination of circles','Dismount with value'],
+     SR:['Held strength element','Swing to handstand','Salto dismount with value'],
+     VT:['Handspring front salto, or Tsukahara entry','Strong block & flight','Stick or small step'],
+     PB:['Swing to handstand','Basket / peach attempt','Dismount with value'],
+     HB:['Giant swings','One release attempt or in-bar to handstand','Flyaway with value'] },
+  9:{FX:['Multiple saltos / double-salto attempt','Higher D value parts','Strength + flexibility elements','Strong landings'],
+     PH:['More circles & flairs','Handstand-related work','Higher difficulty travel','Dismount through value'],
+     SR:['Strength + swing to handstand','Higher value holds','Double-salto dismount attempt'],
+     VT:['Handspring front pike/layout, or Tsukahara','High, far flight','Stick the landing'],
+     PB:['Peach to support / handstand','Higher value swings','Double-salto dismount attempt'],
+     HB:['Giants & a release element','Higher value parts','Layout flyaway'] },
+  10:{FX:['Double salto / twisting double','Full set of Special Requirements','Maximised counted difficulty','Clean execution under pressure'],
+     PH:['Full pommel routine, varied elements','Travels & flairs','Dismount through handstand','Meets all Special Requirements'],
+     SR:['Strength holds (e.g. cross attempt)','Swing to handstand','Double-salto dismount','Meets all Special Requirements'],
+     VT:['Handspring double front / Tsuk or Kasamatsu + twist','From the vault table','High difficulty value','Controlled landing'],
+     PB:['Peach to handstand','Salto elements','Double-salto dismount','Meets all Special Requirements'],
+     HB:['Giants & release-and-regrasp','Twisting / double flyaway','Maximised connections','Meets all Special Requirements']}
+};
+
+/* ---------- STATE ---------- */
+let state = { level:3, app:'FX', scores:{FX:'',PH:'',SR:'',VT:'',PB:'',HB:''} };
+
+/* ---------- BUILD LEVEL PILLS ---------- */
+function buildLevels(){
+  const groups={foundation:[1,2],junior:[3,4,5,6],senior:[7,8,9,10]};
+  for(const [g,arr] of Object.entries(groups)){
+    const el=document.getElementById('band-'+g);
+    el.innerHTML=arr.map(n=>`
+      <button class="lvl" data-level="${n}">
+        <div class="n">L${n}</div>
+        <div class="t">${LEVELS[n].band}</div>
+      </button>`).join('');
+  }
+  document.querySelectorAll('.lvl').forEach(b=>b.addEventListener('click',()=>{
+    state.level=+b.dataset.level; saveState(); render();
+    document.querySelector('#app-detail').scrollIntoView({behavior:'smooth',block:'nearest'});
+  }));
+}
+
+/* ---------- BUILD APP PILLS ---------- */
+function buildApps(){
+  document.getElementById('app-pills').innerHTML=APP.map(a=>`
+    <button class="app" data-app="${a.k}">
+      ${ICONS[a.k]}
+      <span class="ab">${a.name}</span>
+      <span class="af">${a.k}</span>
+    </button>`).join('');
+  document.querySelectorAll('.app').forEach(b=>b.addEventListener('click',()=>{
+    state.app=b.dataset.app; saveState(); render();
+  }));
+}
+
+/* ---------- BUILD INPUTS ---------- */
+function buildInputs(){
+  document.getElementById('inputs').innerHTML=APP.map(a=>`
+    <div class="inp">
+      <label>${ICONS[a.k]} ${a.name}</label>
+      <input type="number" step="0.05" min="0" inputmode="decimal" data-app="${a.k}" placeholder="0.00">
+    </div>`).join('');
+  document.querySelectorAll('#inputs input').forEach(inp=>{
+    inp.addEventListener('input',()=>{ state.scores[inp.dataset.app]=inp.value; saveState(); renderTracker(); });
+  });
+}
+
+/* ---------- RENDER ---------- */
+function render(){ renderLevels(); renderOverview(); renderApps(); renderDetail(); renderTracker(); }
+
+function renderLevels(){
+  document.querySelectorAll('.lvl').forEach(b=>b.dataset.active=(+b.dataset.level===state.level));
+}
+
+function renderOverview(){
+  const L=LEVELS[state.level];
+  document.getElementById('ov-about').innerHTML=`
+    <span class="kicker">Level ${state.level} · ${L.band}</span>
+    <h3>${L.band==='Foundation'?'Foundation level':L.band==='Junior'?'Junior compulsory':'Senior optional'}</h3>
+    <div class="scoretype">${L.type}</div>
+    <p>${L.blurb}</p>`;
+  const perPass=(L.latPass/6), perComp=(L.comp/6), perPod=(L.pod/6);
+  document.getElementById('ov-bench').innerHTML=`
+    <h4>All-around benchmarks</h4>
+    <div class="benchrow"><div class="lab"><span class="pip" style="background:var(--blue-dark)"></span>LAT pass ${L.passLabel==='Club-assessed'?'(club-assessed)':''}</div>
+      <div class="val">${L.passLabel==='Club-assessed'?'<small>club LAT</small>':L.latPass.toFixed(2)} <small>/ ${(perPass).toFixed(2)} per app</small></div></div>
+    <div class="benchrow"><div class="lab"><span class="pip" style="background:#e8a32a"></span>State competitive*</div>
+      <div class="val">${L.comp.toFixed(2)} <small>/ ${(perComp).toFixed(2)} per app</small></div></div>
+    <div class="benchrow"><div class="lab"><span class="pip" style="background:var(--red)"></span>State podium*</div>
+      <div class="val">${L.pod.toFixed(2)} <small>/ ${(perPod).toFixed(2)} per app</small></div></div>`;
+}
+
+function renderApps(){
+  document.querySelectorAll('.app').forEach(b=>b.dataset.active=(b.dataset.app===state.app));
+}
+
+function renderDetail(){
+  const a=APP.find(x=>x.k===state.app);
+  const L=LEVELS[state.level];
+  const compulsory = state.level<=6;
+  const els=ELEM[state.level][state.app];
+  const ded = compulsory?DED_COMP:DED_OPT;
+  document.getElementById('app-detail').innerHTML=`
+    <div class="head">
+      <div class="ic">${ICONS[a.k]}</div>
+      <div><h3>${a.full} <span style="color:var(--muted);font-size:15px;font-weight:600">· Level ${state.level}</span></h3>
+      <p>${a.about}</p></div>
+    </div>
+    <div class="block">
+      <h5>${TINY.el} Representative elements</h5>
+      <ul class="elist">${els.map(e=>`<li><span class="chk">✓</span>${e}</li>`).join('')}</ul>
+    </div>
+    <div class="block">
+      <h5>${TINY.de} ${compulsory?'Common deductions':'Where points are lost'}</h5>
+      <div class="ded">${ded.map(d=>`<div class="row"><span>${d.n}</span><b>−${d.v}</b></div>`).join('')}</div>
+    </div>
+    <div class="scorebox">
+      <span class="badge">Scoring</span>
+      ${compulsory
+        ? `<p>This is a <b>compulsory routine</b>: everyone performs the same skills. You start from a <b>Start Value of 10.0</b> and judges subtract the deductions above. <b>Final score = 10.0 − total deductions.</b></p>`
+        : `<p>This is an <b>optional routine</b>: you choose skills to satisfy the Special Requirements. Your score is <b>Difficulty (D) + Execution (E /10.0)</b>, minus any neutral faults. <b>Each missing requirement costs ~0.50.</b></p>`}
+    </div>`;
+}
+
+/* ---------- TRACKER ---------- */
+function num(v){ const n=parseFloat(v); return isFinite(n)?n:null; }
+
+function renderTracker(){
+  const L=LEVELS[state.level];
+  document.getElementById('t-level').textContent='Level '+state.level;
+
+  // sync + clamp inputs to level max
+  document.querySelectorAll('#inputs input').forEach(inp=>{
+    if(document.activeElement!==inp) inp.value=state.scores[inp.dataset.app];
+    const v=num(inp.value);
+    inp.classList.toggle('over', v!==null && v>L.max);
+  });
+
+  // AA
+  let total=0, entered=0;
+  APP.forEach(a=>{ const v=num(state.scores[a.k]); if(v!==null){ total+=v; entered++; } });
+  const maxAA=L.max*6;
+  const aaVal=document.getElementById('aa-val');
+  const aaOf=document.getElementById('aa-of');
+  const verdict=document.getElementById('aa-verdict');
+
+  if(entered===0){
+    aaVal.textContent='—'; aaOf.textContent='Enter your six scores above';
+    verdict.className='verdict v-none'; verdict.textContent='Enter scores to begin';
+    document.getElementById('aa-fill').style.width='0%';
+  } else {
+    aaVal.textContent=total.toFixed(2);
+    aaOf.textContent=`AA · ${entered}/6 apparatus entered · target pass ${L.passLabel==='Club-assessed'?'(club)':L.latPass.toFixed(2)}`;
+    if(total>=L.pod){ verdict.className='verdict v-pass'; verdict.textContent='Podium level — outstanding!'; }
+    else if(total>=L.comp){ verdict.className='verdict v-pass'; verdict.textContent='State competitive'; }
+    else if(total>=L.latPass){ verdict.className='verdict v-pass'; verdict.textContent='Above LAT pass — level cleared'; }
+    else if(total>=L.latPass-3){ verdict.className='verdict v-near'; verdict.textContent='Almost at pass mark'; }
+    else { verdict.className='verdict v-build'; verdict.textContent='Building toward pass'; }
+    const pct=Math.max(0,Math.min(100,(total/maxAA)*100));
+    document.getElementById('aa-fill').style.width=pct+'%';
+  }
+  // AA markers
+  setMk('mk-pass', (L.latPass/maxAA)*100, 'var(--blue-dark)');
+  setMk('mk-comp', (L.comp/maxAA)*100, '#e8a32a');
+  setMk('mk-pod',  (L.pod/maxAA)*100, 'var(--red)');
+
+  renderScales();
+  renderTips(total,entered);
+}
+function setMk(id,pct,color){ const m=document.getElementById(id); m.style.left=Math.min(100,pct)+'%'; m.style.background=color; }
+
+function renderScales(){
+  const L=LEVELS[state.level];
+  const floor=L.max>10?5:3;          // visual start of the strip
+  const span=L.max-floor;
+  const pos=v=>Math.max(0,Math.min(100,((v-floor)/span)*100));
+  const pass=L.latPass/6, comp=L.comp/6, pod=L.pod/6;
+
+  document.getElementById('scales').innerHTML=APP.map(a=>{
+    const v=num(state.scores[a.k]);
+    let gapHtml='<span class="gap empty">—</span>';
+    if(v!==null){
+      if(v>=pod) gapHtml=`<span class="gap good">+${(v-pass).toFixed(2)} ✓</span>`;
+      else if(v>=pass) gapHtml=`<span class="gap good">+${(v-pass).toFixed(2)}</span>`;
+      else gapHtml=`<span class="gap low">−${(pass-v).toFixed(2)}</span>`;
+    }
+    const youHtml = v!==null ? `<div class="you" style="left:${pos(v)}%" title="Your score: ${v.toFixed(2)}"></div>` : '';
+    const segEnd = v!==null ? pos(v) : 0;
+    return `<div class="scale-row">
+      <div class="name">${ICONS[a.k]}<div>${a.name}<small>pass ${pass.toFixed(2)} · pod ${pod.toFixed(2)}</small></div></div>
+      <div class="strip">
+        <div class="seg" style="left:0;width:${segEnd}%"></div>
+        <div class="tick pass" style="left:${pos(pass)}%" title="LAT pass"></div>
+        <div class="tick comp" style="left:${pos(comp)}%" title="State competitive*"></div>
+        <div class="tick pod" style="left:${pos(pod)}%" title="State podium*"></div>
+        ${youHtml}
+      </div>
+      ${gapHtml}
+    </div>`;
+  }).join('');
+}
+
+function renderTips(total,entered){
+  const L=LEVELS[state.level];
+  const pass=L.latPass/6;
+  const tips=document.getElementById('tips');
+  if(entered===0){
+    tips.innerHTML=`<div class="tip" style="grid-column:1/-1;background:var(--blue-tint);border-color:#e1ebfb">
+      <h5 style="color:var(--blue-dark)">${TINY.el} How to read this</h5>
+      <p>Type your competition (or practice) scores into the six boxes above. You'll instantly see your all-around total, where each apparatus sits against the level benchmark, and which apparatus to focus on next.</p></div>`;
+    return;
+  }
+  // find weakest vs pass and strongest above pass
+  let weakest=null, wgap=-Infinity, strongest=null, sval=-Infinity;
+  APP.forEach(a=>{
+    const v=num(state.scores[a.k]); if(v===null) return;
+    const g=pass-v; if(g>wgap){wgap=g; weakest=a;}
+    const over=v-pass; if(over>sval){sval=over; strongest=a;}
+  });
+  const toPass=(L.latPass-total);
+  const toComp=(L.comp-total);
+
+  let focus;
+  if(weakest && wgap>0){
+    focus=`<p>Your biggest opportunity is on <b>${weakest.full}</b> — it's about <b>${wgap.toFixed(2)}</b> below the per-apparatus pass mark. Lifting this one apparatus moves your all-around the fastest.</p>`;
+  } else {
+    focus=`<p>Every apparatus you've entered is already at or above the pass benchmark — great consistency. To push higher, chase the <b>state competitive</b> targets (the amber lines) on your two lowest events.</p>`;
+  }
+
+  let win;
+  if(toPass>0){
+    win=`<p>You're <b>${toPass.toFixed(2)}</b> away from the <b>LAT pass</b> all-around. That's roughly <b>${(toPass/Math.max(1,(6-0))).toFixed(2)}</b> extra per apparatus, or one cleaner routine on your strongest events.</p>`;
+  } else if(toComp>0){
+    win=`<p>Pass mark cleared — nice work! You're <b>${toComp.toFixed(2)}</b> from the <b>state competitive</b> range. Your strongest event right now is <b>${strongest?strongest.full:'—'}</b>; keep it as your anchor.</p>`;
+  } else {
+    win=`<p>You're already in the <b>state competitive</b> range — excellent. The podium target is <b>${(L.pod-total).toFixed(2)>0?(L.pod-total).toFixed(2):'within reach'}</b> away. Polish landings and form to bank the last tenths.</p>`;
+  }
+
+  tips.innerHTML=`
+    <div class="tip focus"><h5>${TINY.de} Focus here</h5>${focus}</div>
+    <div class="tip win"><h5>${TINY.el} Your next milestone</h5>${win}</div>`;
+}
+
+/* reset */
+document.getElementById('reset').addEventListener('click',()=>{
+  state.scores={FX:'',PH:'',SR:'',VT:'',PB:'',HB:''};
+  document.querySelectorAll('#inputs input').forEach(i=>{i.value='';i.classList.remove('over');});
+  saveState(); renderTracker();
+});
+
+/* ---------- ROUTINE BUILDER ---------- */
+const SKILLS = {
+ FX:[
+  {id:'fx_press',n:'Press to handstand',d:'A',v:0.1,gn:'Strength / Hold',lv:'l78',ex:'Straight-arm press, finish tall — watch bent arms, arched back.'},
+  {id:'fx_manna',n:'Manna (hold 2s)',d:'B',v:0.2,gn:'Strength / Hold',lv:'l78',ex:'Legs toward vertical, hold 2 seconds — watch low angle, short hold.'},
+  {id:'fx_flair',n:'Flair (Thomas flair)',d:'B',v:0.2,gn:'Strength / Hold',lv:'l78',ex:'Legs wide, straight and high, even rhythm — watch low or bent legs.'},
+  {id:'fx_ftuck',n:'Front handspring, front tuck',d:'A',v:0.1,gn:'Forward acro',lv:'l78',ex:'Drive the heels, spot the floor — watch blind landing, hop.'},
+  {id:'fx_flay',n:'Front handspring, front layout',d:'B',v:0.2,gn:'Forward acro',lv:'l78',ex:'Straight body, control blind landing — watch arch, step.'},
+  {id:'fx_ffull',n:'Front handspring, front full twist',d:'B',v:0.2,gn:'Forward acro',lv:'l78',ex:'Twist early, finish square — watch off-axis, step.'},
+  {id:'fx_fdf',n:'Front handspring, front double full',d:'C',v:0.3,gn:'Forward acro',lv:'l910',ex:'Complete both twists and rotation — watch under-rotation.'},
+  {id:'fx_btuck',n:'Round-off, back handspring, back tuck',d:'A',v:0.1,gn:'Backward acro',lv:'l78',ex:'Tight tuck, open early — watch under-rotation, low height, hop.'},
+  {id:'fx_blay',n:'Round-off, back handspring, back layout',d:'B',v:0.2,gn:'Backward acro',lv:'l78',ex:'Straight body, toes pointed — watch leg split, arch, under-rotation.'},
+  {id:'fx_bfull',n:'Round-off, back handspring, back full twist',d:'B',v:0.2,gn:'Backward acro',lv:'l78',ex:'Finish twist before landing — watch leg separation, late twist.'},
+  {id:'fx_dbt',n:'Round-off, back handspring, double back tuck',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Enough set and rotation, tight tuck — watch low set, step.'},
+  {id:'fx_dbp',n:'Round-off, back handspring, double back pike',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Hold pike through both saltos — watch early opening.'},
+  {id:'fx_whip',n:'Round-off, whip back',d:'A',v:0.1,gn:'Backward acro',lv:'l78',ex:'Fast and low with no hand support — watch hand touch, piked hips.'},
+  {id:'fx_rudi',n:'Front handspring, Rudi (front 1½)',d:'C',v:0.3,gn:'Forward acro',lv:'l78',ex:'Complete the 1½ twist and square the landing — watch under-twist, step.'},
+  {id:'fx_arabian',n:'Round-off, back handspring, Arabian double front pike',d:'E',v:0.5,gn:'Forward acro',lv:'l910',ex:'Half-turn into a double front pike — watch under-rotation, deep landing.'},
+  {id:'fx_dbl_layout',n:'Round-off, back handspring, double back layout',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Two fully stretched saltos — watch arch, leg split, under-rotation.'},
+  {id:'fx_fullin',n:'Round-off, back handspring, full-in (double back)',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Twist in the first salto, finish tucked — watch off-axis, under-rotation.'},
+  {id:'fx_dbldbl',n:'Round-off, back handspring, double-double',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Two twists across a double salto — watch travelling, under-rotation, step.'},
+  {id:'fx_triple_tuck',n:'Round-off, back handspring, triple back tuck',d:'I',v:0.9,gn:'Backward acro',lv:'lelite',ex:'Olympian-level — huge set, three tight saltos — watch low set, under-rotation.'},
+  {id:'fx_triple_pike',n:'Round-off, back handspring, triple back pike',d:'J',v:1.0,gn:'Backward acro',lv:'lelite',ex:'Olympian-level rarity — hold pike through three saltos, complete the rotation, stick.'},
+  {id:'fx_planche_hold',n:'Planche (hold 2s)',d:'C',v:0.3,gn:'Strength / Hold',lv:'l78',ex:'Body horizontal on straight arms, hold 2 seconds — watch low or high, short hold.'},
+  {id:'fx_fwd_roll',n:'Forward roll',d:'Fdn',v:0,gn:'Forward acro',lv:'l13',ex:'Tuck tight and stand without hands — watch flat back, pushing up with hands.'},
+  {id:'fx_back_roll',n:'Backward roll',d:'Fdn',v:0,gn:'Backward acro',lv:'l13',ex:'Push through the hands to stand — watch head pressure, weak push.'},
+  {id:'fx_handstand',n:'Handstand (hold 2s)',d:'Fdn',v:0,gn:'Strength / Hold',lv:'l13',ex:'Straight line, hold 2 seconds — watch arch, bent arms, short hold.'},
+  {id:'fx_hs_fwd_roll',n:'Handstand forward roll',d:'Fdn',v:0,gn:'Forward acro',lv:'l13',ex:'Reach handstand then roll in smoothly — watch crashing down, bent arms.'},
+  {id:'fx_cartwheel',n:'Cartwheel',d:'Fdn',v:0,gn:'Forward acro',lv:'l13',ex:'Straight legs through vertical, even rhythm — watch bent legs, low hips.'},
+  {id:'fx_roundoff',n:'Round-off',d:'Fdn',v:0,gn:'Backward acro',lv:'l13',ex:'Quick turnover, snap legs together, rebound — watch slow turn, wide legs.'},
+  {id:'fx_bridge',n:'Bridge / back-bend kickover',d:'Fdn',v:0,gn:'Strength / Hold',lv:'l13',ex:'Straight arms and high hips — watch bent arms, low hips.'},
+  {id:'fx_dive_roll',n:'Dive roll',d:'Fdn',v:0,gn:'Forward acro',lv:'l13',ex:'A short flight then a soft roll — watch hard landing, dropping the head.'},
+  {id:'fx_l35_ro_flic_tuck',n:'Round-off, back handspring, tucked back salto',d:'A',v:0.1,gn:'Backward acro',lv:'l56',ex:'Power through the back handspring into a tight tuck, open for landing — watch under-rotation, low height, step.'},
+  {id:'fx_l35_ro_flic_layout',n:'Round-off, back handspring, layout back salto',d:'B',v:0.2,gn:'Backward acro',lv:'l56',ex:'Stretch the body, no pike or arch — watch leg split, under-rotation, step.'},
+  {id:'fx_l35_fhs_front',n:'Front handspring, tucked front salto',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Drive the heels and spot the floor — watch blind landing, hop.'},
+  {id:'fx_arabian_tuck',n:'Round-off, back handspring, Arabian double front tuck',d:'D',v:0.4,gn:'Forward acro',lv:'l910',ex:'Half-turn into a tucked double front — watch under-rotation, deep landing.'},
+  {id:'fx_randi',n:'Front handspring, Randi (front 2½)',d:'D',v:0.4,gn:'Forward acro',lv:'l910',ex:'Front salto with 2½ twists to a blind landing — watch off-axis, step.'},
+  {id:'fx_back_25',n:'Round-off, back handspring, back layout 2½ twist',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Complete the 2½ twist square to the floor — watch off-axis, under-twist.'},
+  {id:'fx_triple_full',n:'Round-off, back handspring, back triple full',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Three twists in a stretched salto — watch travelling, off-axis, step.'},
+  {id:'fx_l4_fhs',n:'Front handspring to two feet',d:'A',v:0.1,gn:'Forward acro',lv:'l4',ex:'Block through the shoulders and land on two feet — watch short block, sitting back.'},
+  {id:'fx_l4_fhs_stepout',n:'Front handspring step-out',d:'A',v:0.1,gn:'Forward acro',lv:'l4',ex:'Step out under control — watch short block, low finish.'},
+  {id:'fx_l4_ro_flic',n:'Round-off, back handspring to rebound',d:'A',v:0.1,gn:'Backward acro',lv:'l4',ex:'Fast turnover and snap, rebound tall — watch slow turn, soft rebound.'},
+  {id:'fx_l4_ro_flic_series',n:'Round-off, two back handsprings',d:'A',v:0.1,gn:'Backward acro',lv:'l4',ex:'Keep the back handspring series low and fast — watch stalling, hand placement.'},
+  {id:'fx_l4_back_ext',n:'Back extension roll to handstand',d:'A',v:0.1,gn:'Backward acro',lv:'l4',ex:'Roll and press to a straight handstand — watch bent arms, short of vertical.'},
+  {id:'fx_l4_hs_pirouette',n:'Handstand with half pirouette',d:'A',v:0.1,gn:'Strength / Hold',lv:'l4',ex:'Reach handstand and turn cleanly — watch off-balance, bent arms.'},
+  {id:'fx_punch_tuck',n:'Punch front tuck',d:'A',v:0.1,gn:'Forward acro',lv:'l78',ex:'Punch off two feet into a tucked front salto — watch early tuck, blind landing.'},
+  {id:'fx_punch_layout',n:'Punch front layout',d:'B',v:0.2,gn:'Forward acro',lv:'l78',ex:'Punch into a stretched front salto — watch arch, short rotation.'},
+  {id:'fx_punch_full',n:'Punch front full',d:'B',v:0.2,gn:'Forward acro',lv:'l910',ex:'Punch front with a full twist — watch off-axis, blind landing.'},
+  {id:'fx_full_in_full_out',n:'Round-off, back handspring, full-in full-out',d:'F',v:0.6,gn:'Backward acro',lv:'lelite',ex:'Full twist in each salto of a double back — watch off-axis, under-rotation.'},
+  {id:'fx_quad_full',n:'Round-off, back handspring, quadruple full',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Four twists in a stretched salto — watch travelling, off-axis.'}
+ ,
+  {id:'fx_l56_fhs_pike',n:'Front handspring, piked front salto',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Block then a piked front salto — watch early pike, blind landing.'},
+  {id:'fx_l56_fhs_stepout',n:'Front handspring step-out, front tuck',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Step out then a tucked front salto — watch stalling, low set.'}
+ ,
+  {id:'fx_penev',n:'Round-off, back handspring, Penev (double layout, two ½ twists)',d:'F',v:0.6,gn:'Backward acro',lv:'lelite',ex:'Double layout with two half twists — watch arch, off-axis, under-rotation.'},
+  {id:'fx_dly_2_1',n:'Round-off, back handspring, double layout 2/1 twists',d:'G',v:0.7,gn:'Backward acro',lv:'lelite',ex:'Double layout with two full twists — watch travelling, off-axis.'},
+  {id:'fx_dly_5_2',n:'Round-off, back handspring, double layout 5/2 twists',d:'H',v:0.8,gn:'Backward acro',lv:'lelite',ex:'Double layout with two and a half twists — watch off-axis, under-rotation.'},
+  {id:'fx_shirai3',n:'Round-off, back handspring, Shirai III (double layout 3/1 twists)',d:'I',v:0.9,gn:'Backward acro',lv:'lelite',ex:'Double layout with three full twists — watch travelling, off-axis.'},
+  {id:'fx_jarman',n:'Round-off, back handspring, Jarman (double layout 3½ twists)',d:'J',v:1.0,gn:'Backward acro',lv:'lelite',ex:'Double layout with three and a half twists — watch off-axis, deep landing.'},
+  {id:'fx_minami',n:'Round-off, back handspring, Minami (double tuck 7/2 twists)',d:'H',v:0.8,gn:'Backward acro',lv:'lelite',ex:'Tucked double back with three and a half twists — watch off-axis, under-rotation.'},
+  {id:'fx_hypolito',n:'Round-off, back handspring, Hypolito (Arabian double layout 1/1)',d:'G',v:0.7,gn:'Forward acro',lv:'lelite',ex:'Half-turn into a stretched double front with a twist — watch arch, under-rotation.'},
+  {id:'fx_zapata2',n:'Front handspring, Zapata II (double front straight 3/2)',d:'G',v:0.7,gn:'Forward acro',lv:'lelite',ex:'Stretched double front with a one and a half twist out — watch off-axis, blind landing.'},
+  {id:'fx_dft_full',n:'Front handspring, double front tuck full twist',d:'F',v:0.6,gn:'Forward acro',lv:'lelite',ex:'Tucked double front with a full twist — watch under-rotation, blind landing.'}
+ ,
+  {id:'fx_tamayo',n:'Tamayo (double salto forward tucked, ½ out)',d:'E',v:0.5,gn:'Forward acro',lv:'l910',ex:'Tucked double front with a half twist out — watch under-rotation, blind landing.'},
+  {id:'fx_korosteljev',n:'Round-off, back handspring, Korosteljev (double back tuck 5/2)',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Tucked double back with two and a half twists — watch off-axis, under-rotation.'}
+ ,
+  {id:'fx_l56_ro_bhs_pike',n:'Round-off, back handspring, piked back salto',d:'A',v:0.1,gn:'Backward acro',lv:'l56',ex:'Hold the pike shape then open for landing — watch soft knees, short landing.'}
+ ],
+ PH:[
+  {id:'ph_scissor',n:'Scissors (single leg)',d:'A',v:0.1,gn:'Single-leg & scissors',lv:'l78',ex:'High swing, open hips, straight legs — watch low amplitude, bent legs.'},
+  {id:'ph_circle',n:'Double-leg circles',d:'A',v:0.1,gn:'Circles & flairs',lv:'l78',ex:'Extended body, hips up, even rhythm — watch hip pike, foot touching horse.'},
+  {id:'ph_flair',n:'Flair (Thomas flair)',d:'B',v:0.2,gn:'Circles & flairs',lv:'l78',ex:'Straddle high and straight, even — watch low legs, hip drop.'},
+  {id:'ph_r360',n:'Russian wende 360',d:'B',v:0.2,gn:'Circles & flairs',lv:'l78',ex:'Keep the circle through the turn — watch hesitation, hip drop.'},
+  {id:'ph_r720',n:'Russian wende 720',d:'C',v:0.3,gn:'Circles & flairs',lv:'l78',ex:'Continuous turn and circle — watch break in rhythm.'},
+  {id:'ph_spindle',n:'Spindle (full)',d:'C',v:0.3,gn:'Circles & flairs',lv:'l78',ex:'Turn while circling, stay extended — watch pike, stop.'},
+  {id:'ph_hs',n:'Circle to handstand',d:'B',v:0.2,gn:'Circles & flairs',lv:'l78',ex:'Reach vertical, controlled — watch over or under, bent arms.'},
+  {id:'ph_travel',n:'Travel down the horse',d:'D',v:0.4,gn:'Travels',lv:'l910',ex:'Keep circle rhythm across — watch hesitation, hip drop.'},
+  {id:'ph_magyar',n:'Magyar travel',d:'D',v:0.4,gn:'Travels',lv:'l910',ex:'Travel end to end without a break — watch stalling.'},
+  {id:'ph_dis_s',n:'Flank / scissor dismount',d:'A',v:0.1,gn:'Dismount',lv:'l78',ex:'Clear the horse, stick — watch low, step.'},
+  {id:'ph_dis_hs',n:'Handstand dismount with turn',d:'C',v:0.3,gn:'Dismount',lv:'l78',ex:'Reach handstand, controlled landing — watch off-vertical, step.'},
+  {id:'ph_r1080',n:'Russian wende 1080',d:'D',v:0.4,gn:'Circles & flairs',lv:'l910',ex:'Three turns within one circle, stay extended — watch break in rhythm, hip drop.'},
+  {id:'ph_flop',n:'Flop (handstand flop sequence)',d:'C',v:0.3,gn:'Circles & flairs',lv:'l78',ex:'Continuous flair-to-handstand flop — watch stalls, low handstand.'},
+  {id:'ph_tongfei',n:'Tong Fei travel',d:'E',v:0.5,gn:'Travels',lv:'l910',ex:'Travel with a handstand and turn — watch direction, hesitation.'},
+  {id:'ph_busnari',n:'Busnari',d:'F',v:0.6,gn:'Circles & flairs',lv:'lelite',ex:'Olympian-level flair-spindle combination — watch leg bend, loss of rhythm.'},
+  {id:'ph_hs_pirouette',n:'Handstand pirouette dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Circle to handstand, turn, controlled landing — watch off-vertical, step.'},
+  {id:'ph_support',n:'Support hold',d:'Fdn',v:0,gn:'Circles & flairs',lv:'l13',ex:'Tall support, shoulders over hands — watch sagging hips, bent arms.'},
+  {id:'ph_legcut',n:'Single-leg cut',d:'Fdn',v:0,gn:'Single-leg & scissors',lv:'l13',ex:'Swing one leg over and stay tall — watch low swing, sitting back.'},
+  {id:'ph_swing',n:'Feet-together support swing',d:'Fdn',v:0,gn:'Single-leg & scissors',lv:'l13',ex:'Even side-to-side swing in support — watch dropping hips.'},
+  {id:'ph_mushroom',n:'Mushroom circle (basic)',d:'Fdn',v:0,gn:'Circles & flairs',lv:'l13',ex:'Round, even circle with hips up — watch hip pike, foot touching.'},
+  {id:'ph_buck_support',n:'Support hold on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l13',ex:'Tall support on the buck, shoulders over hands — watch sagging hips, bent arms.'},
+  {id:'ph_buck_circle',n:'Circles on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l4',ex:'Round, even circles on the buck with hips up — watch hip pike, foot touch.'},
+  {id:'ph_buck_cut',n:'Single-leg cuts on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l13',ex:'Leg cuts on the buck staying tall — watch low swing, sitting back.'},
+  {id:'ph_half',n:'Half circle',d:'Fdn',v:0,gn:'Circles & flairs',lv:'l13',ex:'Half circle keeping the body extended — watch stalling, hip drop.'},
+  {id:'ph_l35_scissors',n:'Front and back scissors (single-leg)',d:'A',v:0.1,gn:'Single-leg & scissors',lv:'l4',ex:'High leg swing with open hips — watch low amplitude, bent legs.'},
+  {id:'ph_l35_3circles',n:'Three consecutive double-leg circles',d:'A',v:0.1,gn:'Circles & flairs',lv:'l4',ex:'Round, even circles with hips up — watch hip pike, foot touch.'},
+  {id:'ph_l35_travel',n:'Double-leg circles travelling along the horse',d:'B',v:0.2,gn:'Travels',lv:'l56',ex:'Keep the rhythm while travelling — watch hesitation, hip drop.'},
+  {id:'ph_l35_flank_dis',n:'Circles to flank dismount off the end',d:'A',v:0.1,gn:'Dismount',lv:'l4',ex:'Finish the circle and clear the horse, stick — watch low, step.'},
+  {id:'ph_dsa',n:'Direct Stöckli',d:'B',v:0.2,gn:'Circles & flairs',lv:'l78',ex:'Turning circle element, keep the rhythm — watch hip drop, stall.'},
+  {id:'ph_wu',n:'Wu Guonian',d:'D',v:0.4,gn:'Circles & flairs',lv:'l910',ex:'Flair with a turn — watch leg bend, loss of rhythm.'},
+  {id:'ph_kehre',n:'Kehre travel (Czech)',d:'C',v:0.3,gn:'Travels',lv:'l78',ex:'Quarter-turn travel keeping the circle — watch hesitation.'},
+  {id:'ph_sohn',n:'Sohn travel',d:'E',v:0.5,gn:'Travels',lv:'l910',ex:'Travelling element with a turn — watch hesitation, hip drop.'},
+  {id:'ph_bezugo',n:'Bezugo',d:'C',v:0.3,gn:'Circles & flairs',lv:'l78',ex:'Loop element with steady rhythm — watch hip drop, stall.'},
+  {id:'ph_eshima',n:'Eshima dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Travelling handstand dismount, controlled landing — watch off-vertical, step.'},
+  {id:'ph_buck_swing',n:'Feet-together swings on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l13',ex:'Even swings in support on the buck — watch dropping hips.'},
+  {id:'ph_buck_scissor',n:'Scissors on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l4',ex:'Single-leg scissors on the buck — watch low swing, bent legs.'},
+  {id:'ph_buck_half',n:'Half circle on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l4',ex:'Half circle keeping the body extended — watch stalling, hip drop.'},
+  {id:'ph_buck_single',n:'Single circle on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l4',ex:'One full circle, round and even — watch hip pike, foot touch.'},
+  {id:'ph_buck_three',n:'Three circles on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l4',ex:'Three even circles in a row — watch hip pike, losing rhythm.'},
+  {id:'ph_buck_flank_dis',n:'Flank dismount off the buck',d:'Fdn',v:0,gn:'Buck',lv:'l4',ex:'Clear the buck and stick — watch low, step.'},
+  {id:'ph_buck_extended',n:'Extended circles on the buck (hips up)',d:'Fdn',v:0,gn:'Buck',lv:'l56',ex:'Tall, extended circles with the hips up — watch hip drop, pike.'},
+  {id:'ph_buck_travel',n:'Circle travel along the buck',d:'Fdn',v:0,gn:'Buck',lv:'l56',ex:'Travel along the buck keeping the rhythm — watch hesitation, hip drop.'},
+  {id:'ph_buck_spindle',n:'Spindle on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l56',ex:'Turn while circling on the buck — watch pike, stopping.'},
+  {id:'ph_buck_hs',n:'Circle to handstand on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l56',ex:'Circle up to a controlled handstand — watch off-vertical, bent arms.'},
+  {id:'ph_buck_wende',n:'Wende dismount off the buck',d:'Fdn',v:0,gn:'Buck',lv:'l56',ex:'Half-turn dismount off the buck, stick — watch low, step.'},
+  {id:'ph_wende_dis',n:'Wende dismount',d:'B',v:0.2,gn:'Dismount',lv:'l56',ex:'Half-turn (wende) off the end of the horse, stick — watch low, step.'},
+  {id:'ph_roth',n:'Roth (Russian travel)',d:'E',v:0.5,gn:'Travels',lv:'l910',ex:'Travelling Russian wende — watch break in rhythm, hip drop.'},
+  {id:'ph_russian_spindle',n:'Russian wende with spindle',d:'E',v:0.5,gn:'Circles & flairs',lv:'l910',ex:'Combine the Russian turn with a spindle — watch pike, stopping.'},
+  {id:'ph_li_xiaopeng',n:'Li Xiaopeng (flair-travel to handstand)',d:'F',v:0.6,gn:'Travels',lv:'lelite',ex:'Travel in flairs up to a handstand — watch leg bend, off-vertical.'}
+ ,
+  {id:'ph_kroll',n:'Kroll (triple Russian wende)',d:'F',v:0.6,gn:'Circles & flairs',lv:'lelite',ex:'Three Russian turns within one circle — watch break in rhythm, hip drop.'},
+  {id:'ph_belenki',n:'Belenki (Russian 1080 on the end)',d:'F',v:0.6,gn:'Circles & flairs',lv:'lelite',ex:'Three turns on the end of the horse — watch hip drop, stalling.'}
+ ],
+ SR:[
+  {id:'sr_mu',n:'Muscle-up to support',d:'A',v:0.1,gn:'Kip / uprise to support',lv:'l78',ex:'Minimal swing, even arms — watch kip swing, uneven press.'},
+  {id:'sr_bu',n:'Back uprise to support',d:'A',v:0.1,gn:'Kip / uprise to support',lv:'l78',ex:'Swing to support without bending — watch bent arms, low finish.'},
+  {id:'sr_felge',n:'Felge to handstand',d:'C',v:0.3,gn:'Swing to handstand',lv:'l78',ex:'Reach handstand, rings steady — watch swinging rings, bent arms.'},
+  {id:'sr_yama',n:'Yamawaki',d:'C',v:0.3,gn:'Swing to handstand',lv:'l78',ex:'Clean turnover to support — watch swing, bent arms.'},
+  {id:'sr_lsit',n:'L-sit (hold 2s)',d:'A',v:0.1,gn:'Strength holds',lv:'l78',ex:'Legs horizontal, hold 2 seconds — watch low legs, short hold.'},
+  {id:'sr_bl',n:'Back lever (hold)',d:'A',v:0.1,gn:'Strength holds',lv:'l78',ex:'Body horizontal, hold 2 seconds — watch high hips, short hold.'},
+  {id:'sr_fl',n:'Front lever (hold)',d:'B',v:0.2,gn:'Strength holds',lv:'l78',ex:'Straight horizontal body, hold 2 seconds — watch arch, high hips.'},
+  {id:'sr_planche',n:'Planche (hold)',d:'C',v:0.3,gn:'Strength holds',lv:'l78',ex:'Body horizontal on straight arms — watch low or high, short hold.'},
+  {id:'sr_cross',n:'Iron cross (hold)',d:'C',v:0.3,gn:'Strength holds',lv:'l78',ex:'Arms horizontal, rings turned out — watch arms above level, bent arms, short hold.'},
+  {id:'sr_maltese',n:'Maltese (hold)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Body and arms horizontal at ring height — watch body too high, bent arms, short hold.'},
+  {id:'sr_inv',n:'Inverted cross (hold)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Straight handstand-line cross — watch off-vertical, bent arms.'},
+  {id:'sr_dt',n:'Double back dismount (tuck)',d:'C',v:0.3,gn:'Dismount',lv:'l78',ex:'Height and rotation, stick — watch swing in rings, step.'},
+  {id:'sr_dl',n:'Double back dismount (layout)',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Straight body, complete rotation — watch arch, step.'},
+  {id:'sr_dd',n:'Double-double dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Two twists in a double salto, stick — watch under-rotation.'},
+  {id:'sr_azarian',n:'Azarian (roll to cross)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Backward roll straight to a held cross — watch arms above level, swing, short hold.'},
+  {id:'sr_jonasson',n:'Jonasson to handstand',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Felge-style swing to handstand — watch swinging rings, bent arms, short of vertical.'},
+  {id:'sr_yama_hs',n:'Yamawaki to handstand',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Turnover to a steady handstand — watch swing, off-vertical.'},
+  {id:'sr_nakayama',n:'Nakayama (swing to cross)',d:'E',v:0.5,gn:'Strength holds',lv:'l910',ex:'Swing directly to a held cross — watch swing in rings, short hold.'},
+  {id:'sr_triple',n:'Triple back dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Three tight saltos, stick — watch low set, under-rotation, step.'},
+  {id:'sr_dd_layout',n:'Double-double layout dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Olympian-level — two twists in a stretched double salto — watch arch, under-rotation.'},
+  {id:'sr_support',n:'Support hold (rings still)',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Tall support with the rings still — watch sagging, swinging rings.'},
+  {id:'sr_inv_hang',n:'Inverted hang',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Hold the upside-down hang still — watch swing, bent body.'},
+  {id:'sr_tuck_hang',n:'Tuck / pike hang',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Controlled tuck or pike hang — watch swinging.'},
+  {id:'sr_pull_inv',n:'Pull to inverted hang',d:'Fdn',v:0,gn:'Kip / uprise to support',lv:'l13',ex:'Pull smoothly to the inverted hang — watch kicking, swing.'},
+  {id:'sr_skincat',n:'Skin-the-cat',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Slow, controlled skin-the-cat — watch dropping fast.'},
+  {id:'sr_swing_hang',n:'Swing in hang',d:'Fdn',v:0,gn:'Kip / uprise to support',lv:'l13',ex:'Smooth swing in the hang, no thrash — watch wild swinging.'},
+  {id:'sr_l35_mu_lsit',n:'Muscle-up to support, then L-sit (2s)',d:'A',v:0.1,gn:'Kip / uprise to support',lv:'l4',ex:'Press to support with even arms then hold the L — watch kip swing, low legs, short hold.'},
+  {id:'sr_l35_dis_in',n:'Dislocate and inlocate',d:'A',v:0.1,gn:'Swing to handstand',lv:'l56',ex:'Open the shoulders smoothly, rings steady — watch bent arms, swing.'},
+  {id:'sr_l35_back_uprise',n:'Back uprise to support',d:'A',v:0.1,gn:'Kip / uprise to support',lv:'l4',ex:'Swing to support without bending — watch bent arms, low finish.'},
+  {id:'sr_l35_salto_dis',n:'Swing to tucked back salto dismount',d:'A',v:0.1,gn:'Dismount',lv:'l56',ex:'Build the swing, tight tuck, stick — watch swing in the rings, step.'},
+  {id:'sr_back_uprise_hs',n:'Back uprise to handstand',d:'C',v:0.3,gn:'Swing to handstand',lv:'l78',ex:'Uprise straight to a steady handstand — watch swing, short of vertical.'},
+  {id:'sr_honma',n:'Honma to support',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Swing straight to support, rings steady — watch swing, bent arms.'},
+  {id:'sr_guczoghy',n:'Guczoghy (felge to cross)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Backward swing to a held cross — watch swing in the rings, short hold.'},
+  {id:'sr_li_ning',n:'Li Ning (felge to support)',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Backward swing to support or handstand — watch swing, bent arms.'},
+  {id:'sr_victorian',n:'Victorian (reverse planche, hold)',d:'E',v:0.5,gn:'Strength holds',lv:'l910',ex:'Reverse-planche hold, body horizontal — watch body height, bent arms, short hold.'},
+  {id:'sr_press_maltese',n:'Press to Maltese',d:'E',v:0.5,gn:'Strength holds',lv:'l910',ex:'Press into a held Maltese — watch body height, bent arms, short hold.'},
+  {id:'sr_l4_back_uprise_lsit',n:'Back uprise to L-support',d:'A',v:0.1,gn:'Kip / uprise to support',lv:'l4',ex:'Uprise to support then hold the L — watch bent arms, low legs.'},
+  {id:'sr_l4_muscle_lower',n:'Muscle-up then lower to inverted hang',d:'A',v:0.1,gn:'Kip / uprise to support',lv:'l4',ex:'Press to support then lower under control — watch swing, fast drop.'},
+  {id:'sr_l4_skincat_inv',n:'Skin-the-cat to inverted hang hold',d:'A',v:0.1,gn:'Strength holds',lv:'l4',ex:'Roll through to a still inverted hang — watch swing, dropping fast.'},
+  {id:'sr_l4_german',n:'German hang (shoulder hold)',d:'A',v:0.1,gn:'Strength holds',lv:'l4',ex:'Controlled shoulder-stretch hang, rings still — watch swinging, rushing.'},
+  {id:'sr_balandin',n:'Balandin (felge to cross)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Swing backward straight to a held cross — watch swing in rings, short hold.'},
+  {id:'sr_yang_wei',n:'Yang Wei (felge to Maltese)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Swing straight to a held Maltese — watch body height, bent arms, short hold.'},
+  {id:'sr_triple_layout_dis',n:'Triple back layout dismount',d:'H',v:0.8,gn:'Dismount',lv:'lelite',ex:'Three stretched saltos, stick — watch low set, under-rotation.'}
+ ,
+  {id:'sr_pineda',n:'Pineda (back uprise to Maltese)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Uprise straight to a held Maltese — watch body height, bent arms, short hold.'},
+  {id:'sr_dd_pike_dis',n:'Double-double piked dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Two twists in a piked double salto, stick — watch under-rotation, step.'}
+ ],
+ VT:[
+  {id:'vt_hs',n:'Handspring',d:'',v:2.0,gn:'Vault',lv:'l78',ex:'Full extension and block, controlled landing — watch short support, pike, steps.'},
+  {id:'vt_hsft',n:'Handspring front (tuck)',d:'',v:3.2,gn:'Vault',lv:'l78',ex:'Block off the table, complete salto, stick — watch low flight, hop.'},
+  {id:'vt_hsfp',n:'Handspring front (pike)',d:'',v:3.6,gn:'Vault',lv:'l78',ex:'Hold the pike, complete rotation — watch under-rotation, step.'},
+  {id:'vt_tt',n:'Tsukahara (tuck)',d:'',v:3.2,gn:'Vault',lv:'l78',ex:'Quarter-on half-off entry, tight salto — watch direction, step.'},
+  {id:'vt_tl',n:'Tsukahara (layout)',d:'',v:3.6,gn:'Vault',lv:'l78',ex:'Straight body, complete rotation — watch arch, step.'},
+  {id:'vt_kas',n:'Kasamatsu',d:'',v:4.0,gn:'Vault',lv:'l910',ex:'Half-on with one and a quarter twist off — watch twist completion, landing.'},
+  {id:'vt_roche',n:'Handspring double front (Roche)',d:'',v:5.6,gn:'Vault',lv:'lelite',ex:'Huge block, two front saltos, stick — watch under-rotation, deep landing.'},
+  {id:'vt_drag',n:'Dragulescu',d:'',v:5.6,gn:'Vault',lv:'lelite',ex:'Double front with half twist out — watch blind landing.'},
+  {id:'vt_akopian',n:'Tsukahara double back (Akopian)',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Tsukahara entry into a double back — watch under-rotation, deep landing.'},
+  {id:'vt_lou_yun',n:'Kasamatsu 1/1 (Lou Yun)',d:'',v:4.4,gn:'Vault',lv:'l910',ex:'Kasamatsu with an extra half twist — watch twist completion, step.'},
+  {id:'vt_shewfelt',n:'Handspring front double full',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Two twists in a single front salto — watch off-axis, blind landing.'},
+  {id:'vt_yang',n:'Yang Hak Seon (Tsukahara triple twist)',d:'',v:6.0,gn:'Vault',lv:'lelite',ex:'Olympian-level — three twists off a Tsukahara entry — watch twist completion, landing.'},
+  {id:'vt_rise',n:'Ri Se Gwang (handspring double front twist)',d:'',v:6.2,gn:'Vault',lv:'lelite',ex:'Olympian-level — handspring double front with a twist — watch rotation, deep landing.'},
+  {id:'vt_squat',n:'Squat-on, straight jump off',d:'',v:1.2,gn:'Vault',lv:'l13',ex:'Squat through and stand tall — watch feet hitting, sitting back.'},
+  {id:'vt_flatback',n:'Handspring to flat back (timer)',d:'',v:1.6,gn:'Vault',lv:'l13',ex:'Handspring shape onto the mat — watch piking, no push.'},
+  {id:'vt_l35_handspring',n:'Run, hurdle, front handspring to stand (Level 5)',d:'',v:2.0,gn:'Vault',lv:'l56',ex:'Full extension and block, controlled landing — watch short support, pike, step.'},
+  {id:'vt_yurchenko',n:'Yurchenko layout (round-off entry)',d:'',v:3.6,gn:'Vault',lv:'l78',ex:'Round-off onto the table into a stretched salto — watch direction, step.'},
+  {id:'vt_lopez',n:'Lopez (handspring ½ on)',d:'',v:3.2,gn:'Vault',lv:'l78',ex:'Half-turn on, salto off — watch twist completion, step.'},
+  {id:'vt_hs_dbl_tuck',n:'Handspring double front (tuck)',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Big block into a tucked double front, stick — watch under-rotation, deep landing.'},
+  {id:'vt_l4_handspring',n:'Front handspring to feet (Level 4)',d:'',v:2.0,gn:'',lv:'l4',ex:'Block and stand tall on landing — watch short support, sitting back.'},
+  {id:'vt_l4_handspring_mat',n:'Handspring onto a raised mat stack',d:'',v:1.6,gn:'',lv:'l4',ex:'Drive through to the mat with a strong block — watch piking, short block.'},
+  {id:'vt_l56_block',n:'Front handspring, strong block & repulsion',d:'',v:2.0,gn:'',lv:'l56',ex:'Punch off the table with full extension — watch short support, piking early.'},
+  {id:'vt_l56_hollow',n:'Front handspring, hollow body to feet',d:'',v:2.0,gn:'',lv:'l56',ex:'Hold a tight hollow through flight — watch arch, sitting back on landing.'},
+  {id:'vt_l56_tuck_drill',n:'Handspring front tuck (into pit / timer)',d:'',v:2.4,gn:'',lv:'l56',ex:'Block then start the tuck rotation — watch early tuck, short block.'},
+  {id:'vt_l56_half',n:'Handspring with half turn to feet',d:'',v:2.4,gn:'',lv:'l56',ex:'Add the half turn after a full block — watch early turn, off-line landing.'},
+  {id:'vt_l56_over_table',n:'Front handspring over the vault table',d:'',v:2.0,gn:'',lv:'l56',ex:'Clear the full table with a strong block and reach — watch short support, piking over the table.'},
+  {id:'vt_l56_front_tuck_mat',n:'Front tuck onto a mat',d:'',v:2.4,gn:'',lv:'l56',ex:'Block then a tucked front salto landing on the mat — watch early tuck, under-rotation.'},
+  {id:'vt_l56_front_layout_mat',n:'Front layout onto a mat',d:'',v:2.8,gn:'',lv:'l56',ex:'Block into a stretched front salto onto the mat — watch arch, short rotation.'},
+  {id:'vt_driggs',n:'Kasamatsu double salto (Driggs)',d:'',v:5.6,gn:'',lv:'lelite',ex:'Kasamatsu entry into a double salto — watch under-rotation, deep landing.'},
+  {id:'vt_yeo',n:'Yeo Hyung Chul 2 (handspring double front ½)',d:'',v:6.0,gn:'',lv:'lelite',ex:'Handspring double front with a half twist out — watch blind landing.'}
+ ,
+  {id:'vt_hs_front_full',n:'Handspring front salto with full twist',d:'',v:4.0,gn:'',lv:'l910',ex:'Block then a full-twisting front salto, stick — watch off-axis, blind landing.'},
+  {id:'vt_tsuk_full',n:'Tsukahara with full twist',d:'',v:4.4,gn:'',lv:'l910',ex:'Tsukahara entry with a full twist off — watch twist completion, step.'},
+  {id:'vt_kas_half',n:'Kasamatsu with half twist (Barbieri)',d:'',v:4.4,gn:'',lv:'l910',ex:'Kasamatsu with an extra half twist — watch twist completion, landing.'},
+  {id:'vt_yurchenko_full',n:'Yurchenko with full twist',d:'',v:4.4,gn:'',lv:'l910',ex:'Round-off entry with a full twist off — watch direction, step.'},
+  {id:'vt_lou_yun_half',n:'Lou Yun with half twist (Lopez)',d:'',v:4.8,gn:'',lv:'l910',ex:'Kasamatsu with an added half twist — watch twist completion, deep landing.'}
+ ],
+ PB:[
+  {id:'pb_kip',n:'Glide kip to support',d:'A',v:0.1,gn:'Upper-arm elements',lv:'l78',ex:'Smooth kip to support — watch bent arms, extra swing.'},
+  {id:'pb_fua',n:'Front salto to upper arm',d:'B',v:0.2,gn:'Upper-arm elements',lv:'l78',ex:'Controlled catch in upper-arm support — watch hard catch, swing.'},
+  {id:'pb_bu',n:'Back uprise to support',d:'A',v:0.1,gn:'Support & long swing',lv:'l78',ex:'Swing to support, straight arms — watch low finish, bent arms.'},
+  {id:'pb_buh',n:'Back uprise to handstand',d:'B',v:0.2,gn:'Support & long swing',lv:'l78',ex:'Finish in handstand — watch short of vertical, bent arms.'},
+  {id:'pb_dia',n:'Diamidov (half turn to handstand)',d:'C',v:0.3,gn:'Support & long swing',lv:'l78',ex:'Complete the turn to handstand — watch under-turn, off-balance.'},
+  {id:'pb_stutz',n:'Stützkehre to support',d:'B',v:0.2,gn:'Support & long swing',lv:'l78',ex:'Controlled back toss to support — watch swing, low finish.'},
+  {id:'pb_healy',n:'Healy turn',d:'D',v:0.4,gn:'Support & long swing',lv:'l910',ex:'Full turn to support or handstand — watch under-turn.'},
+  {id:'pb_peach',n:'Peach (basket) to handstand',d:'C',v:0.3,gn:'Under-bar elements',lv:'l78',ex:'Extend to handstand, bars steady — watch low handstand, bent arms.'},
+  {id:'pb_dt',n:'Double back dismount (tuck)',d:'C',v:0.3,gn:'Dismount',lv:'l78',ex:'Clear the bars, stick — watch low, step.'},
+  {id:'pb_dp',n:'Double back dismount (pike)',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Hold pike, complete rotation — watch under-rotation.'},
+  {id:'pb_tippelt',n:'Tippelt',d:'C',v:0.3,gn:'Under-bar elements',lv:'l78',ex:'Underbar long swing to support or handstand — watch low finish, bent arms.'},
+  {id:'pb_dia_full',n:'Diamidov 1/1 (Tanaka)',d:'D',v:0.4,gn:'Support & long swing',lv:'l910',ex:'Full turn to handstand — watch under-turn, off-balance.'},
+  {id:'pb_makuts',n:'Makuts',d:'D',v:0.4,gn:'Support & long swing',lv:'l910',ex:'Back toss with turn to support — watch swing, under-turn.'},
+  {id:'pb_belle',n:'Belle (front double pike dismount)',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Front double salto off the end — watch blind landing, under-rotation.'},
+  {id:'pb_dbl_front',n:'Double front dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Two front saltos off the end, stick — watch deep landing, step.'},
+  {id:'pb_support',n:'Support hold',d:'Fdn',v:0,gn:'Support & long swing',lv:'l13',ex:'Tall support, straight arms — watch sagging shoulders, bent arms.'},
+  {id:'pb_swing',n:'Swing in support',d:'Fdn',v:0,gn:'Support & long swing',lv:'l13',ex:'Even swing in support, toes up — watch piking, uneven swing.'},
+  {id:'pb_straddle',n:'Straddle sit & travel',d:'Fdn',v:0,gn:'Support & long swing',lv:'l13',ex:'Controlled straddle sit and travel — watch heavy sit, swing.'},
+  {id:'pb_jump_support',n:'Jump to support',d:'Fdn',v:0,gn:'Support & long swing',lv:'l13',ex:'Jump to a steady support — watch swing on the way up.'},
+  {id:'pb_front_dis',n:'Front dismount (basic)',d:'Fdn',v:0,gn:'Dismount',lv:'l13',ex:'Swing and turn off the side, stick — watch low, step.'},
+  {id:'pb_uparm_swing',n:'Upper-arm swing',d:'Fdn',v:0,gn:'Upper-arm elements',lv:'l13',ex:'Smooth swing in upper-arm support — watch bent arms, swing.'},
+  {id:'pb_l35_kip_cut',n:'Glide kip to support, straddle cut to support',d:'B',v:0.2,gn:'Upper-arm elements',lv:'l56',ex:'Smooth kip then catch the straddle cut — watch bent arms, hard catch.'},
+  {id:'pb_l35_uparm_kip',n:'Upper-arm kip to support',d:'A',v:0.1,gn:'Upper-arm elements',lv:'l4',ex:'Drive to support from the upper arms — watch low finish, bent arms.'},
+  {id:'pb_l35_uprise_travel',n:'Back uprise to support, straddle travel',d:'A',v:0.1,gn:'Support & long swing',lv:'l56',ex:'Swing to support then travel cleanly — watch swing, heavy sit.'},
+  {id:'pb_l35_fsalto_uparm',n:'Front salto to upper-arm support',d:'B',v:0.2,gn:'Upper-arm elements',lv:'l56',ex:'Controlled salto caught in upper-arm support — watch hard catch, swing.'},
+  {id:'pb_giant',n:'Giant swing',d:'C',v:0.3,gn:'Support & long swing',lv:'l78',ex:'Full giant in handstand grip, straight arms — watch bent arms, short of handstand.'},
+  {id:'pb_dimic',n:'Dimic (front uprise straddle)',d:'C',v:0.3,gn:'Support & long swing',lv:'l78',ex:'Front uprise to straddle support — watch swing, heavy sit.'},
+  {id:'pb_bhavsar',n:'Bhavsar (peach with turn)',d:'D',v:0.4,gn:'Under-bar elements',lv:'l910',ex:'Peach with a turn to support — watch low, bent arms.'},
+  {id:'pb_morisue',n:'Morisue (double salto to support)',d:'E',v:0.5,gn:'Support & long swing',lv:'l910',ex:'Double salto caught on the bars — watch hard catch, swing.'},
+  {id:'pb_dbl_front_pike',n:'Double front pike dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Front double pike off the end, stick — watch blind landing, under-rotation.'},
+  {id:'pb_l4_swing_lsit',n:'Swing in support to L-sit hold',d:'A',v:0.1,gn:'Support & long swing',lv:'l4',ex:'Swing under control then hold the L-sit — watch piking, dropping shoulders.'},
+  {id:'pb_l4_straddle_travel',n:'Straddle-sit travel along the bars',d:'A',v:0.1,gn:'Support & long swing',lv:'l4',ex:'Travel along the bars under control — watch heavy sit, swing.'},
+  {id:'pb_l4_roll_uparm',n:'Forward roll to upper-arm support',d:'A',v:0.1,gn:'Upper-arm elements',lv:'l4',ex:'Controlled roll caught in upper-arm support — watch hard catch, swing.'},
+  {id:'pb_l4_back_uprise_uparm',n:'Back uprise from upper arms to support',d:'A',v:0.1,gn:'Upper-arm elements',lv:'l4',ex:'Drive from the upper arms to support — watch low finish, bent arms.'},
+  {id:'pb_l4_front_dis_half',n:'Front dismount with half turn',d:'A',v:0.1,gn:'Dismount',lv:'l4',ex:'Swing and turn off the side, stick — watch low, step.'},
+  {id:'pb_giant_full',n:'Giant swing with full pirouette',d:'D',v:0.4,gn:'Support & long swing',lv:'l910',ex:'Full giant then a clean pirouette to handstand — watch bent arms, off-balance.'},
+  {id:'pb_double_front_half',n:'Double front half-out dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Double front with a half turn out, stick — watch blind landing, under-rotation.'},
+  {id:'pb_belle_full',n:'Belle with full twist',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Front double salto off the end with a full twist — watch under-rotation, deep landing.'}
+ ,
+  {id:'pb_huang_liping',n:'Huang Liping (double pike to upper arm)',d:'F',v:0.6,gn:'Support & long swing',lv:'lelite',ex:'Double piked salto caught on the bars — watch hard catch, swing.'},
+  {id:'pb_dbl_pike_full',n:'Double pike dismount with full twist',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Double pike off the end with a full twist, stick — watch under-rotation, deep landing.'}
+ ],
+ HB:[
+  {id:'hb_giant',n:'Giant swing',d:'A',v:0.1,gn:'Long swings',lv:'l78',ex:'Straight body to handstand each way — watch arch, bent arms, short of handstand.'},
+  {id:'hb_stalder',n:'Stalder to handstand',d:'B',v:0.2,gn:'In-bar elements',lv:'l78',ex:'Straddle through to handstand — watch bent legs, short of vertical.'},
+  {id:'hb_endo',n:'Endo to handstand',d:'B',v:0.2,gn:'In-bar elements',lv:'l78',ex:'Pike through to handstand — watch bent legs, short of vertical.'},
+  {id:'hb_adler',n:'Adler (hop to handstand)',d:'C',v:0.3,gn:'In-bar elements',lv:'l78',ex:'Hop turn to handstand — watch off-vertical, bent arms.'},
+  {id:'hb_jaeger',n:'Jaeger (front release)',d:'C',v:0.3,gn:'Flight / release',lv:'l78',ex:'Height then clean regrasp — watch piked legs, late regrasp.'},
+  {id:'hb_tkatchev',n:'Tkatchev',d:'C',v:0.3,gn:'Flight / release',lv:'l78',ex:'Clear the bar, straddle and regrasp — watch low, bent legs.'},
+  {id:'hb_kovacs',n:'Kovacs',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Double salto over the bar, regrasp — watch under-rotation.'},
+  {id:'hb_gaylord',n:'Gaylord',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Front salto over the bar to regrasp — watch low, hard catch.'},
+  {id:'hb_layout',n:'Layout flyaway dismount',d:'B',v:0.2,gn:'Dismount',lv:'l78',ex:'Height, straight body, stick — watch arch, step.'},
+  {id:'hb_dl',n:'Double layout dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Two straight saltos, stick — watch under-rotation, step.'},
+  {id:'hb_triple',n:'Triple back dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Three tight saltos, stick — watch low set, under-rotation.'},
+  {id:'hb_piked_tkatchev',n:'Piked Tkatchev',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Piked clear over the bar then regrasp — watch leg bend, low height.'},
+  {id:'hb_kolman',n:'Kolman (layout Kovacs, full twist)',d:'F',v:0.6,gn:'Flight / release',lv:'lelite',ex:'Stretched Kovacs with a full twist — watch under-rotation, late regrasp.'},
+  {id:'hb_cassina',n:'Cassina',d:'F',v:0.6,gn:'Flight / release',lv:'lelite',ex:'Stretched Kovacs with full twist over the bar — watch travel, late regrasp.'},
+  {id:'hb_bretschneider',n:'Bretschneider',d:'H',v:0.8,gn:'Flight / release',lv:'lelite',ex:'Olympian-level — double-twisting double-layout over the bar — watch rotation, regrasp.'},
+  {id:'hb_quast',n:'Quast (Adler 1/1)',d:'D',v:0.4,gn:'In-bar elements',lv:'l910',ex:'In-bar element with a full turn to handstand — watch off-vertical, bent legs.'},
+  {id:'hb_watanabe',n:'Double-twisting double layout dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Two twists in a stretched double salto, stick — watch under-rotation, step.'},
+  {id:'hb_triple_layout',n:'Triple-back dismount (layout)',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Olympian-level — three stretched saltos — watch low set, under-rotation.'},
+  {id:'hb_support',n:'Support hold',d:'Fdn',v:0,gn:'Long swings',lv:'l13',ex:'Tall support over the bar — watch sagging, bent arms.'},
+  {id:'hb_cast',n:'Cast',d:'Fdn',v:0,gn:'Long swings',lv:'l13',ex:'Lift the hips off the bar with straight arms — watch bent arms, small cast.'},
+  {id:'hb_back_hip',n:'Back hip circle',d:'Fdn',v:0,gn:'In-bar elements',lv:'l13',ex:'Wrap the hips around the bar smoothly — watch loose hips, stopping.'},
+  {id:'hb_mill',n:'Single-leg (mill) circle',d:'Fdn',v:0,gn:'In-bar elements',lv:'l13',ex:'Single-leg cut and circle the bar — watch bent legs, stopping.'},
+  {id:'hb_pullover',n:'Pull-over to support',d:'Fdn',v:0,gn:'In-bar elements',lv:'l13',ex:'Pull and roll over to support — watch big kick, swing.'},
+  {id:'hb_under_dis',n:'Underswing dismount (basic)',d:'Fdn',v:0,gn:'Dismount',lv:'l13',ex:'Swing under and release to land — watch low, step.'},
+  {id:'hb_l35_cast_backhip',n:'Cast to horizontal, back hip circle',d:'A',v:0.1,gn:'In-bar elements',lv:'l4',ex:'Straight-arm cast then wrap the hips — watch bent arms, loose hips.'},
+  {id:'hb_l35_freehip',n:'Free (clear) hip circle to support',d:'B',v:0.2,gn:'In-bar elements',lv:'l56',ex:'Clear the bar and finish in support — watch bent arms, low finish.'},
+  {id:'hb_l35_mill_under',n:'Cast, single-leg (mill) circle, underswing dismount',d:'A',v:0.1,gn:'In-bar elements',lv:'l4',ex:'Link the mill circle into a clean underswing, stick — watch stopping, low dismount.'},
+  {id:'hb_l35_under_half',n:'Underswing with half-turn dismount',d:'A',v:0.1,gn:'Dismount',lv:'l4',ex:'Swing under, half turn, controlled landing — watch low, step.'},
+  {id:'hb_takemoto',n:'Takemoto (front giant ½ turn)',d:'B',v:0.2,gn:'Long swings',lv:'l78',ex:'Front giant with a half turn to handstand — watch off-vertical, bent arms.'},
+  {id:'hb_one_arm_giant',n:'One-arm giant',d:'C',v:0.3,gn:'Long swings',lv:'l78',ex:'Giant on one arm, straight body — watch arch, loss of vertical.'},
+  {id:'hb_gienger',n:'Gienger',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Backward salto with a half turn over the bar, regrasp — watch low, late catch.'},
+  {id:'hb_markelov',n:'Markelov (straddle Jaeger)',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Straddled front release, regrasp — watch piked legs, late regrasp.'},
+  {id:'hb_def',n:'Def (Tkatchev with ½ turn)',d:'E',v:0.5,gn:'Flight / release',lv:'l910',ex:'Tkatchev with a half turn, regrasp — watch low, late catch.'},
+  {id:'hb_dd_dismount',n:'Double-twisting double tuck dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Two twists in a double tuck, stick — watch under-rotation, step.'},
+  {id:'hb_l4_glide_kip',n:'Glide kip to support',d:'A',v:0.1,gn:'In-bar elements',lv:'l4',ex:'Glide long then kip to support — watch bent arms, early kip.'},
+  {id:'hb_l4_kip_cast',n:'Glide kip, cast to horizontal',d:'A',v:0.1,gn:'In-bar elements',lv:'l4',ex:'Kip then cast with straight arms — watch bent arms, small cast.'},
+  {id:'hb_l4_back_hip_under',n:'Back hip circle, underswing dismount',d:'A',v:0.1,gn:'Dismount',lv:'l4',ex:'Wrap the hips then swing under to land — watch loose hips, low dismount.'},
+  {id:'hb_l4_cast_half',n:'Cast, hop half turn to support',d:'A',v:0.1,gn:'Long swings',lv:'l4',ex:'Cast then hop the half turn to support — watch small cast, off-balance.'},
+  {id:'hb_l56_cast_hs',n:'Cast to handstand',d:'B',v:0.2,gn:'Long swings',lv:'l56',ex:'Cast with straight arms to a controlled handstand — watch bent arms, short of vertical.'},
+  {id:'hb_l56_freehip_hs',n:'Clear hip circle to handstand',d:'B',v:0.2,gn:'In-bar elements',lv:'l56',ex:'Clear the bar and finish in handstand — watch bent arms, low finish.'},
+  {id:'hb_l56_kip_cast_hs',n:'Kip, cast toward handstand',d:'B',v:0.2,gn:'In-bar elements',lv:'l56',ex:'Kip then cast on toward handstand — watch bent arms, short cast.'},
+  {id:'hb_l56_stoop',n:'Stoop-in, undershoot to support',d:'A',v:0.1,gn:'In-bar elements',lv:'l56',ex:'Stoop the legs through and undershoot to support — watch bent legs, stalling.'},
+  {id:'hb_l56_flyaway_tuck',n:'Tucked flyaway dismount',d:'A',v:0.1,gn:'Dismount',lv:'l56',ex:'Swing and release to a tucked salto, stick — watch low release, step.'},
+  {id:'hb_l56_flyaway_layout',n:'Layout flyaway dismount (basic)',d:'B',v:0.2,gn:'Dismount',lv:'l56',ex:'Stretched flyaway off the bar, stick — watch arch, step.'},
+  {id:'hb_pegan',n:'Pegan (piked Tkatchev half turn)',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Piked Tkatchev with a half turn, regrasp — watch bend, late catch.'},
+  {id:'hb_liukin',n:'Liukin (Tkatchev with full twist)',d:'E',v:0.5,gn:'Flight / release',lv:'l910',ex:'Tkatchev with a full twist, regrasp — watch low, late catch.'},
+  {id:'hb_miyachi',n:'Miyachi (layout Cassina with extra twist)',d:'G',v:0.7,gn:'Flight / release',lv:'lelite',ex:'Stretched double-twisting release over the bar, regrasp — watch travel, late catch.'}
+ ,
+  {id:'hb_pedro',n:'Pedro (stretched Tkatchev with full twist)',d:'F',v:0.6,gn:'Flight / release',lv:'lelite',ex:'Stretched Tkatchev with a full twist, regrasp — watch low, late catch.'},
+  {id:'hb_quad_dis',n:'Quadruple-twisting double layout dismount',d:'H',v:0.8,gn:'Dismount',lv:'lelite',ex:'Four twists in a stretched double salto, stick — watch under-rotation, step.'}
+ ]
+};
+
+state.rbApp='FX';
+state.routines={FX:[],PH:[],SR:[],VT:[],PB:[],HB:[]};
+const STORE_KEY='mag_levels_hub_v1';
+function saveState(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({level:state.level, app:state.app, scores:state.scores, rbApp:state.rbApp, routines:state.routines})); }catch(e){} }
+function loadState(){ try{ const raw=localStorage.getItem(STORE_KEY); if(!raw) return; const o=JSON.parse(raw)||{};
+  if(typeof o.level==='number' && LEVELS[o.level]) state.level=o.level;
+  if(o.app && APP.some(a=>a.k===o.app)) state.app=o.app;
+  if(o.rbApp && APP.some(a=>a.k===o.rbApp)) state.rbApp=o.rbApp;
+  if(o.scores) for(const k in state.scores){ const v=o.scores[k]; if(typeof v==='string'||typeof v==='number') state.scores[k]=String(v); }
+  if(o.routines) for(const k in state.routines){ if(Array.isArray(o.routines[k])) state.routines[k]=o.routines[k].filter(id=>skillById(k,id)); }
+}catch(e){} }
+function dvColor(v){ if(v<=0)return'#2f9e6e'; if(v>=0.6)return'var(--red)'; if(v>=0.5)return'#e0552b'; if(v>=0.4)return'#e8a32a'; if(v>=0.3)return'var(--blue-dark)'; if(v>=0.2)return'var(--blue-2)'; return'#5b8def'; }
+function vtColor(v){ if(v>=4.4)return'var(--red)'; if(v>=3.4)return'#e8a32a'; return'var(--blue-2)'; }
+function skillById(k,id){ return SKILLS[k].find(s=>s.id===id); }
+
+function buildRBTabs(){
+  document.getElementById('rb-tabs').innerHTML=APP.map(a=>`<button class="rb-tab" data-rb="${a.k}">${ICONS[a.k]}<span class="ab">${a.name}</span><span class="rb-count">${SKILLS[a.k].length} skills</span></button>`).join('');
+  document.querySelectorAll('.rb-tab').forEach(b=>b.addEventListener('click',()=>{ state.rbApp=b.dataset.rb; saveState(); renderRB(); }));
+}
+function ddBadge(k,s){ const isVT=(k==='VT'); const badge=isVT?s.v.toFixed(1):s.d; const col=isVT?vtColor(s.v):dvColor(s.v); return `<span class="dv" style="background:${col}">${badge}</span>`; }
+function renderDDOptions(filter){
+  const k=state.rbApp, f=(filter||'').trim().toLowerCase();
+  let list=SKILLS[k]; if(f) list=list.filter(s=>s.n.toLowerCase().includes(f)||(s.gn&&s.gn.toLowerCase().includes(f)));
+  const box=document.getElementById('rb-options');
+  if(!list.length){ box.innerHTML='<div class="rb-noopt">No skills match that search</div>'; return; }
+  const bands=[['l13','Levels 1\u20133'],['l4','Level 4'],['l56','Levels 5\u20136'],['l78','Levels 7\u20138'],['l910','Levels 9\u201310'],['lelite','Olympian']];
+  const TORDER={'Buck':0,'Single-leg & scissors':2,'Circles & flairs':3,'Travels':4,'Strength / Hold':2,'Forward acro':3,'Backward acro':4,'Kip / uprise to support':2,'Swing to handstand':3,'Strength holds':4,'Upper-arm elements':2,'Support & long swing':3,'Under-bar elements':4,'Long swings':2,'In-bar elements':3,'Flight / release':4,'Dismount':8,'Vault':9};
+  let out='';
+  bands.forEach(function(band){
+    const bi=list.filter(s=>s.lv===band[0]); if(!bi.length) return;
+    out+=`<div class="rb-band">${band[1]}</div>`;
+    const types=[...new Set(bi.map(s=>s.gn||'Vault'))].sort((a,b)=>((TORDER[a]??5)-(TORDER[b]??5)));
+    types.forEach(function(tp){
+      if(tp!=='Vault') out+=`<div class="rb-type">${tp}</div>`;
+      out+=bi.filter(s=>(s.gn||'Vault')===tp).map(s=>`<button class="rb-opt" data-id="${s.id}">${ddBadge(k,s)}<span class="rb-opt-n">${s.n}</span></button>`).join('');
+    });
+  });
+  box.innerHTML=out;
+  box.querySelectorAll('.rb-opt').forEach(b=>b.addEventListener('click',()=>{ state.routines[state.rbApp].push(b.dataset.id); saveState(); renderRoutine(); ddToggle(false); }));
+}
+let ddOpen=false;
+function ddToggle(open){
+  ddOpen=(open===undefined)?!ddOpen:open;
+  const dd=document.getElementById('rb-dd'), panel=document.getElementById('rb-panel'), trg=document.getElementById('rb-trigger');
+  dd.classList.toggle('open',ddOpen); panel.hidden=!ddOpen; trg.setAttribute('aria-expanded',ddOpen);
+  if(ddOpen){ const s=document.getElementById('rb-search'); s.value=''; renderDDOptions(''); setTimeout(()=>s.focus(),0); }
+}
+function setTriggerLabel(){ document.getElementById('rb-trigger-label').textContent = state.rbApp==='VT' ? 'Choose a vault to add…' : 'Choose a skill to add…'; }
+
+function renderRB(){
+  document.querySelectorAll('.rb-tab').forEach(b=>b.dataset.active=(b.dataset.rb===state.rbApp));
+  setTriggerLabel(); ddToggle(false); renderRoutine();
+}
+function moveItem(k,from,to){ const a=state.routines[k]; if(to<0||to>=a.length)return; const [m]=a.splice(from,1); a.splice(to,0,m); saveState(); renderRoutine(); }
+
+let dragFrom=null;
+function renderRoutine(){
+  const k=state.rbApp, r=state.routines[k], isVT=(k==='VT');
+  const list=document.getElementById('rb-list'), sum=document.getElementById('rb-summary');
+  const full=APP.find(a=>a.k===k).full;
+  if(!r.length){ list.innerHTML='<div class="rb-empty">No skills yet — add '+(isVT?'a vault':'skills')+' above to build your '+full+' routine.</div>'; sum.innerHTML=''; return; }
+  list.innerHTML=r.map((id,i)=>{ const s=skillById(k,id); if(!s)return'';
+    const badge=isVT?s.v.toFixed(1):s.d, col=isVT?vtColor(s.v):dvColor(s.v);
+    return `<div class="rb-item" draggable="true" data-i="${i}">
+      <div class="rb-handle" title="Drag to reorder"><span class="grip">⠿</span><span class="ord">${i+1}</span></div>
+      <div><div class="nm"><span class="dv" style="background:${col}">${badge}</span>${s.n}${isVT?'':`<span class="grp">${s.gn}</span>`}</div><div class="ex">${s.ex}</div></div>
+      <div class="rb-ctrls">
+        <div class="rb-mvwrap">
+          <button class="rb-mv" data-mv="up" data-i="${i}" title="Move up"${i===0?' disabled':''}>▲</button>
+          <button class="rb-mv" data-mv="down" data-i="${i}" title="Move down"${i===r.length-1?' disabled':''}>▼</button>
+        </div>
+        <button class="rm" data-i="${i}" title="Remove">×</button>
+      </div></div>`;
+  }).join('');
+  list.querySelectorAll('.rm').forEach(b=>b.addEventListener('click',()=>{ state.routines[k].splice(+b.dataset.i,1); saveState(); renderRoutine(); }));
+  list.querySelectorAll('.rb-mv').forEach(b=>b.addEventListener('click',()=>{ const i=+b.dataset.i; moveItem(k,i,b.dataset.mv==='up'?i-1:i+1); }));
+  list.querySelectorAll('.rb-item').forEach(it=>{
+    it.addEventListener('dragstart',e=>{ dragFrom=+it.dataset.i; it.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; try{e.dataTransfer.setData('text/plain',it.dataset.i);}catch(_){} });
+    it.addEventListener('dragend',()=>{ dragFrom=null; list.querySelectorAll('.rb-item').forEach(x=>x.classList.remove('dragging','drop-before','drop-after')); });
+    it.addEventListener('dragover',e=>{ e.preventDefault(); const b=it.getBoundingClientRect(); const after=(e.clientY-b.top)>b.height/2; it.classList.toggle('drop-after',after); it.classList.toggle('drop-before',!after); });
+    it.addEventListener('dragleave',()=>it.classList.remove('drop-before','drop-after'));
+    it.addEventListener('drop',e=>{ e.preventDefault(); if(dragFrom===null)return; const over=+it.dataset.i; const b=it.getBoundingClientRect(); const after=(e.clientY-b.top)>b.height/2; let to=over+(after?1:0); const a=state.routines[k]; const [m]=a.splice(dragFrom,1); if(dragFrom<to)to--; to=Math.max(0,Math.min(a.length,to)); a.splice(to,0,m); saveState(); renderRoutine(); });
+  });
+  if(isVT){
+    const best=Math.max(...r.map(id=>skillById(k,id).v));
+    sum.innerHTML=`<div><div class="d-lab">Estimated D-score</div><div class="d-big">${best.toFixed(1)}</div></div>
+      <div class="brk">On vault, your best attempt counts — you have <b>${r.length}</b> vault${r.length>1?'s':''} added.
+      <div class="rb-note">Execution (E) starts at 10.0 — block, body shape in flight and a controlled landing decide your E-score. Estimate only — confirm values in the official Code of Points.</div></div>`;
+  } else {
+    const vals=r.map(id=>skillById(k,id).v).sort((a,b)=>b-a);
+    const counted=vals.slice(0,8).reduce((a,b)=>a+b,0);
+    const ng=Math.min(new Set(r.map(id=>skillById(k,id).gn).filter(g=>g&&g!=='Vault')).size,4), egr=ng*0.5, d=counted+egr;
+    sum.innerHTML=`<div><div class="d-lab">Estimated D-score</div><div class="d-big">${d.toFixed(1)}</div></div>
+      <div class="brk">Elements: <b>${r.length}</b> &nbsp;·&nbsp; Difficulty (top 8): <b>${counted.toFixed(1)}</b> &nbsp;·&nbsp; Element groups: <b>${ng} × 0.5 = ${egr.toFixed(1)}</b>
+      <div class="rb-note">Only your 8 hardest elements count toward difficulty, plus 0.5 per element group met (max 4). Execution (E) starts at 10.0 — clean the focus points above to protect it. Estimate only — see the official Code of Points.</div></div>`;
+  }
+}
+document.getElementById('rb-trigger').addEventListener('click',e=>{ e.stopPropagation(); ddToggle(); });
+document.getElementById('rb-panel').addEventListener('click',e=>e.stopPropagation());
+document.getElementById('rb-search').addEventListener('input',e=>renderDDOptions(e.target.value));
+document.addEventListener('click',()=>ddToggle(false));
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') ddToggle(false); });
+document.getElementById('rb-clear').addEventListener('click',()=>{ state.routines[state.rbApp]=[]; saveState(); renderRoutine(); })
+
+/* init */
+buildLevels(); buildApps(); buildInputs(); buildRBTabs(); loadState(); render(); renderRB();
+</script>
+</body>
+</html>
