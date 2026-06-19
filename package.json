@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "publish": "git add -A && git commit -m Update && git push && open http://127.0.0.1:8080/mag-levels-hub.html"
+    "publish": "git add -A && git commit -m Update && git push && open https://stormoz.github.io/gym-app/"
   },
   "author": "",
   "license": "ISC",

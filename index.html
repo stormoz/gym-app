@@ -327,6 +327,55 @@
   .rb-band{font-family:'Fredoka';font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:#fff;background:var(--blue);border-radius:8px;padding:6px 11px;margin:10px 0 5px;position:sticky;top:0;z-index:2}
   .rb-band:first-child{margin-top:0}
   .rb-type{font-family:'Nunito';font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--blue-dark);padding:8px 8px 3px 4px}
+
+  /* Skills Checklist (section 6) */
+  .cl-tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:18px}
+  .cl-tab{cursor:pointer;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 6px 14px;display:flex;flex-direction:column;align-items:center;gap:6px;transition:.16s;text-align:center;position:relative;overflow:hidden}
+  .cl-tab:hover{border-color:#bcd0f6;transform:translateY(-2px)}
+  .cl-tab svg{width:26px;height:26px;color:var(--blue)}
+  .cl-tab .ab{font-family:'Fredoka';font-weight:600;font-size:14px}
+  .cl-tab .cl-cnt{font-family:'Fredoka';font-weight:600;font-size:10.5px;color:var(--blue-dark);background:#eaf1fe;border:1px solid #d6e4fd;border-radius:999px;padding:1px 8px;margin-top:2px}
+  .cl-tab .cl-bar{position:absolute;bottom:0;left:0;height:5px;background:var(--ok);border-radius:0 4px 0 0;transition:width .35s}
+  .cl-tab[data-active="true"]{background:var(--blue);border-color:var(--blue)}
+  .cl-tab[data-active="true"] svg,.cl-tab[data-active="true"] .ab{color:#fff}
+  .cl-tab[data-active="true"] .cl-cnt{background:rgba(255,255,255,.22);color:#fff;border-color:transparent}
+  .cl-card{padding:22px 24px}
+  .cl-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+  .cl-head h4{margin:0;font-size:17px;white-space:nowrap}
+  .cl-progress{flex:1 1 180px;min-width:120px}
+  .cl-ptrack{height:11px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:5px}
+  .cl-pfill{height:100%;background:var(--ok);border-radius:999px;transition:width .35s}
+  .cl-plabel{font-weight:800;font-size:12px;color:var(--muted)}
+  .cl-plabel b{color:var(--ok)}
+  .cl-clear{cursor:pointer;border:1.5px solid var(--line);background:#fff;color:var(--muted);font-weight:800;font-size:13px;padding:9px 15px;border-radius:10px;font-family:'Nunito';transition:.15s;white-space:nowrap}
+  .cl-clear:hover{border-color:var(--red);color:var(--red)}
+  .cl-band-head{font-family:'Fredoka';font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:var(--blue-dark);background:var(--blue-soft);border-radius:8px;padding:5px 12px;margin:18px 0 8px}
+  .cl-band-head:first-child{margin-top:0}
+  .cl-list{display:flex;flex-direction:column;gap:7px}
+  .cl-skill{display:flex;align-items:center;gap:12px;padding:10px 13px;border:1.5px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;transition:.16s;user-select:none}
+  .cl-skill:hover{border-color:#bcd0f6;background:var(--blue-tint)}
+  .cl-skill.done{border-color:#a3d9b4;background:var(--ok-soft)}
+  .cl-btn{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);background:#fff;flex:none;display:grid;place-items:center;font-size:14px;transition:.18s;pointer-events:none}
+  .cl-skill.done .cl-btn{background:var(--ok);border-color:var(--ok);color:#fff}
+  .cl-skill-n{font-weight:700;font-size:14px;flex:1;line-height:1.35}
+  .cl-skill.done .cl-skill-n{color:#166534}
+  .cl-skill-d{font-family:'Fredoka';font-weight:600;font-size:13px;color:#fff;min-width:30px;height:28px;padding:0 7px;border-radius:8px;display:grid;place-items:center;flex:none}
+  @media(max-width:600px){.cl-tabs{grid-template-columns:repeat(3,1fr)}}
+
+  /* Gymnastics Dictionary (section 7) */
+  .gloss-card{padding:22px 24px}
+  .gloss-search{width:100%;font-family:'Nunito';font-weight:600;font-size:15px;color:var(--ink);padding:12px 16px;border:1.5px solid var(--line);border-radius:12px;margin-bottom:22px;background:#fff;transition:.15s}
+  .gloss-search:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+  .gloss-letter{font-family:'Fredoka';font-weight:600;font-size:20px;color:var(--blue-dark);padding:14px 0 5px;border-bottom:2px solid var(--blue-soft);margin-bottom:2px}
+  .gloss-letter:not(:first-child){margin-top:18px}
+  .gloss-list{display:flex;flex-direction:column}
+  .gloss-item{display:grid;grid-template-columns:minmax(140px,200px) 1fr;gap:8px 20px;padding:11px 0;border-bottom:1px solid var(--line-2)}
+  .gloss-item:last-child{border-bottom:0}
+  .gloss-term{font-weight:800;font-size:14.5px;color:var(--ink);padding-top:1px}
+  .gloss-def{font-weight:600;font-size:13.5px;color:var(--muted);line-height:1.55}
+  .gloss-none{text-align:center;padding:32px;color:var(--muted);font-weight:600}
+  .gloss-tag{font-family:'Fredoka';font-weight:600;font-size:10.5px;color:var(--blue-dark);background:var(--blue-soft);border:1px solid #d6e4fd;border-radius:999px;padding:1px 8px;margin-left:7px;white-space:nowrap;vertical-align:middle}
+  @media(max-width:560px){.gloss-item{grid-template-columns:1fr}.gloss-term{padding-bottom:2px}.gloss-def{grid-column:1}}
 </style>
 </head>
 <body>
@@ -355,6 +404,7 @@
       <span class="tag"><span class="sw" style="background:var(--blue)"></span>Foundation · L1–2</span>
       <span class="tag"><span class="sw" style="background:var(--blue-2)"></span>Junior Compulsory · L3–6</span>
       <span class="tag"><span class="sw" style="background:var(--red)"></span>Senior Optional · L7–10</span>
+      <span class="tag"><span class="sw" style="background:#7c1fa8"></span>Elite · International &amp; Olympian</span>
     </div>
   </section>
 
@@ -376,6 +426,10 @@
     <div class="band">
       <div class="band-label r"><span class="bar"></span>Senior · Optional routines</div>
       <div class="levels" id="band-senior"></div>
+    </div>
+    <div class="band">
+      <div class="band-label r"><span class="bar"></span>Elite · International &amp; Olympian</div>
+      <div class="levels" id="band-elite"></div>
     </div>
 
     <!-- LEVEL OVERVIEW -->
@@ -466,8 +520,8 @@
     </div>
     <div class="acc">
       <details class="item" open>
-        <summary class="q">Compulsory levels (1–6): start from 10.0 (+ bonus) <span class="pl">+</span></summary>
-        <div class="a">In the <strong>Foundation and Junior levels</strong>, every gymnast performs the <strong>same set (compulsory) routine</strong> on each apparatus, beginning at a <strong>Start Value of 10.0</strong>. Judges <strong>subtract deductions</strong> for execution errors (bent arms/legs, separated legs, poor form), missing or altered elements, balance checks, low amplitude and falls. On top of the 10.0, the harder levels add a <strong>bonus</strong>: <strong>+0.5 at Level 4</strong> and <strong>+1.0 at Levels 5–6</strong> — lifting the start value to 10.5 and 11.0 — on every apparatus <strong>except Vault</strong>, which always starts from 10.0. So your score = start value (+ any bonus) − total deductions, and the all-around (AA) is the sum of all six apparatus.</div>
+        <summary class="q">Compulsory levels (1–5, and 6–8 under-age): start value 9.0 <span class="pl">+</span></summary>
+        <div class="a">In the <strong>Foundation and Junior compulsory levels</strong>, every gymnast performs the <strong>same set routine</strong> on each apparatus, beginning at a <strong>Start Value of 9.0</strong>. Bonuses can raise this to <strong>9.5 or 10.0</strong> depending on the level and apparatus. Judges <strong>subtract deductions</strong> for execution errors (bent arms/legs, separated legs, poor form), missing or altered elements, balance checks, low amplitude and falls. Your score = start value (+ any bonus) − total deductions, and the all-around (AA) is the sum of all six apparatus. <strong>Levels 6, 7 and 8 are age-dependent</strong> — under-age gymnasts compete the set compulsory routine under the same 9.0 start value system; open-age gymnasts at those levels compete optional routines scored on D-score + E-score instead.</div>
       </details>
       <details class="item">
         <summary class="q">Optional routines — build your own (age rules) <span class="pl">+</span></summary>
@@ -486,6 +540,30 @@
     <div class="note">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
       <p><b>About the data:</b> Routine summaries are representative and intended as a study guide — always confirm exact routines, value parts and deduction tables in the official <b>Gymnastics Australia MAG Australian Levels Program (ALP)</b> and current Code of Points. <b>LAT pass marks</b> are the published ALP benchmarks. Figures marked <b>*</b> (State competitive / State podium) are <b>illustrative training targets</b> to aim toward — they are not official statistics. A coach can replace them with real GymNSW results.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS CHECKLIST -->
+  <section>
+    <div class="sec-head">
+      <span class="num">6</span>
+      <h2>Skills I Can Do</h2>
+      <p>Tap any skill you can do to tick it off. Watch the bar fill up as you build your toolkit.</p>
+    </div>
+    <div class="cl-tabs" id="cl-pills"></div>
+    <div class="card cl-card" id="cl-card"></div>
+  </section>
+
+  <!-- GYMNASTICS DICTIONARY -->
+  <section>
+    <div class="sec-head">
+      <span class="num">7</span>
+      <h2>Gymnastics Words</h2>
+      <p>Confused by a term? Look it up here — plain words, no jargon.</p>
+    </div>
+    <div class="card gloss-card">
+      <input class="gloss-search" id="gloss-search" type="text" placeholder="Search a word, like &quot;salto&quot; or &quot;D-score&quot;&hellip;" autocomplete="off">
+      <div class="gloss-list" id="gloss-list"></div>
     </div>
   </section>
 
@@ -545,26 +623,30 @@ const DED_OPT = [
 /* latPass = official ALP LAT all-around benchmark (illustrative for L1-2).
    comp / pod = illustrative state training targets (all-around). max = per-apparatus display scale. */
 const LEVELS = {
-  1:{band:'Foundation',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'Club-assessed',
+  1:{band:'Foundation',type:'Compulsory routine · Start Value 9.0 (bonuses: 9.5 / 10.0)',max:10,latPass:30,comp:45,pod:52,passLabel:'Club-assessed',
      blurb:'The very first competitive step. Gymnasts learn safe shapes, basic support and simple swinging, often including mushroom circles to prepare for pommel horse.'},
-  2:{band:'Foundation',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'Club-assessed',
+  2:{band:'Foundation',type:'Compulsory routine · Start Value 9.0 (bonuses: 9.5 / 10.0)',max:10,latPass:30,comp:45,pod:52,passLabel:'Club-assessed',
      blurb:'Shapes get cleaner and stronger. Held positions, basic inversions and the first controlled landings appear across all six apparatus.'},
-  3:{band:'Junior',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
+  3:{band:'Junior',type:'Compulsory routine · Start Value 9.0 (bonuses: 9.5 / 10.0)',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
      blurb:'The first true compulsory level. Clean basics — straight handstands, tidy circles and stable landings — score far better than risky difficulty.'},
-  4:{band:'Junior',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
+  4:{band:'Junior',type:'Compulsory routine · Start Value 9.0 (bonuses: 9.5 / 10.0)',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
      blurb:'Skills connect into longer sequences. Amplitude, body tension and the first acrobatic flight begin to matter alongside form.'},
-  5:{band:'Junior',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
+  5:{band:'Junior',type:'Compulsory routine · Start Value 9.0 (bonuses: 9.5 / 10.0)',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
      blurb:'Power meets precision: round-off flic-flacs, continuous circles, swing to support and salto dismounts on several apparatus.'},
-  6:{band:'Junior',type:'Compulsory routine · Start Value 10.0',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
-     blurb:'The bridge to optional gymnastics. Bigger acrobatics and the first salto dismounts, with handstand finishes rewarded across the bars.'},
-  7:{band:'Senior',type:'Optional routine · D-score + E-score',max:11,latPass:38,comp:44,pod:50,passLabel:'38.00 AA',
-     blurb:'Gymnasts build their own routines for the first time, choosing skills to meet Special Requirements while keeping execution clean.'},
-  8:{band:'Senior',type:'Optional routine · D-score + E-score',max:11,latPass:39,comp:45,pod:51,passLabel:'39.00 AA',
-     blurb:'Higher difficulty requirements and connections. Composition errors now cost as much as execution mistakes.'},
+  6:{band:'Junior',type:'Under-age: Compulsory · 9.0 SV  ·  Open age: D-score + E-score',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
+     blurb:'Scoring depends on age group. Under-age gymnasts compete the set compulsory routine (Start Value 9.0, bonuses available). Open-age gymnasts build their own optional routine scored on D-score + E-score.'},
+  7:{band:'Senior',type:'Under-age: Compulsory · 9.0 SV  ·  Open age: D-score + E-score',max:11,latPass:38,comp:44,pod:50,passLabel:'38.00 AA',
+     blurb:'Scoring depends on age group. Under-age gymnasts still compete the set compulsory routine (Start Value 9.0). Open-age gymnasts build their own optional routine, choosing skills to meet Special Requirements.'},
+  8:{band:'Senior',type:'Under-age: Compulsory · 9.0 SV  ·  Open age: D-score + E-score',max:11,latPass:39,comp:45,pod:51,passLabel:'39.00 AA',
+     blurb:'Scoring depends on age group. Under-age gymnasts compete the compulsory (Start Value 9.0); open-age gymnasts compete optional routines with higher difficulty requirements and composition rules.'},
   9:{band:'Senior',type:'Optional routine · D-score + E-score',max:11,latPass:40,comp:46,pod:52,passLabel:'40.00 AA',
      blurb:'Approaching elite content — bigger releases, more value parts and the first double-salto dismount attempts.'},
   10:{band:'Senior',type:'Optional routine · D-score + E-score',max:11,latPass:41,comp:48,pod:54,passLabel:'41.00 AA',
-     blurb:'The top of the levels pathway and the gateway to international streams. Difficulty is largely uncapped — full Code of Points requirements apply.'}
+     blurb:'The top of the levels pathway and the gateway to international streams. Difficulty is largely uncapped — full Code of Points requirements apply.'},
+  11:{band:'International',type:'Optional routine · D-score + E-score',max:14,latPass:0,comp:52,pod:58,passLabel:'N/A',
+     blurb:'Senior International level — athletes competing at national and open international competitions. Routines require high difficulty content meeting the full FIG Code of Points Special Requirements.'},
+  12:{band:'Olympian',type:'Optional routine · D-score + E-score',max:16,latPass:0,comp:58,pod:64,passLabel:'N/A',
+     blurb:'Elite competition standard — the level of World Championships and Olympic Games. Routines feature the highest difficulty content, maximised connections, and exceptional execution under pressure.'}
 };
 
 /* representative elements: ELEM[level][apparatus] = [3-4 short bullets] */
@@ -628,7 +710,19 @@ const ELEM = {
      SR:['Strength holds (e.g. cross attempt)','Swing to handstand','Double-salto dismount','Meets all Special Requirements'],
      VT:['Handspring double front / Tsuk or Kasamatsu + twist','From the vault table','High difficulty value','Controlled landing'],
      PB:['Peach to handstand','Salto elements','Double-salto dismount','Meets all Special Requirements'],
-     HB:['Giants & release-and-regrasp','Twisting / double flyaway','Maximised connections','Meets all Special Requirements']}
+     HB:['Giants & release-and-regrasp','Twisting / double flyaway','Maximised connections','Meets all Special Requirements']},
+  11:{FX:['Acro pass with double salto or twisting double layout','Second acro pass with high-value salto','Flexibility or strength element','All Special Requirements met'],
+     PH:['Flairs & circles combination with travel','Handstand-oriented sequence','High-value dismount','Meets all Special Requirements'],
+     SR:['Cross or iron cross attempt','Swing to handstand (value element)','Double-salto dismount','Meets all Special Requirements'],
+     VT:['Handspring double-front or Tsuk with full twist (5.2+)','Extended flight phase','Controlled, small-step landing'],
+     PB:['Peach to handstand','High-value salto on bars','Double-salto dismount','Meets all Special Requirements'],
+     HB:['Giants with release-and-regrasp','Twisting flyaway or Kovacs variation','Maximised connections','Meets all Special Requirements']},
+  12:{FX:['Double-twisting double layout or piked triple back','Two high-value tumbling passes (D+)','All Special Requirements maximised','Olympic-standard execution'],
+     PH:['Full combination: circles, flairs, spindle & travel','Handstand transition dismount','Maximised D-score','Meets all Special Requirements'],
+     SR:['Iron cross or Maltese (3-second hold)','Swing to handstand with value element','High-value salto dismount','Meets all Special Requirements'],
+     VT:['Handspring double-front layout or Kasamatsu double twist','Maximum vault value (5.6+)','Stuck or near-stuck landing'],
+     PB:['Peach to handstand with pirouette','High-value salto elements (E+)','Double-salto dismount with twist','Meets all Special Requirements'],
+     HB:['Giant combination with multiple releases','Kovacs or Tkatchev-type variation','Twisting double flyaway or layout 3/2','Meets all Special Requirements']}
 };
 
 /* ---------- STATE ---------- */
@@ -636,12 +730,13 @@ let state = { level:3, app:'FX', scores:{FX:'',PH:'',SR:'',VT:'',PB:'',HB:''} };
 
 /* ---------- BUILD LEVEL PILLS ---------- */
 function buildLevels(){
-  const groups={foundation:[1,2],junior:[3,4,5,6],senior:[7,8,9,10]};
+  const groups={foundation:[1,2],junior:[3,4,5,6],senior:[7,8,9,10],elite:[11,12]};
+  const shortLabel={11:'INT',12:'OLY'};
   for(const [g,arr] of Object.entries(groups)){
     const el=document.getElementById('band-'+g);
     el.innerHTML=arr.map(n=>`
       <button class="lvl" data-level="${n}">
-        <div class="n">L${n}</div>
+        <div class="n">${shortLabel[n]||'L'+n}</div>
         <div class="t">${LEVELS[n].band}</div>
       </button>`).join('');
   }
@@ -687,18 +782,19 @@ function renderOverview(){
   const L=LEVELS[state.level];
   document.getElementById('ov-about').innerHTML=`
     <span class="kicker">Level ${state.level} · ${L.band}</span>
-    <h3>${L.band==='Foundation'?'Foundation level':L.band==='Junior'?'Junior compulsory':'Senior optional'}</h3>
+    <h3>${L.band==='Foundation'?'Foundation level':L.band==='Junior'?'Junior compulsory':L.band==='Senior'?'Senior optional':L.band==='International'?'Senior International':'Olympian / Elite'}</h3>
     <div class="scoretype">${L.type}</div>
     <p>${L.blurb}</p>`;
   const perPass=(L.latPass/6), perComp=(L.comp/6), perPod=(L.pod/6);
+  const noLAT=L.passLabel==='N/A';
   document.getElementById('ov-bench').innerHTML=`
     <h4>All-around benchmarks</h4>
     <div class="benchrow"><div class="lab"><span class="pip" style="background:var(--blue-dark)"></span>LAT pass ${L.passLabel==='Club-assessed'?'(club-assessed)':''}</div>
-      <div class="val">${L.passLabel==='Club-assessed'?'<small>club LAT</small>':L.latPass.toFixed(2)} <small>/ ${(perPass).toFixed(2)} per app</small></div></div>
-    <div class="benchrow"><div class="lab"><span class="pip" style="background:#e8a32a"></span>State competitive*</div>
-      <div class="val">${L.comp.toFixed(2)} <small>/ ${(perComp).toFixed(2)} per app</small></div></div>
-    <div class="benchrow"><div class="lab"><span class="pip" style="background:var(--red)"></span>State podium*</div>
-      <div class="val">${L.pod.toFixed(2)} <small>/ ${(perPod).toFixed(2)} per app</small></div></div>`;
+      <div class="val">${noLAT?'<small>no ALP LAT</small>':L.passLabel==='Club-assessed'?'<small>club LAT</small>':L.latPass.toFixed(2)} ${noLAT?'<small>selection via national pathways</small>':`<small>/ ${perPass.toFixed(2)} per app</small>`}</div></div>
+    <div class="benchrow"><div class="lab"><span class="pip" style="background:#e8a32a"></span>${noLAT?'Illustrative competitive*':'State competitive*'}</div>
+      <div class="val">${L.comp.toFixed(2)} <small>/ ${perComp.toFixed(2)} per app</small></div></div>
+    <div class="benchrow"><div class="lab"><span class="pip" style="background:var(--red)"></span>${noLAT?'Illustrative podium*':'State podium*'}</div>
+      <div class="val">${L.pod.toFixed(2)} <small>/ ${perPod.toFixed(2)} per app</small></div></div>`;
 }
 
 function renderApps(){
@@ -727,9 +823,11 @@ function renderDetail(){
     </div>
     <div class="scorebox">
       <span class="badge">Scoring</span>
-      ${compulsory
-        ? `<p>This is a <b>compulsory routine</b>: everyone performs the same skills. You start from a <b>Start Value of 10.0</b> and judges subtract the deductions above. <b>Final score = 10.0 − total deductions.</b></p>`
-        : `<p>This is an <b>optional routine</b>: you choose skills to satisfy the Special Requirements. Your score is <b>Difficulty (D) + Execution (E /10.0)</b>, minus any neutral faults. <b>Each missing requirement costs ~0.50.</b></p>`}
+      ${state.level<=5
+        ? `<p>This is a <b>compulsory routine</b>: everyone performs the same skills. You start from a <b>Start Value of 9.0</b> — bonuses can raise this to <b>9.5 or 10.0</b>. Judges subtract deductions from there. <b>Final score = 9.0 (+ bonus) − total deductions.</b></p>`
+        : state.level<=8
+          ? `<p><b>Scoring depends on age group.</b> Under-age gymnasts perform the <b>compulsory routine</b> — Start Value 9.0, with bonuses available to 9.5 or 10.0, minus deductions. Open-age gymnasts build their own <b>optional routine</b> scored on <b>Difficulty (D) + Execution (E /10.0)</b>, minus any neutral faults.</p>`
+          : `<p>This is an <b>optional routine</b>: you choose skills to satisfy the Special Requirements. Your score is <b>Difficulty (D) + Execution (E /10.0)</b>, minus any neutral faults. <b>Each missing requirement costs ~0.50.</b></p>`}
     </div>`;
 }
 
@@ -865,23 +963,22 @@ const SKILLS = {
   {id:'fx_press',n:'Press to handstand',d:'A',v:0.1,gn:'Strength / Hold',lv:'l78',ex:'Straight-arm press, finish tall — watch bent arms, arched back.'},
   {id:'fx_manna',n:'Manna (hold 2s)',d:'B',v:0.2,gn:'Strength / Hold',lv:'l78',ex:'Legs toward vertical, hold 2 seconds — watch low angle, short hold.'},
   {id:'fx_flair',n:'Flair (Thomas flair)',d:'B',v:0.2,gn:'Strength / Hold',lv:'l78',ex:'Legs wide, straight and high, even rhythm — watch low or bent legs.'},
-  {id:'fx_ftuck',n:'Front salto (tuck)',d:'A',v:0.1,gn:'Forward acro',lv:'l78',ex:'Drive the heels, spot the floor — watch blind landing, hop.'},
-  {id:'fx_flay',n:'Front layout',d:'B',v:0.2,gn:'Forward acro',lv:'l78',ex:'Straight body, control blind landing — watch arch, step.'},
-  {id:'fx_ffull',n:'Front full twist',d:'B',v:0.2,gn:'Forward acro',lv:'l78',ex:'Twist early, finish square — watch off-axis, step.'},
-  {id:'fx_fdf',n:'Front double full',d:'D',v:0.4,gn:'Forward acro',lv:'l910',ex:'Complete both twists and rotation — watch under-rotation.'},
-  {id:'fx_btuck',n:'Back salto (tuck)',d:'A',v:0.1,gn:'Backward acro',lv:'l78',ex:'Tight tuck, open early — watch under-rotation, low height, hop.'},
-  {id:'fx_blay',n:'Back layout',d:'B',v:0.2,gn:'Backward acro',lv:'l78',ex:'Straight body, toes pointed — watch leg split, arch, under-rotation.'},
-  {id:'fx_bfull',n:'Back full twist',d:'C',v:0.3,gn:'Backward acro',lv:'l78',ex:'Finish twist before landing — watch leg separation, late twist.'},
-  {id:'fx_dbt',n:'Double back (tuck)',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Enough set and rotation, tight tuck — watch low set, step.'},
-  {id:'fx_dbp',n:'Double back (pike)',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Hold pike through both saltos — watch early opening.'},
-  {id:'fx_whip',n:'Whip back',d:'A',v:0.1,gn:'Backward acro',lv:'l78',ex:'Fast and low with no hand support — watch hand touch, piked hips.'},
-  {id:'fx_rudi',n:'Rudi (front 1½ twist)',d:'C',v:0.3,gn:'Forward acro',lv:'l78',ex:'Complete the 1½ twist and square the landing — watch under-twist, step.'},
-  {id:'fx_arabian',n:'Arabian double front (pike)',d:'E',v:0.5,gn:'Forward acro',lv:'l910',ex:'Half-turn into a double front pike — watch under-rotation, deep landing.'},
-  {id:'fx_dbl_layout',n:'Double back (layout)',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Two fully stretched saltos — watch arch, leg split, under-rotation.'},
-  {id:'fx_fullin',n:'Full-in (double back, full first)',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Twist in the first salto, finish tucked — watch off-axis, under-rotation.'},
-  {id:'fx_dbldbl',n:'Double-double (double back, 2 twists)',d:'F',v:0.6,gn:'Backward acro',lv:'l910',ex:'Two twists across a double salto — watch travelling, under-rotation, step.'},
-  {id:'fx_triple_tuck',n:'Triple back (tuck)',d:'G',v:0.7,gn:'Backward acro',lv:'l910',ex:'Olympian-level — huge set, three tight saltos — watch low set, under-rotation.'},
-  {id:'fx_triple_pike',n:'Triple back (pike)',d:'H',v:0.8,gn:'Backward acro',lv:'l910',ex:'Olympian-level rarity — hold pike through three saltos, complete the rotation, stick.'},
+  {id:'fx_ftuck',n:'Front handspring, front tuck',d:'A',v:0.1,gn:'Forward acro',lv:'l78',ex:'Drive the heels, spot the floor — watch blind landing, hop.'},
+  {id:'fx_flay',n:'Front handspring, front layout',d:'B',v:0.2,gn:'Forward acro',lv:'l78',ex:'Straight body, control blind landing — watch arch, step.'},
+  {id:'fx_ffull',n:'Front handspring, front full twist',d:'B',v:0.2,gn:'Forward acro',lv:'l78',ex:'Twist early, finish square — watch off-axis, step.'},
+  {id:'fx_fdf',n:'Front handspring, front double full',d:'C',v:0.3,gn:'Forward acro',lv:'l910',ex:'Complete both twists and rotation — watch under-rotation.'},
+  {id:'fx_btuck',n:'Round-off, back handspring, back tuck',d:'A',v:0.1,gn:'Backward acro',lv:'l78',ex:'Tight tuck, open early — watch under-rotation, low height, hop.'},
+  {id:'fx_blay',n:'Round-off, back handspring, back layout',d:'B',v:0.2,gn:'Backward acro',lv:'l78',ex:'Straight body, toes pointed — watch leg split, arch, under-rotation.'},
+  {id:'fx_bfull',n:'Round-off, back handspring, back full twist',d:'B',v:0.2,gn:'Backward acro',lv:'l78',ex:'Finish twist before landing — watch leg separation, late twist.'},
+  {id:'fx_dbt',n:'Round-off, back handspring, double back tuck',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Enough set and rotation, tight tuck — watch low set, step.'},
+  {id:'fx_dbp',n:'Round-off, back handspring, double back pike',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Hold pike through both saltos — watch early opening.'},
+  {id:'fx_rudi',n:'Front handspring, Rudi (front 1½)',d:'C',v:0.3,gn:'Forward acro',lv:'l78',ex:'Complete the 1½ twist and square the landing — watch under-twist, step.'},
+  {id:'fx_arabian',n:'Round-off, back handspring, Arabian double front pike',d:'E',v:0.5,gn:'Forward acro',lv:'l910',ex:'Half-turn into a double front pike — watch under-rotation, deep landing.'},
+  {id:'fx_dbl_layout',n:'Round-off, back handspring, double back layout',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Two fully stretched saltos — watch arch, leg split, under-rotation.'},
+  {id:'fx_fullin',n:'Round-off, back handspring, full-in (double back)',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Twist in the first salto, finish tucked — watch off-axis, under-rotation.'},
+  {id:'fx_dbldbl',n:'Round-off, back handspring, double-double',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Two twists across a double salto — watch travelling, under-rotation, step.'},
+  {id:'fx_triple_tuck',n:'Round-off, back handspring, triple back tuck',d:'I',v:0.9,gn:'Backward acro',lv:'lelite',ex:'Olympian-level — huge set, three tight saltos — watch low set, under-rotation.'},
+  {id:'fx_triple_pike',n:'Round-off, back handspring, triple back pike',d:'J',v:1.0,gn:'Backward acro',lv:'lelite',ex:'Olympian-level rarity — hold pike through three saltos, complete the rotation, stick.'},
   {id:'fx_planche_hold',n:'Planche (hold 2s)',d:'C',v:0.3,gn:'Strength / Hold',lv:'l78',ex:'Body horizontal on straight arms, hold 2 seconds — watch low or high, short hold.'},
   {id:'fx_fwd_roll',n:'Forward roll',d:'Fdn',v:0,gn:'Forward acro',lv:'l13',ex:'Tuck tight and stand without hands — watch flat back, pushing up with hands.'},
   {id:'fx_back_roll',n:'Backward roll',d:'Fdn',v:0,gn:'Backward acro',lv:'l13',ex:'Push through the hands to stand — watch head pressure, weak push.'},
@@ -891,24 +988,47 @@ const SKILLS = {
   {id:'fx_roundoff',n:'Round-off',d:'Fdn',v:0,gn:'Backward acro',lv:'l13',ex:'Quick turnover, snap legs together, rebound — watch slow turn, wide legs.'},
   {id:'fx_bridge',n:'Bridge / back-bend kickover',d:'Fdn',v:0,gn:'Strength / Hold',lv:'l13',ex:'Straight arms and high hips — watch bent arms, low hips.'},
   {id:'fx_dive_roll',n:'Dive roll',d:'Fdn',v:0,gn:'Forward acro',lv:'l13',ex:'A short flight then a soft roll — watch hard landing, dropping the head.'},
-  {id:'fx_l35_ro_flic_tuck',n:'Round-off, back handspring, tucked back salto',d:'A',v:0.1,gn:'Backward acro',lv:'l56',ex:'Power through the flic into a tight tuck, open for landing — watch under-rotation, low height, step.'},
+  {id:'fx_l35_ro_flic_tuck',n:'Round-off, back handspring, tucked back salto',d:'A',v:0.1,gn:'Backward acro',lv:'l56',ex:'Power through the back handspring into a tight tuck, open for landing — watch under-rotation, low height, step.'},
   {id:'fx_l35_ro_flic_layout',n:'Round-off, back handspring, layout back salto',d:'B',v:0.2,gn:'Backward acro',lv:'l56',ex:'Stretch the body, no pike or arch — watch leg split, under-rotation, step.'},
-  {id:'fx_l35_ro_flic_full',n:'Round-off, back handspring, back salto full twist',d:'C',v:0.3,gn:'Backward acro',lv:'l78',ex:'Finish the twist before landing — watch leg separation, late twist, step.'},
   {id:'fx_l35_fhs_front',n:'Front handspring, tucked front salto',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Drive the heels and spot the floor — watch blind landing, hop.'},
-  {id:'fx_l35_ro_whip_tuck',n:'Round-off, whip, back handspring, tucked back salto',d:'A',v:0.1,gn:'Backward acro',lv:'l56',ex:'Keep the rhythm low and fast through the whip — watch hand touch, stalling.'},
-  {id:'fx_aerial',n:'Aerial cartwheel (no hands)',d:'B',v:0.2,gn:'Forward acro',lv:'l78',ex:'No-hands cartwheel, straight legs through vertical — watch bent legs, low hips.'},
-  {id:'fx_aerial_walkover',n:'Front aerial walkover',d:'B',v:0.2,gn:'Forward acro',lv:'l78',ex:'No-hands front walkover, controlled landing — watch low, step.'},
-  {id:'fx_arabian_tuck',n:'Arabian double front (tuck)',d:'D',v:0.4,gn:'Forward acro',lv:'l910',ex:'Half-turn into a tucked double front — watch under-rotation, deep landing.'},
-  {id:'fx_randi',n:'Randi (front 2½ twist)',d:'D',v:0.4,gn:'Forward acro',lv:'l910',ex:'Front salto with 2½ twists to a blind landing — watch off-axis, step.'},
-  {id:'fx_back_25',n:'Back layout 2½ twist',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Complete the 2½ twist square to the floor — watch off-axis, under-twist.'},
-  {id:'fx_triple_full',n:'Back layout triple full',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Three twists in a stretched salto — watch travelling, off-axis, step.'}
- ,
+  {id:'fx_arabian_tuck',n:'Round-off, back handspring, Arabian double front tuck',d:'D',v:0.4,gn:'Forward acro',lv:'l910',ex:'Half-turn into a tucked double front — watch under-rotation, deep landing.'},
+  {id:'fx_randi',n:'Front handspring, Randi (front 2½)',d:'D',v:0.4,gn:'Forward acro',lv:'l910',ex:'Front salto with 2½ twists to a blind landing — watch off-axis, step.'},
+  {id:'fx_back_25',n:'Round-off, back handspring, back layout 2½ twist',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Complete the 2½ twist square to the floor — watch off-axis, under-twist.'},
+  {id:'fx_triple_full',n:'Round-off, back handspring, back triple full',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Three twists in a stretched salto — watch travelling, off-axis, step.'},
   {id:'fx_l4_fhs',n:'Front handspring to two feet',d:'A',v:0.1,gn:'Forward acro',lv:'l4',ex:'Block through the shoulders and land on two feet — watch short block, sitting back.'},
   {id:'fx_l4_fhs_stepout',n:'Front handspring step-out',d:'A',v:0.1,gn:'Forward acro',lv:'l4',ex:'Step out under control — watch short block, low finish.'},
   {id:'fx_l4_ro_flic',n:'Round-off, back handspring to rebound',d:'A',v:0.1,gn:'Backward acro',lv:'l4',ex:'Fast turnover and snap, rebound tall — watch slow turn, soft rebound.'},
-  {id:'fx_l4_ro_flic_series',n:'Round-off, two back handsprings',d:'A',v:0.1,gn:'Backward acro',lv:'l4',ex:'Keep the flic-flac series low and fast — watch stalling, hand placement.'},
+  {id:'fx_l4_ro_flic_series',n:'Round-off, two back handsprings',d:'A',v:0.1,gn:'Backward acro',lv:'l4',ex:'Keep the back handspring series low and fast — watch stalling, hand placement.'},
   {id:'fx_l4_back_ext',n:'Back extension roll to handstand',d:'A',v:0.1,gn:'Backward acro',lv:'l4',ex:'Roll and press to a straight handstand — watch bent arms, short of vertical.'},
-  {id:'fx_l4_hs_pirouette',n:'Handstand with half pirouette',d:'A',v:0.1,gn:'Strength / Hold',lv:'l4',ex:'Reach handstand and turn cleanly — watch off-balance, bent arms.'}
+  {id:'fx_l4_hs_pirouette',n:'Handstand with half pivot',d:'A',v:0.1,gn:'Strength / Hold',lv:'l4',ex:'Reach handstand and turn cleanly — watch off-balance, bent arms.'},
+  {id:'fx_punch_tuck',n:'Punch front tuck',d:'A',v:0.1,gn:'Forward acro',lv:'l78',ex:'Punch off two feet into a tucked front salto — watch early tuck, blind landing.'},
+  {id:'fx_punch_layout',n:'Punch front layout',d:'B',v:0.2,gn:'Forward acro',lv:'l78',ex:'Punch into a stretched front salto — watch arch, short rotation.'},
+  {id:'fx_punch_full',n:'Punch front full',d:'B',v:0.2,gn:'Forward acro',lv:'l910',ex:'Punch front with a full twist — watch off-axis, blind landing.'},
+  {id:'fx_full_in_full_out',n:'Round-off, back handspring, full-in full-out',d:'F',v:0.6,gn:'Backward acro',lv:'lelite',ex:'Full twist in each salto of a double back — watch off-axis, under-rotation.'},
+  {id:'fx_quad_full',n:'Round-off, back handspring, quadruple full',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Four twists in a stretched salto — watch travelling, off-axis.'}
+ ,
+  {id:'fx_l56_fhs_pike',n:'Front handspring, piked front salto',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Block then a piked front salto — watch early pike, blind landing.'},
+  {id:'fx_l56_fhs_stepout',n:'Front handspring step-out, front tuck',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Step out then a tucked front salto — watch stalling, low set.'}
+ ,
+  {id:'fx_penev',n:'Round-off, back handspring, Penev (double layout, two ½ twists)',d:'F',v:0.6,gn:'Backward acro',lv:'lelite',ex:'Double layout with two half twists — watch arch, off-axis, under-rotation.'},
+  {id:'fx_dly_2_1',n:'Round-off, back handspring, double layout 2/1 twists',d:'G',v:0.7,gn:'Backward acro',lv:'lelite',ex:'Double layout with two full twists — watch travelling, off-axis.'},
+  {id:'fx_dly_5_2',n:'Round-off, back handspring, double layout 5/2 twists',d:'H',v:0.8,gn:'Backward acro',lv:'lelite',ex:'Double layout with two and a half twists — watch off-axis, under-rotation.'},
+  {id:'fx_shirai3',n:'Round-off, back handspring, Shirai III (double layout 3/1 twists)',d:'I',v:0.9,gn:'Backward acro',lv:'lelite',ex:'Double layout with three full twists — watch travelling, off-axis.'},
+  {id:'fx_jarman',n:'Round-off, back handspring, Jarman (double layout 3½ twists)',d:'J',v:1.0,gn:'Backward acro',lv:'lelite',ex:'Double layout with three and a half twists — watch off-axis, deep landing.'},
+  {id:'fx_minami',n:'Round-off, back handspring, Minami (double tuck 7/2 twists)',d:'H',v:0.8,gn:'Backward acro',lv:'lelite',ex:'Tucked double back with three and a half twists — watch off-axis, under-rotation.'},
+  {id:'fx_hypolito',n:'Round-off, back handspring, Hypolito (Arabian double layout 1/1)',d:'G',v:0.7,gn:'Forward acro',lv:'lelite',ex:'Half-turn into a stretched double front with a twist — watch arch, under-rotation.'},
+  {id:'fx_zapata2',n:'Front handspring, Zapata II (double front straight 3/2)',d:'G',v:0.7,gn:'Forward acro',lv:'lelite',ex:'Stretched double front with a one and a half twist out — watch off-axis, blind landing.'},
+  {id:'fx_dft_full',n:'Front handspring, double front tuck full twist',d:'F',v:0.6,gn:'Forward acro',lv:'lelite',ex:'Tucked double front with a full twist — watch under-rotation, blind landing.'}
+ ,
+  {id:'fx_tamayo',n:'Tamayo (double salto forward tucked, ½ out)',d:'E',v:0.5,gn:'Forward acro',lv:'l910',ex:'Tucked double front with a half twist out — watch under-rotation, blind landing.'},
+  {id:'fx_korosteljev',n:'Round-off, back handspring, Korosteljev (double back tuck 5/2)',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Tucked double back with two and a half twists — watch off-axis, under-rotation.'}
+ ,
+  {id:'fx_l56_ro_bhs_pike',n:'Round-off, back handspring, piked back salto',d:'A',v:0.1,gn:'Backward acro',lv:'l56',ex:'Hold the pike shape then open for landing — watch soft knees, short landing.'},
+  {id:'fx_l56_fhs_layout',n:'Front handspring, front layout salto',d:'B',v:0.2,gn:'Forward acro',lv:'l56',ex:'Block hard then keep the body straight — watch early pike, blind landing.'},
+  {id:'fx_l56_ro_bhs_bhs_tuck',n:'Round-off, back handspring, back handspring, tucked back salto',d:'B',v:0.2,gn:'Backward acro',lv:'l56',ex:'Two back handsprings before the salto — watch losing speed through the second BHS, under-rotation.'},
+  {id:'fx_l56_fhs_fhs',n:'Front handspring, front handspring',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Connected front handsprings with a strong block each time — watch piking in flight, breaking rhythm.'},
+  {id:'fx_l56_splits',n:'Splits (full split hold)',d:'Fdn',v:0,gn:'Strength / Hold',lv:'l56',ex:'Full split to the floor, hips square and even — watch turned-out hips, leaning forward.'},
+  {id:'fx_l56_prone',n:'Prone (front support hold)',d:'Fdn',v:0,gn:'Strength / Hold',lv:'l56',ex:'Hold a flat front support, body in a straight line — watch sagging hips, piking.'}
  ],
  PH:[
   {id:'ph_scissor',n:'Scissors (single leg)',d:'A',v:0.1,gn:'Single-leg & scissors',lv:'l78',ex:'High swing, open hips, straight legs — watch low amplitude, bent legs.'},
@@ -925,7 +1045,7 @@ const SKILLS = {
   {id:'ph_r1080',n:'Russian wende 1080',d:'D',v:0.4,gn:'Circles & flairs',lv:'l910',ex:'Three turns within one circle, stay extended — watch break in rhythm, hip drop.'},
   {id:'ph_flop',n:'Flop (handstand flop sequence)',d:'C',v:0.3,gn:'Circles & flairs',lv:'l78',ex:'Continuous flair-to-handstand flop — watch stalls, low handstand.'},
   {id:'ph_tongfei',n:'Tong Fei travel',d:'E',v:0.5,gn:'Travels',lv:'l910',ex:'Travel with a handstand and turn — watch direction, hesitation.'},
-  {id:'ph_busnari',n:'Busnari',d:'F',v:0.6,gn:'Circles & flairs',lv:'l910',ex:'Olympian-level flair-spindle combination — watch leg bend, loss of rhythm.'},
+  {id:'ph_busnari',n:'Busnari',d:'F',v:0.6,gn:'Circles & flairs',lv:'lelite',ex:'Olympian-level flair-spindle combination — watch leg bend, loss of rhythm.'},
   {id:'ph_hs_pirouette',n:'Handstand pirouette dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Circle to handstand, turn, controlled landing — watch off-vertical, step.'},
   {id:'ph_support',n:'Support hold',d:'Fdn',v:0,gn:'Circles & flairs',lv:'l13',ex:'Tall support, shoulders over hands — watch sagging hips, bent arms.'},
   {id:'ph_legcut',n:'Single-leg cut',d:'Fdn',v:0,gn:'Single-leg & scissors',lv:'l13',ex:'Swing one leg over and stay tall — watch low swing, sitting back.'},
@@ -944,8 +1064,7 @@ const SKILLS = {
   {id:'ph_kehre',n:'Kehre travel (Czech)',d:'C',v:0.3,gn:'Travels',lv:'l78',ex:'Quarter-turn travel keeping the circle — watch hesitation.'},
   {id:'ph_sohn',n:'Sohn travel',d:'E',v:0.5,gn:'Travels',lv:'l910',ex:'Travelling element with a turn — watch hesitation, hip drop.'},
   {id:'ph_bezugo',n:'Bezugo',d:'C',v:0.3,gn:'Circles & flairs',lv:'l78',ex:'Loop element with steady rhythm — watch hip drop, stall.'},
-  {id:'ph_eshima',n:'Eshima dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Travelling handstand dismount, controlled landing — watch off-vertical, step.'}
- ,
+  {id:'ph_eshima',n:'Eshima dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Travelling handstand dismount, controlled landing — watch off-vertical, step.'},
   {id:'ph_buck_swing',n:'Feet-together swings on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l13',ex:'Even swings in support on the buck — watch dropping hips.'},
   {id:'ph_buck_scissor',n:'Scissors on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l4',ex:'Single-leg scissors on the buck — watch low swing, bent legs.'},
   {id:'ph_buck_half',n:'Half circle on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l4',ex:'Half circle keeping the body extended — watch stalling, hip drop.'},
@@ -957,7 +1076,22 @@ const SKILLS = {
   {id:'ph_buck_spindle',n:'Spindle on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l56',ex:'Turn while circling on the buck — watch pike, stopping.'},
   {id:'ph_buck_hs',n:'Circle to handstand on the buck',d:'Fdn',v:0,gn:'Buck',lv:'l56',ex:'Circle up to a controlled handstand — watch off-vertical, bent arms.'},
   {id:'ph_buck_wende',n:'Wende dismount off the buck',d:'Fdn',v:0,gn:'Buck',lv:'l56',ex:'Half-turn dismount off the buck, stick — watch low, step.'},
-  {id:'ph_wende_dis',n:'Wende dismount',d:'B',v:0.2,gn:'Dismount',lv:'l56',ex:'Half-turn (wende) off the end of the horse, stick — watch low, step.'}
+  {id:'ph_wende_dis',n:'Wende dismount',d:'B',v:0.2,gn:'Dismount',lv:'l56',ex:'Half-turn (wende) off the end of the horse, stick — watch low, step.'},
+  {id:'ph_l56_scissors',n:'Single-leg scissors on the horse',d:'A',v:0.1,gn:'Single-leg & scissors',lv:'l56',ex:'Front and back scissors on the horse — watch low amplitude, bent legs.'},
+  {id:'ph_l56_circle_end',n:'Double-leg circles on the end of the horse',d:'B',v:0.2,gn:'Circles & flairs',lv:'l56',ex:'Keep the circle round moving onto the end section — watch hip drop, foot touch.'},
+  {id:'ph_l56_hs_horse',n:'Circle to near-handstand on the horse',d:'A',v:0.1,gn:'Circles & flairs',lv:'l56',ex:'Circle up as high as possible toward handstand — watch hip drop, short of vertical.'},
+  {id:'ph_l56_russian_intro',n:'Russian wende introduction (180°)',d:'A',v:0.1,gn:'Circles & flairs',lv:'l56',ex:'Begin the Russian turn within the circle — watch stalling, hip drop.'},
+  {id:'ph_roth',n:'Roth (Russian travel)',d:'E',v:0.5,gn:'Travels',lv:'l910',ex:'Travelling Russian wende — watch break in rhythm, hip drop.'},
+  {id:'ph_russian_spindle',n:'Russian wende with spindle',d:'E',v:0.5,gn:'Circles & flairs',lv:'l910',ex:'Combine the Russian turn with a spindle — watch pike, stopping.'},
+  {id:'ph_li_xiaopeng',n:'Li Xiaopeng (flair-travel to handstand)',d:'F',v:0.6,gn:'Travels',lv:'lelite',ex:'Travel in flairs up to a handstand — watch leg bend, off-vertical.'}
+ ,
+  {id:'ph_kroll',n:'Kroll (triple Russian wende)',d:'F',v:0.6,gn:'Circles & flairs',lv:'lelite',ex:'Three Russian turns within one circle — watch break in rhythm, hip drop.'},
+  {id:'ph_belenki',n:'Belenki (Russian 1080 on the end)',d:'F',v:0.6,gn:'Circles & flairs',lv:'lelite',ex:'Three turns on the end of the horse — watch hip drop, stalling.'},
+  {id:'ph_r1440',n:'Russian wende 1440 (four turns)',d:'G',v:0.7,gn:'Circles & flairs',lv:'lelite',ex:'Four complete turns within one circle — watch any break in rhythm, hip drop.'},
+  {id:'ph_spindle_travel',n:'Spindle with full travel',d:'F',v:0.6,gn:'Travels',lv:'lelite',ex:'Spin and travel along the horse in one continuous sequence — watch losing rhythm, hip drop.'},
+  {id:'ph_flair_hs_travel',n:'Flair travel to end handstand',d:'G',v:0.7,gn:'Travels',lv:'lelite',ex:'Travel end to end in flairs finishing in a handstand — watch leg bend, off-vertical.'},
+  {id:'ph_dbl_pir_dis',n:'Double pirouette handstand dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Circle to handstand, two pirouettes, controlled landing — watch off-vertical, step.'},
+  {id:'ph_adv_circle_travel',n:'Full end-to-end circle travel with turns',d:'F',v:0.6,gn:'Travels',lv:'lelite',ex:'End-to-end travel within an unbroken circle rhythm including turns — watch hesitation, hip drop.'}
  ],
  SR:[
   {id:'sr_mu',n:'Muscle-up to support',d:'A',v:0.1,gn:'Kip / uprise to support',lv:'l78',ex:'Minimal swing, even arms — watch kip swing, uneven press.'},
@@ -972,14 +1106,14 @@ const SKILLS = {
   {id:'sr_maltese',n:'Maltese (hold)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Body and arms horizontal at ring height — watch body too high, bent arms, short hold.'},
   {id:'sr_inv',n:'Inverted cross (hold)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Straight handstand-line cross — watch off-vertical, bent arms.'},
   {id:'sr_dt',n:'Double back dismount (tuck)',d:'C',v:0.3,gn:'Dismount',lv:'l78',ex:'Height and rotation, stick — watch swing in rings, step.'},
-  {id:'sr_dl',n:'Double back dismount (layout)',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Straight body, complete rotation — watch arch, step.'},
-  {id:'sr_dd',n:'Double-double dismount',d:'F',v:0.6,gn:'Dismount',lv:'l910',ex:'Two twists in a double salto, stick — watch under-rotation.'},
+  {id:'sr_dl',n:'Double back dismount (layout)',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Straight body, complete rotation — watch arch, step.'},
+  {id:'sr_dd',n:'Double-double dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Two twists in a double salto, stick — watch under-rotation.'},
   {id:'sr_azarian',n:'Azarian (roll to cross)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Backward roll straight to a held cross — watch arms above level, swing, short hold.'},
   {id:'sr_jonasson',n:'Jonasson to handstand',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Felge-style swing to handstand — watch swinging rings, bent arms, short of vertical.'},
   {id:'sr_yama_hs',n:'Yamawaki to handstand',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Turnover to a steady handstand — watch swing, off-vertical.'},
   {id:'sr_nakayama',n:'Nakayama (swing to cross)',d:'E',v:0.5,gn:'Strength holds',lv:'l910',ex:'Swing directly to a held cross — watch swing in rings, short hold.'},
-  {id:'sr_triple',n:'Triple back dismount',d:'F',v:0.6,gn:'Dismount',lv:'l910',ex:'Three tight saltos, stick — watch low set, under-rotation, step.'},
-  {id:'sr_dd_layout',n:'Double-double layout dismount',d:'G',v:0.7,gn:'Dismount',lv:'l910',ex:'Olympian-level — two twists in a stretched double salto — watch arch, under-rotation.'},
+  {id:'sr_triple',n:'Triple back dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Three tight saltos, stick — watch low set, under-rotation, step.'},
+  {id:'sr_dd_layout',n:'Double-double layout dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Olympian-level — two twists in a stretched double salto — watch arch, under-rotation.'},
   {id:'sr_support',n:'Support hold (rings still)',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Tall support with the rings still — watch sagging, swinging rings.'},
   {id:'sr_inv_hang',n:'Inverted hang',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Hold the upside-down hang still — watch swing, bent body.'},
   {id:'sr_tuck_hang',n:'Tuck / pike hang',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Controlled tuck or pike hang — watch swinging.'},
@@ -990,17 +1124,27 @@ const SKILLS = {
   {id:'sr_l35_dis_in',n:'Dislocate and inlocate',d:'A',v:0.1,gn:'Swing to handstand',lv:'l56',ex:'Open the shoulders smoothly, rings steady — watch bent arms, swing.'},
   {id:'sr_l35_back_uprise',n:'Back uprise to support',d:'A',v:0.1,gn:'Kip / uprise to support',lv:'l4',ex:'Swing to support without bending — watch bent arms, low finish.'},
   {id:'sr_l35_salto_dis',n:'Swing to tucked back salto dismount',d:'A',v:0.1,gn:'Dismount',lv:'l56',ex:'Build the swing, tight tuck, stick — watch swing in the rings, step.'},
+  {id:'sr_l56_lsit',n:'L-sit hold (2s)',d:'A',v:0.1,gn:'Strength holds',lv:'l56',ex:'Hold legs horizontal for 2s, rings steady — watch low legs, short hold, swinging rings.'},
+  {id:'sr_l56_back_lever',n:'Back lever (hold 2s)',d:'A',v:0.1,gn:'Strength holds',lv:'l56',ex:'Body horizontal below the rings, still — watch high hips, short hold, swinging rings.'},
+  {id:'sr_l56_fwd_uprise',n:'Front uprise to support',d:'A',v:0.1,gn:'Kip / uprise to support',lv:'l56',ex:'Swing forward and press to support — watch bent arms, incomplete rotation.'},
+  {id:'sr_l56_piked_flyaway',n:'Piked flyaway dismount',d:'B',v:0.2,gn:'Dismount',lv:'l56',ex:'Pike tight then open to land, stick — watch early open, step.'},
+  {id:'sr_l56_layout_flyaway',n:'Layout flyaway dismount',d:'B',v:0.2,gn:'Dismount',lv:'l56',ex:'Straight body flyaway to land, stick — watch bent at hips, step.'},
   {id:'sr_back_uprise_hs',n:'Back uprise to handstand',d:'C',v:0.3,gn:'Swing to handstand',lv:'l78',ex:'Uprise straight to a steady handstand — watch swing, short of vertical.'},
   {id:'sr_honma',n:'Honma to support',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Swing straight to support, rings steady — watch swing, bent arms.'},
   {id:'sr_guczoghy',n:'Guczoghy (felge to cross)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Backward swing to a held cross — watch swing in the rings, short hold.'},
   {id:'sr_li_ning',n:'Li Ning (felge to support)',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Backward swing to support or handstand — watch swing, bent arms.'},
   {id:'sr_victorian',n:'Victorian (reverse planche, hold)',d:'E',v:0.5,gn:'Strength holds',lv:'l910',ex:'Reverse-planche hold, body horizontal — watch body height, bent arms, short hold.'},
-  {id:'sr_press_maltese',n:'Press to Maltese',d:'E',v:0.5,gn:'Strength holds',lv:'l910',ex:'Press into a held Maltese — watch body height, bent arms, short hold.'}
- ,
+  {id:'sr_press_maltese',n:'Press to Maltese',d:'E',v:0.5,gn:'Strength holds',lv:'l910',ex:'Press into a held Maltese — watch body height, bent arms, short hold.'},
   {id:'sr_l4_back_uprise_lsit',n:'Back uprise to L-support',d:'A',v:0.1,gn:'Kip / uprise to support',lv:'l4',ex:'Uprise to support then hold the L — watch bent arms, low legs.'},
   {id:'sr_l4_muscle_lower',n:'Muscle-up then lower to inverted hang',d:'A',v:0.1,gn:'Kip / uprise to support',lv:'l4',ex:'Press to support then lower under control — watch swing, fast drop.'},
   {id:'sr_l4_skincat_inv',n:'Skin-the-cat to inverted hang hold',d:'A',v:0.1,gn:'Strength holds',lv:'l4',ex:'Roll through to a still inverted hang — watch swing, dropping fast.'},
-  {id:'sr_l4_german',n:'German hang (shoulder hold)',d:'A',v:0.1,gn:'Strength holds',lv:'l4',ex:'Controlled shoulder-stretch hang, rings still — watch swinging, rushing.'}
+  {id:'sr_l4_german',n:'German hang (shoulder hold)',d:'A',v:0.1,gn:'Strength holds',lv:'l4',ex:'Controlled shoulder-stretch hang, rings still — watch swinging, rushing.'},
+  {id:'sr_balandin',n:'Balandin (felge to cross)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Swing backward straight to a held cross — watch swing in rings, short hold.'},
+  {id:'sr_yang_wei',n:'Yang Wei (felge to Maltese)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Swing straight to a held Maltese — watch body height, bent arms, short hold.'},
+  {id:'sr_triple_layout_dis',n:'Triple back layout dismount',d:'H',v:0.8,gn:'Dismount',lv:'lelite',ex:'Three stretched saltos, stick — watch low set, under-rotation.'}
+ ,
+  {id:'sr_pineda',n:'Pineda (back uprise to Maltese)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Uprise straight to a held Maltese — watch body height, bent arms, short hold.'},
+  {id:'sr_dd_pike_dis',n:'Double-double piked dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Two twists in a piked double salto, stick — watch under-rotation, step.'}
  ],
  VT:[
   {id:'vt_hs',n:'Handspring',d:'',v:2.0,gn:'Vault',lv:'l78',ex:'Full extension and block, controlled landing — watch short support, pike, steps.'},
@@ -1009,31 +1153,36 @@ const SKILLS = {
   {id:'vt_tt',n:'Tsukahara (tuck)',d:'',v:3.2,gn:'Vault',lv:'l78',ex:'Quarter-on half-off entry, tight salto — watch direction, step.'},
   {id:'vt_tl',n:'Tsukahara (layout)',d:'',v:3.6,gn:'Vault',lv:'l78',ex:'Straight body, complete rotation — watch arch, step.'},
   {id:'vt_kas',n:'Kasamatsu',d:'',v:4.0,gn:'Vault',lv:'l910',ex:'Half-on with one and a quarter twist off — watch twist completion, landing.'},
-  {id:'vt_roche',n:'Handspring double front (Roche)',d:'',v:5.6,gn:'Vault',lv:'l910',ex:'Huge block, two front saltos, stick — watch under-rotation, deep landing.'},
-  {id:'vt_drag',n:'Dragulescu',d:'',v:5.6,gn:'Vault',lv:'l910',ex:'Double front with half twist out — watch blind landing.'},
-  {id:'vt_akopian',n:'Tsukahara double back (Akopian)',d:'',v:5.2,gn:'Vault',lv:'l910',ex:'Tsukahara entry into a double back — watch under-rotation, deep landing.'},
+  {id:'vt_roche',n:'Handspring double front (Roche)',d:'',v:5.6,gn:'Vault',lv:'lelite',ex:'Huge block, two front saltos, stick — watch under-rotation, deep landing.'},
+  {id:'vt_drag',n:'Dragulescu',d:'',v:5.6,gn:'Vault',lv:'lelite',ex:'Double front with half twist out — watch blind landing.'},
+  {id:'vt_akopian',n:'Tsukahara double back (Akopian)',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Tsukahara entry into a double back — watch under-rotation, deep landing.'},
   {id:'vt_lou_yun',n:'Kasamatsu 1/1 (Lou Yun)',d:'',v:4.4,gn:'Vault',lv:'l910',ex:'Kasamatsu with an extra half twist — watch twist completion, step.'},
-  {id:'vt_shewfelt',n:'Handspring front double full',d:'',v:5.2,gn:'Vault',lv:'l910',ex:'Two twists in a single front salto — watch off-axis, blind landing.'},
-  {id:'vt_yang',n:'Yang Hak Seon (Tsukahara triple twist)',d:'',v:6.0,gn:'Vault',lv:'l910',ex:'Olympian-level — three twists off a Tsukahara entry — watch twist completion, landing.'},
-  {id:'vt_rise',n:'Ri Se Gwang (handspring double front twist)',d:'',v:6.2,gn:'Vault',lv:'l910',ex:'Olympian-level — handspring double front with a twist — watch rotation, deep landing.'},
+  {id:'vt_shewfelt',n:'Handspring front double full',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Two twists in a single front salto — watch off-axis, blind landing.'},
+  {id:'vt_yang',n:'Yang Hak Seon (Tsukahara triple twist)',d:'',v:6.0,gn:'Vault',lv:'lelite',ex:'Olympian-level — three twists off a Tsukahara entry — watch twist completion, landing.'},
+  {id:'vt_rise',n:'Ri Se Gwang (handspring double front twist)',d:'',v:6.2,gn:'Vault',lv:'lelite',ex:'Olympian-level — handspring double front with a twist — watch rotation, deep landing.'},
   {id:'vt_squat',n:'Squat-on, straight jump off',d:'',v:1.2,gn:'Vault',lv:'l13',ex:'Squat through and stand tall — watch feet hitting, sitting back.'},
   {id:'vt_flatback',n:'Handspring to flat back (timer)',d:'',v:1.6,gn:'Vault',lv:'l13',ex:'Handspring shape onto the mat — watch piking, no push.'},
   {id:'vt_l35_handspring',n:'Run, hurdle, front handspring to stand (Level 5)',d:'',v:2.0,gn:'Vault',lv:'l56',ex:'Full extension and block, controlled landing — watch short support, pike, step.'},
   {id:'vt_yurchenko',n:'Yurchenko layout (round-off entry)',d:'',v:3.6,gn:'Vault',lv:'l78',ex:'Round-off onto the table into a stretched salto — watch direction, step.'},
   {id:'vt_lopez',n:'Lopez (handspring ½ on)',d:'',v:3.2,gn:'Vault',lv:'l78',ex:'Half-turn on, salto off — watch twist completion, step.'},
-  {id:'vt_hs_dbl_tuck',n:'Handspring double front (tuck)',d:'',v:5.2,gn:'Vault',lv:'l910',ex:'Big block into a tucked double front, stick — watch under-rotation, deep landing.'}
- ,
+  {id:'vt_hs_dbl_tuck',n:'Handspring double front (tuck)',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Big block into a tucked double front, stick — watch under-rotation, deep landing.'},
   {id:'vt_l4_handspring',n:'Front handspring to feet (Level 4)',d:'',v:2.0,gn:'',lv:'l4',ex:'Block and stand tall on landing — watch short support, sitting back.'},
-  {id:'vt_l4_handspring_mat',n:'Handspring onto a raised mat stack',d:'',v:1.6,gn:'',lv:'l4',ex:'Drive through to the mat with a strong block — watch piking, short block.'}
- ,
+  {id:'vt_l4_handspring_mat',n:'Handspring onto a raised mat stack',d:'',v:1.6,gn:'',lv:'l4',ex:'Drive through to the mat with a strong block — watch piking, short block.'},
   {id:'vt_l56_block',n:'Front handspring, strong block & repulsion',d:'',v:2.0,gn:'',lv:'l56',ex:'Punch off the table with full extension — watch short support, piking early.'},
   {id:'vt_l56_hollow',n:'Front handspring, hollow body to feet',d:'',v:2.0,gn:'',lv:'l56',ex:'Hold a tight hollow through flight — watch arch, sitting back on landing.'},
   {id:'vt_l56_tuck_drill',n:'Handspring front tuck (into pit / timer)',d:'',v:2.4,gn:'',lv:'l56',ex:'Block then start the tuck rotation — watch early tuck, short block.'},
-  {id:'vt_l56_half',n:'Handspring with half turn to feet',d:'',v:2.4,gn:'',lv:'l56',ex:'Add the half turn after a full block — watch early turn, off-line landing.'}
- ,
+  {id:'vt_l56_half',n:'Handspring with half turn to feet',d:'',v:2.4,gn:'',lv:'l56',ex:'Add the half turn after a full block — watch early turn, off-line landing.'},
   {id:'vt_l56_over_table',n:'Front handspring over the vault table',d:'',v:2.0,gn:'',lv:'l56',ex:'Clear the full table with a strong block and reach — watch short support, piking over the table.'},
   {id:'vt_l56_front_tuck_mat',n:'Front tuck onto a mat',d:'',v:2.4,gn:'',lv:'l56',ex:'Block then a tucked front salto landing on the mat — watch early tuck, under-rotation.'},
-  {id:'vt_l56_front_layout_mat',n:'Front layout onto a mat',d:'',v:2.8,gn:'',lv:'l56',ex:'Block into a stretched front salto onto the mat — watch arch, short rotation.'}
+  {id:'vt_l56_front_layout_mat',n:'Front layout onto a mat',d:'',v:2.8,gn:'',lv:'l56',ex:'Block into a stretched front salto onto the mat — watch arch, short rotation.'},
+  {id:'vt_driggs',n:'Kasamatsu double salto (Driggs)',d:'',v:5.6,gn:'',lv:'lelite',ex:'Kasamatsu entry into a double salto — watch under-rotation, deep landing.'},
+  {id:'vt_yeo',n:'Yeo Hyung Chul 2 (handspring double front ½)',d:'',v:6.0,gn:'',lv:'lelite',ex:'Handspring double front with a half twist out — watch blind landing.'}
+ ,
+  {id:'vt_hs_front_full',n:'Handspring front salto with full twist',d:'',v:4.0,gn:'',lv:'l910',ex:'Block then a full-twisting front salto, stick — watch off-axis, blind landing.'},
+  {id:'vt_tsuk_full',n:'Tsukahara with full twist',d:'',v:4.4,gn:'',lv:'l910',ex:'Tsukahara entry with a full twist off — watch twist completion, step.'},
+  {id:'vt_kas_half',n:'Kasamatsu with half twist (Barbieri)',d:'',v:4.4,gn:'',lv:'l910',ex:'Kasamatsu with an extra half twist — watch twist completion, landing.'},
+  {id:'vt_yurchenko_full',n:'Yurchenko with full twist',d:'',v:4.4,gn:'',lv:'l910',ex:'Round-off entry with a full twist off — watch direction, step.'},
+  {id:'vt_lou_yun_half',n:'Lou Yun with half twist (Lopez)',d:'',v:4.8,gn:'',lv:'l910',ex:'Kasamatsu with an added half twist — watch twist completion, deep landing.'}
  ],
  PB:[
   {id:'pb_kip',n:'Glide kip to support',d:'A',v:0.1,gn:'Upper-arm elements',lv:'l78',ex:'Smooth kip to support — watch bent arms, extra swing.'},
@@ -1061,17 +1210,31 @@ const SKILLS = {
   {id:'pb_l35_uparm_kip',n:'Upper-arm kip to support',d:'A',v:0.1,gn:'Upper-arm elements',lv:'l4',ex:'Drive to support from the upper arms — watch low finish, bent arms.'},
   {id:'pb_l35_uprise_travel',n:'Back uprise to support, straddle travel',d:'A',v:0.1,gn:'Support & long swing',lv:'l56',ex:'Swing to support then travel cleanly — watch swing, heavy sit.'},
   {id:'pb_l35_fsalto_uparm',n:'Front salto to upper-arm support',d:'B',v:0.2,gn:'Upper-arm elements',lv:'l56',ex:'Controlled salto caught in upper-arm support — watch hard catch, swing.'},
+  {id:'pb_l56_stutz_intro',n:'Stützkehre (back toss to support)',d:'A',v:0.1,gn:'Support & long swing',lv:'l56',ex:'Back toss and catch in support — watch swing, low finish, bent arms.'},
+  {id:'pb_l56_swing_dis',n:'Swing forward, dismount off the end',d:'A',v:0.1,gn:'Dismount',lv:'l56',ex:'Build the swing and release off the end to land, stick — watch low, step.'},
+  {id:'pb_l56_peach_supp',n:'Peach (basket) to support',d:'B',v:0.2,gn:'Under-bar elements',lv:'l56',ex:'Underbar swing to support — watch bent arms, low finish.'},
+  {id:'pb_l56_uparm_kip',n:'Upper-arm swing, kip to support',d:'A',v:0.1,gn:'Upper-arm elements',lv:'l56',ex:'Swing in upper-arm support then kip up to support — watch low finish, bent arms.'},
   {id:'pb_giant',n:'Giant swing',d:'C',v:0.3,gn:'Support & long swing',lv:'l78',ex:'Full giant in handstand grip, straight arms — watch bent arms, short of handstand.'},
   {id:'pb_dimic',n:'Dimic (front uprise straddle)',d:'C',v:0.3,gn:'Support & long swing',lv:'l78',ex:'Front uprise to straddle support — watch swing, heavy sit.'},
   {id:'pb_bhavsar',n:'Bhavsar (peach with turn)',d:'D',v:0.4,gn:'Under-bar elements',lv:'l910',ex:'Peach with a turn to support — watch low, bent arms.'},
   {id:'pb_morisue',n:'Morisue (double salto to support)',d:'E',v:0.5,gn:'Support & long swing',lv:'l910',ex:'Double salto caught on the bars — watch hard catch, swing.'},
-  {id:'pb_dbl_front_pike',n:'Double front pike dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Front double pike off the end, stick — watch blind landing, under-rotation.'}
- ,
+  {id:'pb_dbl_front_pike',n:'Double front pike dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Front double pike off the end, stick — watch blind landing, under-rotation.'},
   {id:'pb_l4_swing_lsit',n:'Swing in support to L-sit hold',d:'A',v:0.1,gn:'Support & long swing',lv:'l4',ex:'Swing under control then hold the L-sit — watch piking, dropping shoulders.'},
   {id:'pb_l4_straddle_travel',n:'Straddle-sit travel along the bars',d:'A',v:0.1,gn:'Support & long swing',lv:'l4',ex:'Travel along the bars under control — watch heavy sit, swing.'},
   {id:'pb_l4_roll_uparm',n:'Forward roll to upper-arm support',d:'A',v:0.1,gn:'Upper-arm elements',lv:'l4',ex:'Controlled roll caught in upper-arm support — watch hard catch, swing.'},
   {id:'pb_l4_back_uprise_uparm',n:'Back uprise from upper arms to support',d:'A',v:0.1,gn:'Upper-arm elements',lv:'l4',ex:'Drive from the upper arms to support — watch low finish, bent arms.'},
-  {id:'pb_l4_front_dis_half',n:'Front dismount with half turn',d:'A',v:0.1,gn:'Dismount',lv:'l4',ex:'Swing and turn off the side, stick — watch low, step.'}
+  {id:'pb_l4_front_dis_half',n:'Front dismount with half turn',d:'A',v:0.1,gn:'Dismount',lv:'l4',ex:'Swing and turn off the side, stick — watch low, step.'},
+  {id:'pb_giant_full',n:'Giant swing with full pirouette',d:'D',v:0.4,gn:'Support & long swing',lv:'l910',ex:'Full giant then a clean pirouette to handstand — watch bent arms, off-balance.'},
+  {id:'pb_double_front_half',n:'Double front half-out dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Double front with a half turn out, stick — watch blind landing, under-rotation.'},
+  {id:'pb_belle_full',n:'Belle with full twist',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Front double salto off the end with a full twist — watch under-rotation, deep landing.'}
+ ,
+  {id:'pb_huang_liping',n:'Huang Liping (double pike to upper arm)',d:'F',v:0.6,gn:'Support & long swing',lv:'lelite',ex:'Double piked salto caught on the bars — watch hard catch, swing.'},
+  {id:'pb_dbl_pike_full',n:'Double pike dismount with full twist',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Double pike off the end with a full twist, stick — watch under-rotation, deep landing.'},
+  {id:'pb_giant_15pir',n:'Giant swing, 1½ pirouette to handstand',d:'F',v:0.6,gn:'Support & long swing',lv:'lelite',ex:'Continue through the full turn to 1½ to handstand — watch over-turn, off-balance.'},
+  {id:'pb_stutz_full',n:'Stützkehre full turn to handstand',d:'F',v:0.6,gn:'Support & long swing',lv:'lelite',ex:'Back toss with a complete rotation to handstand — watch under-turn, off-balance.'},
+  {id:'pb_peach_full_turn',n:'Peach with full turn to handstand',d:'F',v:0.6,gn:'Under-bar elements',lv:'lelite',ex:'Underbar swing with full pirouette to handstand — watch under-turn, low handstand.'},
+  {id:'pb_dbl_front_full',n:'Double front full-out dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Double front with a full twist in the second salto, stick — watch blind landing, under-rotation.'},
+  {id:'pb_belle_15tw',n:'Belle 1½ twist dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Front double pike off the end with 1½ twists — watch blind landing, under-rotation.'}
  ],
  HB:[
   {id:'hb_giant',n:'Giant swing',d:'A',v:0.1,gn:'Long swings',lv:'l78',ex:'Straight body to handstand each way — watch arch, bent arms, short of handstand.'},
@@ -1086,12 +1249,11 @@ const SKILLS = {
   {id:'hb_dl',n:'Double layout dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Two straight saltos, stick — watch under-rotation, step.'},
   {id:'hb_triple',n:'Triple back dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Three tight saltos, stick — watch low set, under-rotation.'},
   {id:'hb_piked_tkatchev',n:'Piked Tkatchev',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Piked clear over the bar then regrasp — watch leg bend, low height.'},
-  {id:'hb_kolman',n:'Kolman (layout Kovacs, full twist)',d:'F',v:0.6,gn:'Flight / release',lv:'l910',ex:'Stretched Kovacs with a full twist — watch under-rotation, late regrasp.'},
-  {id:'hb_cassina',n:'Cassina',d:'F',v:0.6,gn:'Flight / release',lv:'l910',ex:'Stretched Kovacs with full twist over the bar — watch travel, late regrasp.'},
-  {id:'hb_bretschneider',n:'Bretschneider',d:'H',v:0.8,gn:'Flight / release',lv:'l910',ex:'Olympian-level — double-twisting double-layout over the bar — watch rotation, regrasp.'},
+  {id:'hb_kolman',n:'Kolman (layout Kovacs, full twist)',d:'F',v:0.6,gn:'Flight / release',lv:'lelite',ex:'Stretched Kovacs with a full twist — watch under-rotation, late regrasp.'},
+  {id:'hb_cassina',n:'Cassina',d:'F',v:0.6,gn:'Flight / release',lv:'lelite',ex:'Stretched Kovacs with full twist over the bar — watch travel, late regrasp.'},
+  {id:'hb_bretschneider',n:'Bretschneider',d:'H',v:0.8,gn:'Flight / release',lv:'lelite',ex:'Olympian-level — double-twisting double-layout over the bar — watch rotation, regrasp.'},
   {id:'hb_quast',n:'Quast (Adler 1/1)',d:'D',v:0.4,gn:'In-bar elements',lv:'l910',ex:'In-bar element with a full turn to handstand — watch off-vertical, bent legs.'},
-  {id:'hb_watanabe',n:'Double-twisting double layout dismount',d:'F',v:0.6,gn:'Dismount',lv:'l910',ex:'Two twists in a stretched double salto, stick — watch under-rotation, step.'},
-  {id:'hb_triple_layout',n:'Triple-back dismount (layout)',d:'G',v:0.7,gn:'Dismount',lv:'l910',ex:'Olympian-level — three stretched saltos — watch low set, under-rotation.'},
+  {id:'hb_watanabe',n:'Double-twisting double layout dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Two twists in a stretched double salto, stick — watch under-rotation, step.'},
   {id:'hb_support',n:'Support hold',d:'Fdn',v:0,gn:'Long swings',lv:'l13',ex:'Tall support over the bar — watch sagging, bent arms.'},
   {id:'hb_cast',n:'Cast',d:'Fdn',v:0,gn:'Long swings',lv:'l13',ex:'Lift the hips off the bar with straight arms — watch bent arms, small cast.'},
   {id:'hb_back_hip',n:'Back hip circle',d:'Fdn',v:0,gn:'In-bar elements',lv:'l13',ex:'Wrap the hips around the bar smoothly — watch loose hips, stopping.'},
@@ -1107,25 +1269,40 @@ const SKILLS = {
   {id:'hb_gienger',n:'Gienger',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Backward salto with a half turn over the bar, regrasp — watch low, late catch.'},
   {id:'hb_markelov',n:'Markelov (straddle Jaeger)',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Straddled front release, regrasp — watch piked legs, late regrasp.'},
   {id:'hb_def',n:'Def (Tkatchev with ½ turn)',d:'E',v:0.5,gn:'Flight / release',lv:'l910',ex:'Tkatchev with a half turn, regrasp — watch low, late catch.'},
-  {id:'hb_dd_dismount',n:'Double-twisting double tuck dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Two twists in a double tuck, stick — watch under-rotation, step.'}
- ,
+  {id:'hb_dd_dismount',n:'Double-twisting double tuck dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Two twists in a double tuck, stick — watch under-rotation, step.'},
   {id:'hb_l4_glide_kip',n:'Glide kip to support',d:'A',v:0.1,gn:'In-bar elements',lv:'l4',ex:'Glide long then kip to support — watch bent arms, early kip.'},
   {id:'hb_l4_kip_cast',n:'Glide kip, cast to horizontal',d:'A',v:0.1,gn:'In-bar elements',lv:'l4',ex:'Kip then cast with straight arms — watch bent arms, small cast.'},
   {id:'hb_l4_back_hip_under',n:'Back hip circle, underswing dismount',d:'A',v:0.1,gn:'Dismount',lv:'l4',ex:'Wrap the hips then swing under to land — watch loose hips, low dismount.'},
-  {id:'hb_l4_cast_half',n:'Cast, hop half turn to support',d:'A',v:0.1,gn:'Long swings',lv:'l4',ex:'Cast then hop the half turn to support — watch small cast, off-balance.'}
+  {id:'hb_l4_cast_half',n:'Cast, hop half turn to support',d:'A',v:0.1,gn:'Long swings',lv:'l4',ex:'Cast then hop the half turn to support — watch small cast, off-balance.'},
+  {id:'hb_l56_cast_hs',n:'Cast to handstand',d:'B',v:0.2,gn:'Long swings',lv:'l56',ex:'Cast with straight arms to a controlled handstand — watch bent arms, short of vertical.'},
+  {id:'hb_l56_freehip_hs',n:'Clear hip circle to handstand',d:'B',v:0.2,gn:'In-bar elements',lv:'l56',ex:'Clear the bar and finish in handstand — watch bent arms, low finish.'},
+  {id:'hb_l56_kip_cast_hs',n:'Kip, cast toward handstand',d:'B',v:0.2,gn:'In-bar elements',lv:'l56',ex:'Kip then cast on toward handstand — watch bent arms, short cast.'},
+  {id:'hb_l56_stoop',n:'Stoop-in, undershoot to support',d:'A',v:0.1,gn:'In-bar elements',lv:'l56',ex:'Stoop the legs through and undershoot to support — watch bent legs, stalling.'},
+  {id:'hb_l56_flyaway_tuck',n:'Tucked flyaway dismount',d:'A',v:0.1,gn:'Dismount',lv:'l56',ex:'Swing and release to a tucked salto, stick — watch low release, step.'},
+  {id:'hb_l56_flyaway_layout',n:'Layout flyaway dismount (basic)',d:'B',v:0.2,gn:'Dismount',lv:'l56',ex:'Stretched flyaway off the bar, stick — watch arch, step.'},
+  {id:'hb_pegan',n:'Pegan (piked Tkatchev half turn)',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Piked Tkatchev with a half turn, regrasp — watch bend, late catch.'},
+  {id:'hb_liukin',n:'Liukin (Tkatchev with full twist)',d:'E',v:0.5,gn:'Flight / release',lv:'l910',ex:'Tkatchev with a full twist, regrasp — watch low, late catch.'},
+  {id:'hb_miyachi',n:'Miyachi (layout Cassina with extra twist)',d:'G',v:0.7,gn:'Flight / release',lv:'lelite',ex:'Stretched double-twisting release over the bar, regrasp — watch travel, late catch.'}
+ ,
+  {id:'hb_pedro',n:'Pedro (stretched Tkatchev with full twist)',d:'F',v:0.6,gn:'Flight / release',lv:'lelite',ex:'Stretched Tkatchev with a full twist, regrasp — watch low, late catch.'},
+  {id:'hb_quad_dis',n:'Quadruple-twisting double layout dismount',d:'H',v:0.8,gn:'Dismount',lv:'lelite',ex:'Four twists in a stretched double salto, stick — watch under-rotation, step.'}
  ]
 };
 
 state.rbApp='FX';
 state.routines={FX:[],PH:[],SR:[],VT:[],PB:[],HB:[]};
+state.clApp='FX';
+state.checklist={};
 const STORE_KEY='mag_levels_hub_v1';
-function saveState(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({level:state.level, app:state.app, scores:state.scores, rbApp:state.rbApp, routines:state.routines})); }catch(e){} }
+function saveState(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({level:state.level, app:state.app, scores:state.scores, rbApp:state.rbApp, routines:state.routines, clApp:state.clApp, checklist:state.checklist})); }catch(e){} }
 function loadState(){ try{ const raw=localStorage.getItem(STORE_KEY); if(!raw) return; const o=JSON.parse(raw)||{};
   if(typeof o.level==='number' && LEVELS[o.level]) state.level=o.level;
   if(o.app && APP.some(a=>a.k===o.app)) state.app=o.app;
   if(o.rbApp && APP.some(a=>a.k===o.rbApp)) state.rbApp=o.rbApp;
   if(o.scores) for(const k in state.scores){ const v=o.scores[k]; if(typeof v==='string'||typeof v==='number') state.scores[k]=String(v); }
   if(o.routines) for(const k in state.routines){ if(Array.isArray(o.routines[k])) state.routines[k]=o.routines[k].filter(id=>skillById(k,id)); }
+  if(o.clApp && APP.some(a=>a.k===o.clApp)) state.clApp=o.clApp;
+  if(o.checklist && typeof o.checklist==='object'){ for(const id in o.checklist){ if(o.checklist[id]===true) state.checklist[id]=true; } }
 }catch(e){} }
 function dvColor(v){ if(v<=0)return'#2f9e6e'; if(v>=0.6)return'var(--red)'; if(v>=0.5)return'#e0552b'; if(v>=0.4)return'#e8a32a'; if(v>=0.3)return'var(--blue-dark)'; if(v>=0.2)return'var(--blue-2)'; return'#5b8def'; }
 function vtColor(v){ if(v>=4.4)return'var(--red)'; if(v>=3.4)return'#e8a32a'; return'var(--blue-2)'; }
@@ -1141,7 +1318,7 @@ function renderDDOptions(filter){
   let list=SKILLS[k]; if(f) list=list.filter(s=>s.n.toLowerCase().includes(f)||(s.gn&&s.gn.toLowerCase().includes(f)));
   const box=document.getElementById('rb-options');
   if(!list.length){ box.innerHTML='<div class="rb-noopt">No skills match that search</div>'; return; }
-  const bands=[['l13','Levels 1\u20133'],['l4','Level 4'],['l56','Levels 5\u20136'],['l78','Levels 7\u20138'],['l910','Levels 9\u201310']];
+  const bands=[['l13','Levels 1\u20133'],['l4','Level 4'],['l56','Levels 5\u20136'],['l78','Levels 7\u20138'],['l910','Levels 9\u201310'],['lelite','Olympian']];
   const TORDER={'Buck':0,'Single-leg & scissors':2,'Circles & flairs':3,'Travels':4,'Strength / Hold':2,'Forward acro':3,'Backward acro':4,'Kip / uprise to support':2,'Swing to handstand':3,'Strength holds':4,'Upper-arm elements':2,'Support & long swing':3,'Under-bar elements':4,'Long swings':2,'In-bar elements':3,'Flight / release':4,'Dismount':8,'Vault':9};
   let out='';
   bands.forEach(function(band){
@@ -1220,8 +1397,161 @@ document.addEventListener('click',()=>ddToggle(false));
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') ddToggle(false); });
 document.getElementById('rb-clear').addEventListener('click',()=>{ state.routines[state.rbApp]=[]; saveState(); renderRoutine(); })
 
+/* ---------- GYMNASTICS DICTIONARY ---------- */
+const GLOSSARY = [
+  {t:"All-around (AA)",d:"Your total score across all six apparatus added together. Most level results are decided by the all-around score."},
+  {t:"Apparatus",d:"The six pieces of equipment in MAG: Floor, Pommel Horse, Rings, Vault, Parallel Bars and High Bar."},
+  {t:"Back handspring",d:"A backwards acrobatic skill where you jump back, push through both hands and snap your feet back to the floor. Also written as BHS."},
+  {t:"Circle",d:"On pommel horse, a continuous 360-degree swing of both legs together around the horse, supported only on the hands."},
+  {t:"Compulsory routine",d:"A set routine where every gymnast performs the same skills in the same order. Used at Foundation and Junior levels."},
+  {t:"D-score",d:"The Difficulty score — how hard your routine is. Added up from the values of your skills, plus bonuses for using different skill groups."},
+  {t:"Deduction",d:"Points taken away by the judges for errors — bent arms, bent legs, steps on landing, falls, and other mistakes."},
+  {t:"Dislocate",d:"A rings skill where you swing backward and rotate the shoulders outward through an inverted position. The opposite is called an inlocate."},
+  {t:"Dismount",d:"The final skill that takes you off the apparatus and onto the mat. A clean landing protects a lot of points."},
+  {t:"E-score",d:"The Execution score — how cleanly you performed. It starts at 10.0 and goes down for every deduction the judges mark."},
+  {t:"Element group",d:"A family of related skills on each apparatus. Covering different groups earns bonus points toward your D-score."},
+  {t:"Flair",d:"A pommel horse or floor skill where the legs swing wide and apart in large horizontal circles. Named after Kurt Thomas."},
+  {t:"Flight element",d:"On bars, a skill where the gymnast releases the bar, does a move in the air, and regrasps. Also called a release element."},
+  {t:"Front handspring",d:"An acrobatic skill where you kick into a handstand and push powerfully off both hands to land on your feet. Often written as FHS."},
+  {t:"Giant swing",d:"On High Bar: a full 360-degree swing around the bar in a stretched body position. The foundation of most high-bar routines."},
+  {t:"Handstand",d:"A straight upside-down position balanced on both hands. The goal is a perfectly vertical, tight body with pointed toes."},
+  {t:"Inlocate",d:"A rings skill where you swing forward and rotate the shoulders inward through an inverted position."},
+  {t:"Kip",d:"A swinging skill that uses momentum to move from a hang or low position up into a support above the bar. A key connecting skill on bars."},
+  {t:"LAT (Level Award Test)",d:"The all-around score a gymnast needs to have officially passed their level. For example, 30.00 AA for Levels 3 to 6."},
+  {t:"Layout",d:"A straight, fully extended body position during a salto or flight skill. The most stretched shape and usually the most difficult."},
+  {t:"L-sit",d:"A strength hold where both legs are lifted horizontally in front of the body, forming an L shape. Used on rings and parallel bars."},
+  {t:"Mushroom",d:"A small circular training apparatus used to learn pommel-horse circles before moving onto the full horse."},
+  {t:"Optional routine",d:"A routine the gymnast builds themselves, choosing skills to meet set requirements. Used at senior and elite levels."},
+  {t:"Pike",d:"A body position where the hips are bent and the legs are straight — folding at the waist. Harder than tuck, easier than layout."},
+  {t:"Pirouette",d:"A rotation (turn) on one or both hands while in a handstand or during a flight skill."},
+  {t:"Pommel horse",d:"One of the six apparatus — a padded bench with two handles (pommels) on top. Gymnasts swing continuously without stopping."},
+  {t:"Release",d:"A move on bars where the gymnast lets go, performs a skill in the air, then regrasps the bar."},
+  {t:"Repulsion",d:"The explosive push off the vault table with both hands. A strong repulsion creates height and distance in the air."},
+  {t:"Round-off",d:"A cartwheel where the legs snap together at the top and the gymnast lands facing the direction they came from — used to build power into backward tumbling."},
+  {t:"Salto",d:"A somersault — a full rotation of the body in the air. Can be tucked (knees bent), piked (hips bent, legs straight) or layout (fully straight)."},
+  {t:"Special Requirements",d:"Specific types of skills that optional routines must include. Missing one usually costs 0.50 points from the score."},
+  {t:"Start Value (SV)",d:"The maximum score a routine can reach before any deductions. In compulsory levels it is 9.0, with bonuses that can raise it to 9.5 or 10.0."},
+  {t:"Support",d:"A position above the apparatus, bearing weight through the hands or upper arms. The opposite of a hang."},
+  {t:"Travel",d:"On pommel horse, shifting both hands from one part of the horse to another while keeping the legs swinging continuously."},
+  {t:"Tuck",d:"A body position where the knees and hips are both bent, pulling the body into a compact ball. The easiest shape for a salto."},
+  {t:"Twist",d:"A rotation around the body's long axis while in the air — spinning like a corkscrew during a salto."},
+  {t:"Vault",d:"Both the apparatus (a padded table) and the skill performed over it. The gymnast runs, hurdles, blocks off the table and lands."}
+];
+
+let _glossAll=[];
+
+function buildGlossary(){
+  const bandLabel={'l13':'L1–3','l4':'L4','l56':'L5–6','l78':'L7–8','l910':'L9–10','lelite':'Olympian'};
+  const appName={FX:'Floor',PH:'Pommel',SR:'Rings',VT:'Vault',PB:'P-Bars',HB:'High Bar'};
+  _glossAll=GLOSSARY.map(g=>({t:g.t,d:g.d,tag:''}));
+  for(const k of Object.keys(SKILLS)){
+    for(const s of SKILLS[k]){
+      _glossAll.push({
+        t:s.n,
+        d:s.ex+(s.d&&s.d!=='Fdn'?' · Difficulty '+s.d+' ('+s.v.toFixed(1)+')':''),
+        tag:appName[k]+' · '+(bandLabel[s.lv]||s.lv)
+      });
+    }
+  }
+  _glossAll.sort((a,b)=>a.t.localeCompare(b.t));
+  document.getElementById('gloss-search').addEventListener('input',e=>renderGlossary(e.target.value));
+  renderGlossary('');
+}
+
+function renderGlossary(q){
+  const list=document.getElementById('gloss-list');
+  const lq=q.trim().toLowerCase();
+  const terms=lq?_glossAll.filter(g=>g.t.toLowerCase().includes(lq)||g.d.toLowerCase().includes(lq)||g.tag.toLowerCase().includes(lq)):_glossAll;
+  if(!terms.length){list.innerHTML='<div class="gloss-none">No results — try a different word.</div>';return;}
+  const row=g=>`<div class="gloss-item"><span class="gloss-term">${g.t}${g.tag?`<span class="gloss-tag">${g.tag}</span>`:''}</span><span class="gloss-def">${g.d}</span></div>`;
+  if(lq){list.innerHTML=terms.map(row).join('');return;}
+  const grouped={};
+  for(const g of terms){const l=g.t[0].toUpperCase();if(!grouped[l])grouped[l]=[];grouped[l].push(g);}
+  list.innerHTML=Object.keys(grouped).sort().map(l=>
+    `<div class="gloss-letter">${l}</div>`+grouped[l].map(row).join('')
+  ).join('');
+}
+
+/* ---------- SKILLS CHECKLIST ---------- */
+const CL_BANDS=[
+  {code:'l13',label:'Levels 1–3'},
+  {code:'l4', label:'Level 4'},
+  {code:'l56',label:'Levels 5–6'},
+  {code:'l78',label:'Levels 7–8'},
+  {code:'l910',label:'Levels 9–10'},
+  {code:'lelite',label:'Olympian'}
+];
+
+function buildCLTabs(){
+  document.getElementById('cl-pills').innerHTML=APP.map(a=>`
+    <button class="cl-tab" data-cl="${a.k}">
+      ${ICONS[a.k]}
+      <span class="ab">${a.name}</span>
+      <span class="cl-cnt" id="cl-cnt-${a.k}">0/${SKILLS[a.k].length}</span>
+      <div class="cl-bar" id="cl-bar-${a.k}" style="width:0%"></div>
+    </button>`).join('');
+  document.querySelectorAll('.cl-tab').forEach(b=>b.addEventListener('click',()=>{
+    state.clApp=b.dataset.cl; saveState(); renderChecklist();
+  }));
+}
+
+function renderCLTabs(){
+  document.querySelectorAll('.cl-tab').forEach(b=>{
+    b.dataset.active=(b.dataset.cl===state.clApp);
+    const k=b.dataset.cl, total=SKILLS[k].length;
+    const done=SKILLS[k].filter(s=>state.checklist[s.id]).length;
+    document.getElementById('cl-cnt-'+k).textContent=done+'/'+total;
+    document.getElementById('cl-bar-'+k).style.width=(total?Math.round(done/total*100):0)+'%';
+  });
+}
+
+function renderChecklist(){
+  renderCLTabs();
+  const k=state.clApp, skills=SKILLS[k];
+  const total=skills.length, done=skills.filter(s=>state.checklist[s.id]).length;
+  const pct=total?Math.round(done/total*100):0;
+  const appName=APP.find(a=>a.k===k).full;
+  let html=`<div class="cl-head">
+    <h4>${appName}</h4>
+    <div class="cl-progress">
+      <div class="cl-ptrack"><div class="cl-pfill" style="width:${pct}%"></div></div>
+      <div class="cl-plabel"><b>${done}</b> of ${total} ticked off</div>
+    </div>
+    <button class="cl-clear" id="cl-clear-btn">Clear all</button>
+  </div><div class="cl-list">`;
+  for(const band of CL_BANDS){
+    const inBand=skills.filter(s=>s.lv===band.code);
+    if(!inBand.length) continue;
+    html+=`<div class="cl-band-head">${band.label}</div>`;
+    for(const s of inBand){
+      const isDone=!!state.checklist[s.id];
+      const col=k==='VT'?vtColor(s.v):dvColor(s.v);
+      const badge=k==='VT'?s.v.toFixed(1):s.d;
+      html+=`<div class="cl-skill${isDone?' done':''}" data-id="${s.id}">
+        <div class="cl-btn">${isDone?'✓':''}</div>
+        <span class="cl-skill-n">${s.n}</span>
+        <span class="cl-skill-d" style="background:${col}">${badge}</span>
+      </div>`;
+    }
+  }
+  html+=`</div>`;
+  document.getElementById('cl-card').innerHTML=html;
+  document.querySelectorAll('.cl-skill').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const id=el.dataset.id;
+      if(state.checklist[id]) delete state.checklist[id]; else state.checklist[id]=true;
+      saveState(); renderChecklist();
+    });
+  });
+  document.getElementById('cl-clear-btn').addEventListener('click',e=>{
+    e.stopPropagation();
+    SKILLS[k].forEach(s=>delete state.checklist[s.id]);
+    saveState(); renderChecklist();
+  });
+}
+
 /* init */
-buildLevels(); buildApps(); buildInputs(); buildRBTabs(); loadState(); render(); renderRB();
+buildLevels(); buildApps(); buildInputs(); buildRBTabs(); buildCLTabs(); loadState(); render(); renderRB(); renderChecklist(); buildGlossary();
 </script>
 </body>
 </html>
