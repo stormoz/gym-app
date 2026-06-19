@@ -1,0 +1,11 @@
+{
+  "name": "gymnastics_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "publish": "git add -A && git commit -m Update && git push"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
