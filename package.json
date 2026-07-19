@@ -1,6 +1,6 @@
 {
   "name": "gymnastics_app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "scripts": {
     "publish": "git add -A && git commit -m Update && git push && open https://stormoz.github.io/gym-app/"
