@@ -83,6 +83,35 @@
   .sec-nav{position:sticky;top:68px;z-index:35;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .sec-nav-inner{max-width:1080px;margin:0 auto;padding:0 22px;display:flex;overflow-x:auto;scrollbar-width:none}
   .sec-nav-inner::-webkit-scrollbar{display:none}
+  .sn-left{display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 4px;flex:none}
+  .sn-home{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:5px 12px;text-decoration:none;cursor:pointer;border:1.5px solid var(--line);border-radius:10px;background:#fff;transition:.15s;flex:none;min-width:58px;color:var(--muted)}
+  .sn-home:hover,.sn-home.active{background:var(--blue-soft);border-color:var(--blue);color:var(--blue-dark)}
+  .sn-home-icon{font-size:15px;line-height:1}
+  .sn-home-lab{font-size:10px;font-weight:700;letter-spacing:.1px;line-height:1}
+  .sn-dots{background:none;border:none;cursor:pointer;font-size:16px;color:var(--muted);letter-spacing:3px;line-height:1;padding:2px 8px;border-radius:6px;transition:.15s;font-family:Georgia,'Times New Roman',serif;width:100%}
+  .sn-dots:hover{color:var(--blue-dark);background:var(--blue-tint)}
+  .sn-divider{width:1px;background:var(--line);margin:8px 6px;align-self:stretch;flex:none}
+  /* overlay pages */
+  .ov-page{position:fixed;inset:0;background:#fff;z-index:200;display:none;overflow-y:auto}
+  .ov-page.visible{display:block}
+  .ov-header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1.5px solid var(--line)}
+  .ov-logo{height:52px;width:auto;display:block}
+  .ov-title{font-size:20px;font-weight:700;color:var(--ink);margin:0}
+  .ov-back{display:inline-flex;align-items:center;gap:8px;margin:18px 24px 4px;padding:9px 18px;border:1.5px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;font-size:14px;font-weight:700;color:var(--muted);transition:.15s;font-family:Georgia,'Times New Roman',serif}
+  .ov-back:hover{border-color:var(--blue);color:var(--blue-dark);background:var(--blue-tint)}
+  .menu-list{padding:20px 24px;display:flex;flex-direction:column;gap:12px;max-width:520px}
+  .menu-row{display:flex;align-items:center;gap:16px;padding:16px 18px;border:1.5px solid var(--line);border-radius:14px;cursor:pointer;transition:.15s}
+  .menu-row:hover{border-color:var(--blue);background:var(--blue-tint)}
+  .menu-dot-box{width:30px;height:30px;border:2px solid var(--blue);border-radius:7px;display:flex;align-items:center;justify-content:center;flex:none}
+  .menu-dot{width:13px;height:13px;background:var(--blue);border-radius:50%}
+  .menu-row-text{font-size:16px;font-weight:700;color:var(--ink)}
+  .howto-body{padding:24px;max-width:720px;margin:0 auto}
+  .howto-body h2{font-size:26px;color:var(--ink);margin:0 0 28px}
+  .howto-sec{margin-bottom:30px;padding-bottom:30px;border-bottom:1px solid var(--line-2)}
+  .howto-sec:last-child{border-bottom:none}
+  .howto-sec h3{font-size:17px;color:var(--blue-dark);margin:0 0 10px;display:flex;align-items:center;gap:10px}
+  .howto-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-size:13px;font-weight:700;flex:none}
+  .howto-sec p{font-size:15px;line-height:1.75;color:var(--ink);margin:0}
   .sn-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 14px 8px;text-decoration:none;flex:1;min-width:60px;border-bottom:3px solid transparent;transition:.15s;color:inherit;cursor:pointer}
   .sn-btn:hover{background:var(--blue-tint);border-bottom-color:var(--blue)}
   .sn-num{font-family:Georgia,'Times New Roman',serif;font-weight:600;font-size:20px;color:var(--red);line-height:1}
@@ -413,6 +442,11 @@
 
 <nav class="sec-nav">
   <div class="sec-nav-inner">
+    <div class="sn-left">
+      <a class="sn-home active" id="sn-home"><span class="sn-home-icon">⌂</span><span class="sn-home-lab">Home</span></a>
+      <button class="sn-dots" id="sn-dots" title="Menu">···</button>
+    </div>
+    <div class="sn-divider"></div>
     <a class="sn-btn" data-sec="s1"><span class="sn-num">1</span><span class="sn-lab">Choose a Level</span></a>
     <a class="sn-btn" data-sec="s2"><span class="sn-num">2</span><span class="sn-lab">Routines</span></a>
     <a class="sn-btn" data-sec="s3"><span class="sn-num">3</span><span class="sn-lab">Track Scores</span></a>
@@ -604,6 +638,60 @@
     </div>
   </section>
 
+</div>
+
+<!-- MENU OVERLAY -->
+<div class="ov-page" id="menu-overlay">
+  <div class="ov-header">
+    <span class="ov-title">Menu</span>
+    <img class="ov-logo" id="menu-logo" alt="MAG Gymnastics">
+  </div>
+  <div class="menu-list">
+    <div class="menu-row" id="menu-howto">
+      <div class="menu-dot-box"><div class="menu-dot"></div></div>
+      <span class="menu-row-text">How to Use This App</span>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO USE PAGE -->
+<div class="ov-page" id="howto-page">
+  <div class="ov-header">
+    <span></span>
+    <img class="ov-logo" id="howto-logo" alt="MAG Gymnastics">
+  </div>
+  <button class="ov-back" id="howto-back">← Back</button>
+  <div class="howto-body">
+    <h2>How to Use This App</h2>
+    <div class="howto-sec">
+      <h3><span class="howto-num">1</span> Choose a Level</h3>
+      <p>This is where you start every time you open the app. Gymnastics Australia has lots of different levels — from Level 1 all the way up to Olympian. Your coach will have told you which level you are competing at this year. Tap your level and it lights up blue. Once you've picked your level, everything else in the app — your routines, your scores, your skills — will all change to match that level. So if you're a Level 5, you'll only see Level 5 stuff. Easy!</p>
+    </div>
+    <div class="howto-sec">
+      <h3><span class="howto-num">2</span> Routines</h3>
+      <p>This section shows you every single move you are supposed to do in your compulsory routine for your level, on every piece of equipment. There are six apparatus in MAG — Floor, Pommel Horse, Rings, Vault, Parallel Bars, and High Bar. Tap the one you want and you'll see each skill listed in order, with its name and how many difficulty points it's worth. This is really handy to study before training or a competition so you know exactly what's coming.</p>
+    </div>
+    <div class="howto-sec">
+      <h3><span class="howto-num">3</span> Track Scores</h3>
+      <p>After a competition or a training session where your coach gave you scores, you can type them in here. The app will then show you exactly where you sit compared to the level benchmark — that's the score most gymnasts at your level are aiming for. It also shows you the NSW state target, which is the score you'd need to do well at a state competition. You can see how many points away you are, and which apparatus you're strongest and weakest on. It's like having a personal scoreboard that helps you figure out where to focus your training.</p>
+    </div>
+    <div class="howto-sec">
+      <h3><span class="howto-num">4</span> Build a Routine</h3>
+      <p>This one is really fun. Instead of your compulsory routine, you can build your own routine by choosing skills from a big list. The app adds up all the difficulty values of the skills you picked and gives you a D-score — that's your difficulty score. The harder the skills you choose, the higher your D-score. This section is great for older levels where you get to pick your own skills, or just for exploring and seeing how routines are put together. You can experiment and try different combinations to see which one gives you the best score.</p>
+    </div>
+    <div class="howto-sec">
+      <h3><span class="howto-num">5</span> How Scoring Works</h3>
+      <p>Have you ever looked at your score sheet and had no idea what any of the numbers meant? This section explains it all in simple language. In gymnastics, your final score is made up of two parts — a D-score, which is for how hard your routine is, and an E-score, which is for how well and cleanly you did it. The E-score starts at 10 and judges take away marks every time something goes wrong — like a bent knee, a step on landing, or a fall. This section also explains what a Start Value is, what neutral deductions are, and all the other tricky words you might hear judges or coaches use. No experience needed to understand it!</p>
+    </div>
+    <div class="howto-sec">
+      <h3><span class="howto-num">6</span> Skills I Can Do</h3>
+      <p>Think of this like a sticker chart but for gymnastics skills. Every skill that exists in the whole ALP program is listed here, sorted by level and apparatus. Every time you learn a new skill — like a back somersault or a kip on high bar — you can tap it to tick it off. A progress bar fills up as you tick more skills, so you can see how much you've learned. You can also go back and untick a skill if you feel like you're not quite ready to count it yet. It's a great way to see how far you've come and what you still have to work towards.</p>
+    </div>
+    <div class="howto-sec">
+      <h3><span class="howto-num">7</span> Gymnastics Words</h3>
+      <p>This is the app's dictionary. If you ever hear a word at training or in a competition that you don't understand — like "amplitude", "salto", or "pike position" — you can search for it here and get a simple explanation of what it means. It also includes every single skill in the whole program, so you can look up any move by name and find out what level it's from and what it's worth. You can search by typing in the search box at the top, or just scroll through the alphabet to explore.</p>
+    </div>
+  </div>
 </div>
 
 <footer class="wrap">
@@ -1594,21 +1682,44 @@ buildLevels(); buildApps(); buildInputs(); buildRBTabs(); buildCLTabs(); loadSta
 document.getElementById('hero-logo').src=document.querySelector('.logo-img').src;
 
 /* tab navigation */
+const _hero=document.querySelector('.hero');
+function showHome(){
+  document.querySelectorAll('section[id]').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.sn-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sn-home').classList.add('active');
+  _hero.style.display='';
+}
 function showSection(id){
   document.querySelectorAll('section[id]').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.sn-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sn-home').classList.remove('active');
+  _hero.style.display='none';
   const sec=document.getElementById(id);
   if(sec) sec.classList.add('active');
   const btn=document.querySelector('.sn-btn[data-sec="'+id+'"]');
   if(btn) btn.classList.add('active');
 }
+document.getElementById('sn-home').addEventListener('click',e=>{ e.preventDefault(); showHome(); });
 document.querySelectorAll('.sn-btn').forEach(b=>{
   b.addEventListener('click',e=>{
     e.preventDefault();
     showSection(b.getAttribute('data-sec'));
   });
 });
-showSection('s1');
+showHome();
+
+/* dots menu */
+document.getElementById('menu-logo').src=document.querySelector('.logo-img').src;
+document.getElementById('howto-logo').src=document.querySelector('.logo-img').src;
+document.getElementById('sn-dots').addEventListener('click',()=>document.getElementById('menu-overlay').classList.add('visible'));
+document.getElementById('menu-howto').addEventListener('click',()=>{
+  document.getElementById('menu-overlay').classList.remove('visible');
+  document.getElementById('howto-page').classList.add('visible');
+});
+document.getElementById('howto-back').addEventListener('click',()=>{
+  document.getElementById('howto-page').classList.remove('visible');
+  document.getElementById('menu-overlay').classList.add('visible');
+});
 </script>
 </body>
 </html>
