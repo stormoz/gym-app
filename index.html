@@ -99,6 +99,38 @@
   .ov-title{font-size:20px;font-weight:700;color:var(--ink);margin:0}
   .ov-back{display:inline-flex;align-items:center;gap:8px;margin:18px 24px 4px;padding:9px 18px;border:1.5px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;font-size:14px;font-weight:700;color:var(--muted);transition:.15s;font-family:Georgia,'Times New Roman',serif}
   .ov-back:hover{border-color:var(--blue);color:var(--blue-dark);background:var(--blue-tint)}
+  /* pop-out menu (blurred scrim + box anchored under the ··· button) */
+  .modal-scrim{
+    position:fixed;inset:0;z-index:200;display:none;
+    background:rgba(21,35,63,.18);
+    backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  }
+  .modal-scrim.visible{display:block;animation:scrim-in .18s ease-out}
+  .modal-box{
+    position:absolute;width:255px;max-width:calc(100vw - 24px);overflow-y:auto;
+    background:#fff;border:1.5px solid var(--line);border-radius:var(--r-sm);
+    box-shadow:0 16px 40px -14px rgba(20,59,143,.40);
+    transform-origin:top left;
+    animation:box-in .18s cubic-bezier(.2,.9,.3,1.15);
+  }
+  @keyframes scrim-in{from{opacity:0}to{opacity:1}}
+  @keyframes box-in{from{opacity:0;transform:translateY(-8px) scale(.95)}to{opacity:1;transform:none}}
+  .modal-head{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1.5px solid var(--line)}
+  .modal-head .ov-title{flex:1;font-size:15px}
+  .modal-logo{height:26px;width:auto;display:block}
+  .modal-box .menu-list{padding:10px 12px;gap:8px}
+  .modal-box .menu-row{padding:10px 12px;gap:11px;border-radius:10px}
+  .modal-box .menu-dot-box{width:22px;height:22px;border-width:1.5px;border-radius:6px}
+  .modal-box .menu-dot{width:9px;height:9px}
+  .modal-box .menu-row-text{font-size:13.5px}
+  .modal-back{
+    display:inline-flex;align-items:center;justify-content:center;flex:none;
+    width:30px;height:30px;padding:0;border:1.5px solid var(--line);border-radius:8px;
+    background:#fff;color:var(--muted);cursor:pointer;transition:.15s;
+  }
+  .modal-back:hover{border-color:var(--blue);color:var(--blue-dark);background:var(--blue-tint)}
+  .modal-back:active{transform:scale(.94)}
+  .modal-back svg{width:16px;height:16px;display:block}
   .menu-list{padding:20px 24px;display:flex;flex-direction:column;gap:12px;max-width:520px}
   .menu-row{display:flex;align-items:center;gap:16px;padding:16px 18px;border:1.5px solid var(--line);border-radius:14px;cursor:pointer;transition:.15s}
   .menu-row:hover{border-color:var(--blue);background:var(--blue-tint)}
@@ -591,8 +623,8 @@
     </div>
     <div class="acc">
       <details class="item" open>
-        <summary class="q">Compulsory levels (1–5, and 6–8 under-age): start value 9.0 <span class="pl">+</span></summary>
-        <div class="a">In the <strong>Foundation and Junior compulsory levels</strong>, every gymnast performs the <strong>same set routine</strong> on each apparatus, beginning at a <strong>Start Value of 9.0</strong>. Bonuses can raise this to <strong>9.5 or 10.0</strong> depending on the level and apparatus. Judges <strong>subtract deductions</strong> for execution errors (bent arms/legs, separated legs, poor form), missing or altered elements, balance checks, low amplitude and falls. Your score = start value (+ any bonus) − total deductions, and the all-around (AA) is the sum of all six apparatus. <strong>Levels 6, 7 and 8 are age-dependent</strong> — under-age gymnasts compete the set compulsory routine under the same 9.0 start value system; open-age gymnasts at those levels compete optional routines scored on D-score + E-score instead.</div>
+        <summary class="q">Compulsory levels (1–5, and 6–8 under-age): start value 10.0 <span class="pl">+</span></summary>
+        <div class="a">In the <strong>Foundation and Junior compulsory levels</strong>, every gymnast performs the <strong>same set routine</strong> on each apparatus, beginning at a <strong>Start Value of 10.0</strong>. You can also earn <strong>bonuses</strong> for adding harder skills or extra requirements on top of the set routine, which lift your start value to <strong>10.5</strong> and then <strong>11.0</strong> — so a bonused routine starts above a perfect 10. Judges then <strong>subtract deductions</strong> for execution errors (bent arms/legs, separated legs, poor form), missing or altered elements, balance checks, low amplitude and falls. Your score = <strong>start value (10.0, 10.5 or 11.0) − total deductions</strong>, and the all-around (AA) is the sum of all six apparatus. <strong>Levels 6, 7 and 8 are age-dependent</strong> — under-age gymnasts compete the set compulsory routine under the same start value system; open-age gymnasts at those levels compete optional routines scored on D-score + E-score instead.</div>
       </details>
       <details class="item">
         <summary class="q">Optional routines — build your own (age rules) <span class="pl">+</span></summary>
@@ -603,14 +635,14 @@
         <div class="a">MAG has six apparatus: <strong>Floor, Pommel Horse, Rings, Vault, Parallel Bars and Horizontal Bar</strong>. In junior squads, the <strong>mushroom</strong> is used to learn pommel circles before moving onto the horse. A gymnast's <strong>all-around (AA)</strong> score adds together their best score on each apparatus — this is the figure used for Level Award Test (LAT) benchmarks and most placings.</div>
       </details>
       <details class="item">
-        <summary class="q">What is the LAT pass mark? <span class="pl">+</span></summary>
-        <div class="a">The <strong>Level Award Test (LAT)</strong> is the all-around score a gymnast needs to be considered to have "passed" a level. Widely used ALP benchmarks are <strong>30.00 AA for Levels 3–6</strong>, then <strong>38.00 (L7), 39.00 (L8), 40.00 (L9) and 41.00 (L10)</strong>. Foundation levels (1–2) are generally assessed by the club rather than a fixed national mark.</div>
+        <summary class="q">What is the pass mark for my level? <span class="pl">+</span></summary>
+        <div class="a">To pass a level you need <strong>two things at once</strong>: a minimum <strong>all-around score</strong> across all six apparatus, <em>and</em> a minimum score on <strong>every single apparatus</strong>. Under the <strong>2026 MAG Technical Regulations</strong> the compulsory marks are <strong>42.00 AA (min 5.50 per apparatus) for Levels 1–6</strong>, and <strong>45.00 AA (min 6.50) for Level 7 U13 and Level 8 U14</strong>. The optional divisions are higher: <strong>58.00 (min 8.00) for Level 6 Optional</strong>, <strong>60.00 (min 8.50) for Level 7 Open, Level 8 Open and all of Level 9</strong>, and <strong>63.00 (min 9.00) for Level 10</strong>. So a big all-around alone isn't enough — one weak apparatus can hold you back even if your total clears the mark.</div>
       </details>
     </div>
 
     <div class="note">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-      <p><b>About the data:</b> Routine summaries are representative and intended as a study guide — always confirm exact routines, value parts and deduction tables in the official <b>Gymnastics Australia MAG Australian Levels Program (ALP)</b> and current Code of Points. <b>LAT pass marks</b> are the published ALP benchmarks. Figures marked <b>*</b> (State competitive / State podium) are <b>illustrative training targets</b> to aim toward — they are not official statistics. A coach can replace them with real GymNSW results.</p>
+      <p><b>About the data:</b> Routine summaries are representative and intended as a study guide — always confirm exact routines, value parts and deduction tables in the official <b>Gymnastics Australia MAG Australian Levels Program (ALP)</b> and current Code of Points. <b>Pass marks</b> (all-around and minimum apparatus score) are taken from Table 1 of the <b>2026 Gymnastics Australia MAG Technical Regulations V1.1</b>; skill difficulty ratings follow the <b>FIG 2025–2028 MAG Code of Points</b>. Figures marked <b>*</b> (State competitive / State podium) are <b>illustrative training targets</b> to aim toward — they are not official statistics. A coach can replace them with real GymNSW results.</p>
     </div>
   </section>
 
@@ -641,15 +673,22 @@
 </div>
 
 <!-- MENU OVERLAY -->
-<div class="ov-page" id="menu-overlay">
-  <div class="ov-header">
-    <span class="ov-title">Menu</span>
-    <img class="ov-logo" id="menu-logo" alt="MAG Gymnastics">
-  </div>
-  <div class="menu-list">
-    <div class="menu-row" id="menu-howto">
-      <div class="menu-dot-box"><div class="menu-dot"></div></div>
-      <span class="menu-row-text">How to Use This App</span>
+<div class="modal-scrim" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="modal-box">
+    <div class="modal-head">
+      <img class="modal-logo" id="menu-logo" alt="MAG Gymnastics">
+      <span class="ov-title">Menu</span>
+      <button class="modal-back" id="menu-close" aria-label="Close menu" title="Back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="menu-list">
+      <div class="menu-row" id="menu-howto">
+        <div class="menu-dot-box"><div class="menu-dot"></div></div>
+        <span class="menu-row-text">How to Use This App</span>
+      </div>
     </div>
   </div>
 </div>
@@ -745,32 +784,34 @@ const DED_OPT = [
 ];
 
 /* ---------- LEVELS ---------- */
-/* latPass = official ALP LAT all-around benchmark (illustrative for L1-2).
-   comp / pod = illustrative state training targets (all-around). max = per-apparatus display scale. */
+/* latPass / minApp = official GA pass marks, 2026 MAG Technical Regulations V1.1, Table 1
+   (Article 4.3). Six apparatus, all-around. minApp = the required minimum on EACH apparatus.
+   Levels with two streams also carry optPass / optMinApp for the optional (Open) division.
+   comp / pod = illustrative state training targets — NOT official. max = per-apparatus display scale. */
 const LEVELS = {
-  1:{band:'Foundation',type:'Compulsory routine · Start Value 9.0 (bonuses: 9.5 / 10.0)',max:10,latPass:30,comp:45,pod:52,passLabel:'Club-assessed',
+  1:{band:'Foundation',type:'Compulsory routine · Start Value 10.0 (bonuses: 10.5 / 11.0)',max:11,latPass:42,minApp:5.5,comp:50,pod:54,passLabel:'42.00 AA',
      blurb:'The very first competitive step. Gymnasts learn safe shapes, basic support and simple swinging, often including mushroom circles to prepare for pommel horse.'},
-  2:{band:'Foundation',type:'Compulsory routine · Start Value 9.0 (bonuses: 9.5 / 10.0)',max:10,latPass:30,comp:45,pod:52,passLabel:'Club-assessed',
+  2:{band:'Foundation',type:'Compulsory routine · Start Value 10.0 (bonuses: 10.5 / 11.0)',max:11,latPass:42,minApp:5.5,comp:50,pod:54,passLabel:'42.00 AA',
      blurb:'Shapes get cleaner and stronger. Held positions, basic inversions and the first controlled landings appear across all six apparatus.'},
-  3:{band:'Junior',type:'Compulsory routine · Start Value 9.0 (bonuses: 9.5 / 10.0)',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
+  3:{band:'Junior',type:'Compulsory routine · Start Value 10.0 (bonuses: 10.5 / 11.0)',max:11,latPass:42,minApp:5.5,comp:50,pod:54,passLabel:'42.00 AA',
      blurb:'The first true compulsory level. Clean basics — straight handstands, tidy circles and stable landings — score far better than risky difficulty.'},
-  4:{band:'Junior',type:'Compulsory routine · Start Value 9.0 (bonuses: 9.5 / 10.0)',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
+  4:{band:'Junior',type:'Compulsory routine · Start Value 10.0 (bonuses: 10.5 / 11.0)',max:11,latPass:42,minApp:5.5,comp:50,pod:54,passLabel:'42.00 AA',
      blurb:'Skills connect into longer sequences. Amplitude, body tension and the first acrobatic flight begin to matter alongside form.'},
-  5:{band:'Junior',type:'Compulsory routine · Start Value 9.0 (bonuses: 9.5 / 10.0)',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
+  5:{band:'Junior',type:'Compulsory routine · Start Value 10.0 (bonuses: 10.5 / 11.0)',max:11,latPass:42,minApp:5.5,comp:50,pod:54,passLabel:'42.00 AA',
      blurb:'Power meets precision: round-off flic-flacs, continuous circles, swing to support and salto dismounts on several apparatus.'},
-  6:{band:'Junior',type:'Under-age: Compulsory · 9.0 SV  ·  Open age: D-score + E-score',max:10,latPass:30,comp:45,pod:52,passLabel:'30.00 AA',
-     blurb:'Scoring depends on age group. Under-age gymnasts compete the set compulsory routine (Start Value 9.0, bonuses available). Open-age gymnasts build their own optional routine scored on D-score + E-score.'},
-  7:{band:'Senior',type:'Under-age: Compulsory · 9.0 SV  ·  Open age: D-score + E-score',max:11,latPass:38,comp:44,pod:50,passLabel:'38.00 AA',
-     blurb:'Scoring depends on age group. Under-age gymnasts still compete the set compulsory routine (Start Value 9.0). Open-age gymnasts build their own optional routine, choosing skills to meet Special Requirements.'},
-  8:{band:'Senior',type:'Under-age: Compulsory · 9.0 SV  ·  Open age: D-score + E-score',max:11,latPass:39,comp:45,pod:51,passLabel:'39.00 AA',
-     blurb:'Scoring depends on age group. Under-age gymnasts compete the compulsory (Start Value 9.0); open-age gymnasts compete optional routines with higher difficulty requirements and composition rules.'},
-  9:{band:'Senior',type:'Optional routine · D-score + E-score',max:11,latPass:40,comp:46,pod:52,passLabel:'40.00 AA',
-     blurb:'Approaching elite content — bigger releases, more value parts and the first double-salto dismount attempts.'},
-  10:{band:'Senior',type:'Optional routine · D-score + E-score',max:11,latPass:41,comp:48,pod:54,passLabel:'41.00 AA',
+  6:{band:'Junior',type:'Compulsory: 42.00 AA (min 5.50)  ·  Level 6 Optional: 58.00 AA (min 8.00)',max:12,latPass:42,minApp:5.5,optPass:58,optMinApp:8,comp:58,pod:64,passLabel:'42.00 AA',
+     blurb:'Scoring depends on the division. The compulsory routine is scored from a Start Value of 10.0, with bonuses available to 10.5 or 11.0; Level 6 Optional gymnasts build their own routine scored on D-score + E-score against a higher pass mark.'},
+  7:{band:'Senior',type:'U13 compulsory: 45.00 AA (min 6.50)  ·  Level 7 Open: 60.00 AA (min 8.50)',max:13,latPass:45,minApp:6.5,optPass:60,optMinApp:8.5,comp:60,pod:66,passLabel:'45.00 AA',
+     blurb:'Scoring depends on the division. Level 7 U13 gymnasts compete the set compulsory routine; Level 7 Open gymnasts build their own optional routine, choosing skills to meet the Special Requirements.'},
+  8:{band:'Senior',type:'U14 compulsory: 45.00 AA (min 6.50)  ·  Level 8 Open: 60.00 AA (min 8.50)',max:13,latPass:45,minApp:6.5,optPass:60,optMinApp:8.5,comp:60,pod:66,passLabel:'45.00 AA',
+     blurb:'Scoring depends on the division. Level 8 U14 gymnasts compete the compulsory routine; Level 8 Open gymnasts compete optional routines with higher difficulty requirements and composition rules.'},
+  9:{band:'Senior',type:'Optional routine · D-score + E-score · U15, U18 & Open',max:14,latPass:60,minApp:8.5,comp:66,pod:72,passLabel:'60.00 AA',
+     blurb:'Approaching elite content — bigger releases, more value parts and the first double-salto dismount attempts. Level 9 follows FIG Junior rules.'},
+  10:{band:'Senior',type:'Optional routine · D-score + E-score',max:14,latPass:63,minApp:9,comp:69,pod:75,passLabel:'63.00 AA',
      blurb:'The top of the levels pathway and the gateway to international streams. Difficulty is largely uncapped — full Code of Points requirements apply.'},
-  11:{band:'International',type:'Optional routine · D-score + E-score',max:14,latPass:0,comp:52,pod:58,passLabel:'N/A',
+  11:{band:'International',type:'Optional routine · D-score + E-score',max:15,latPass:0,minApp:0,comp:72,pod:78,passLabel:'N/A',
      blurb:'Senior International level — athletes competing at national and open international competitions. Routines require high difficulty content meeting the full FIG Code of Points Special Requirements.'},
-  12:{band:'Olympian',type:'Optional routine · D-score + E-score',max:16,latPass:0,comp:58,pod:64,passLabel:'N/A',
+  12:{band:'Olympian',type:'Optional routine · D-score + E-score',max:16,latPass:0,minApp:0,comp:84,pod:90,passLabel:'N/A',
      blurb:'Elite competition standard — the level of World Championships and Olympic Games. Routines feature the highest difficulty content, maximised connections, and exceptional execution under pressure.'}
 };
 
@@ -910,12 +951,15 @@ function renderOverview(){
     <h3>${L.band==='Foundation'?'Foundation level':L.band==='Junior'?'Junior compulsory':L.band==='Senior'?'Senior optional':L.band==='International'?'Senior International':'Olympian / Elite'}</h3>
     <div class="scoretype">${L.type}</div>
     <p>${L.blurb}</p>`;
-  const perPass=(L.latPass/6), perComp=(L.comp/6), perPod=(L.pod/6);
-  const noLAT=L.passLabel==='N/A';
+  const perComp=(L.comp/6), perPod=(L.pod/6);
+  const noLAT=L.latPass<=0;
+  const optRow=L.optPass?`<div class="benchrow"><div class="lab"><span class="pip" style="background:var(--blue-2)"></span>Optional (Open) pass</div>
+      <div class="val">${L.optPass.toFixed(2)} <small>/ min ${L.optMinApp.toFixed(2)} per app</small></div></div>`:'';
   document.getElementById('ov-bench').innerHTML=`
     <h4>All-around benchmarks</h4>
-    <div class="benchrow"><div class="lab"><span class="pip" style="background:var(--blue-dark)"></span>LAT pass ${L.passLabel==='Club-assessed'?'(club-assessed)':''}</div>
-      <div class="val">${noLAT?'<small>no ALP LAT</small>':L.passLabel==='Club-assessed'?'<small>club LAT</small>':L.latPass.toFixed(2)} ${noLAT?'<small>selection via national pathways</small>':`<small>/ ${perPass.toFixed(2)} per app</small>`}</div></div>
+    <div class="benchrow"><div class="lab"><span class="pip" style="background:var(--blue-dark)"></span>${L.optPass?'Compulsory pass':'Pass mark'}</div>
+      <div class="val">${noLAT?'<small>no published pass mark</small>':L.latPass.toFixed(2)} ${noLAT?'<small>selection via national pathways</small>':`<small>/ min ${L.minApp.toFixed(2)} per app</small>`}</div></div>
+    ${optRow}
     <div class="benchrow"><div class="lab"><span class="pip" style="background:#e8a32a"></span>${noLAT?'Illustrative competitive*':'State competitive*'}</div>
       <div class="val">${L.comp.toFixed(2)} <small>/ ${perComp.toFixed(2)} per app</small></div></div>
     <div class="benchrow"><div class="lab"><span class="pip" style="background:var(--red)"></span>${noLAT?'Illustrative podium*':'State podium*'}</div>
@@ -949,9 +993,9 @@ function renderDetail(){
     <div class="scorebox">
       <span class="badge">Scoring</span>
       ${state.level<=5
-        ? `<p>This is a <b>compulsory routine</b>: everyone performs the same skills. You start from a <b>Start Value of 9.0</b> — bonuses can raise this to <b>9.5 or 10.0</b>. Judges subtract deductions from there. <b>Final score = 9.0 (+ bonus) − total deductions.</b></p>`
+        ? `<p>This is a <b>compulsory routine</b>: everyone performs the same skills. You start from a <b>Start Value of 10.0</b>, and bonuses for harder skills can lift that to <b>10.5 or 11.0</b>. Judges subtract deductions from there. <b>Final score = start value − total deductions.</b></p>`
         : state.level<=8
-          ? `<p><b>Scoring depends on age group.</b> Under-age gymnasts perform the <b>compulsory routine</b> — Start Value 9.0, with bonuses available to 9.5 or 10.0, minus deductions. Open-age gymnasts build their own <b>optional routine</b> scored on <b>Difficulty (D) + Execution (E /10.0)</b>, minus any neutral faults.</p>`
+          ? `<p><b>Scoring depends on age group.</b> Under-age gymnasts perform the <b>compulsory routine</b> — Start Value 10.0, with bonuses available to 10.5 or 11.0, minus deductions. Open-age gymnasts build their own <b>optional routine</b> scored on <b>Difficulty (D) + Execution (E /10.0)</b>, minus any neutral faults.</p>`
           : `<p>This is an <b>optional routine</b>: you choose skills to satisfy the Special Requirements. Your score is <b>Difficulty (D) + Execution (E /10.0)</b>, minus any neutral faults. <b>Each missing requirement costs ~0.50.</b></p>`}
     </div>`;
 }
@@ -983,11 +1027,18 @@ function renderTracker(){
     verdict.className='verdict v-none'; verdict.textContent='Enter scores to begin';
     document.getElementById('aa-fill').style.width='0%';
   } else {
+    const hasPass=L.latPass>0;
     aaVal.textContent=total.toFixed(2);
-    aaOf.textContent=`AA · ${entered}/6 apparatus entered · target pass ${L.passLabel==='Club-assessed'?'(club)':L.latPass.toFixed(2)}`;
+    aaOf.textContent=`AA · ${entered}/6 apparatus entered · ${hasPass?'target pass '+L.latPass.toFixed(2):'no published pass mark'}`;
+    /* the pass mark is an all-around figure — only judge it once all six are in */
+    const full=(entered===6);
     if(total>=L.pod){ verdict.className='verdict v-pass'; verdict.textContent='Podium level — outstanding!'; }
     else if(total>=L.comp){ verdict.className='verdict v-pass'; verdict.textContent='State competitive'; }
-    else if(total>=L.latPass){ verdict.className='verdict v-pass'; verdict.textContent='Above LAT pass — level cleared'; }
+    else if(!hasPass){ verdict.className='verdict v-none'; verdict.textContent='No ALP pass mark at this level'; }
+    else if(!full){ verdict.className='verdict v-none'; verdict.textContent=`Enter all six for a pass check (${entered}/6)`; }
+    else if(total>=L.latPass && APP.every(a=>{const v=num(state.scores[a.k]); return v!==null && v>=L.minApp;})){
+      verdict.className='verdict v-pass'; verdict.textContent='Above pass mark — level cleared'; }
+    else if(total>=L.latPass){ verdict.className='verdict v-near'; verdict.textContent=`AA cleared — but one apparatus is under ${L.minApp.toFixed(2)}`; }
     else if(total>=L.latPass-3){ verdict.className='verdict v-near'; verdict.textContent='Almost at pass mark'; }
     else { verdict.className='verdict v-build'; verdict.textContent='Building toward pass'; }
     const pct=Math.max(0,Math.min(100,(total/maxAA)*100));
@@ -1008,7 +1059,8 @@ function renderScales(){
   const floor=L.max>10?5:3;          // visual start of the strip
   const span=L.max-floor;
   const pos=v=>Math.max(0,Math.min(100,((v-floor)/span)*100));
-  const pass=L.latPass/6, comp=L.comp/6, pod=L.pod/6;
+  /* per-apparatus bar uses the official minimum apparatus score, not AA/6 */
+  const pass=L.minApp||0, comp=L.comp/6, pod=L.pod/6;
 
   document.getElementById('scales').innerHTML=APP.map(a=>{
     const v=num(state.scores[a.k]);
@@ -1021,7 +1073,7 @@ function renderScales(){
     const youHtml = v!==null ? `<div class="you" style="left:${pos(v)}%" title="Your score: ${v.toFixed(2)}"></div>` : '';
     const segEnd = v!==null ? pos(v) : 0;
     return `<div class="scale-row">
-      <div class="name">${ICONS[a.k]}<div>${a.name}<small>pass ${pass.toFixed(2)} · pod ${pod.toFixed(2)}</small></div></div>
+      <div class="name">${ICONS[a.k]}<div>${a.name}<small>${pass>0?'min '+pass.toFixed(2)+' · ':''}pod ${pod.toFixed(2)}</small></div></div>
       <div class="strip">
         <div class="seg" style="left:0;width:${segEnd}%"></div>
         <div class="tick pass" style="left:${pos(pass)}%" title="LAT pass"></div>
@@ -1036,7 +1088,7 @@ function renderScales(){
 
 function renderTips(total,entered){
   const L=LEVELS[state.level];
-  const pass=L.latPass/6;
+  const pass=L.minApp||L.comp/6;
   const tips=document.getElementById('tips');
   if(entered===0){
     tips.innerHTML=`<div class="tip" style="grid-column:1/-1;background:var(--blue-tint);border-color:#e1ebfb">
@@ -1115,8 +1167,9 @@ const SKILLS = {
   {id:'fx_dive_roll',n:'Dive roll',d:'Fdn',v:0,gn:'Forward acro',lv:'l13',ex:'A short flight then a soft roll — watch hard landing, dropping the head.'},
   {id:'fx_l35_ro_flic_tuck',n:'Round-off, back handspring, tucked back salto',d:'A',v:0.1,gn:'Backward acro',lv:'l56',ex:'Power through the back handspring into a tight tuck, open for landing — watch under-rotation, low height, step.'},
   {id:'fx_l35_ro_flic_layout',n:'Round-off, back handspring, layout back salto',d:'B',v:0.2,gn:'Backward acro',lv:'l56',ex:'Stretch the body, no pike or arch — watch leg split, under-rotation, step.'},
-  {id:'fx_l35_fhs_front',n:'Front handspring, tucked front salto',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Drive the heels and spot the floor — watch blind landing, hop.'},
   {id:'fx_arabian_tuck',n:'Round-off, back handspring, Arabian double front tuck',d:'D',v:0.4,gn:'Forward acro',lv:'l910',ex:'Half-turn into a tucked double front — watch under-rotation, deep landing.'},
+  {id:'fx_dbl_front_tuck',n:'Front handspring, double front tuck',d:'D',v:0.4,gn:'Forward acro',lv:'l910',ex:'Block high and stay tight for both saltos — watch low set, under-rotation, blind landing.'},
+  {id:'fx_half_in_half_out',n:'Round-off, back handspring, half-in half-out (tucked)',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Half twist in the first salto, half out of the second — watch off-axis, under-rotation, step.'},
   {id:'fx_randi',n:'Front handspring, Randi (front 2½)',d:'D',v:0.4,gn:'Forward acro',lv:'l910',ex:'Front salto with 2½ twists to a blind landing — watch off-axis, step.'},
   {id:'fx_back_25',n:'Round-off, back handspring, back layout 2½ twist',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Complete the 2½ twist square to the floor — watch off-axis, under-twist.'},
   {id:'fx_triple_full',n:'Round-off, back handspring, back triple full',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Three twists in a stretched salto — watch travelling, off-axis, step.'},
@@ -1132,8 +1185,7 @@ const SKILLS = {
   {id:'fx_full_in_full_out',n:'Round-off, back handspring, full-in full-out',d:'F',v:0.6,gn:'Backward acro',lv:'lelite',ex:'Full twist in each salto of a double back — watch off-axis, under-rotation.'},
   {id:'fx_quad_full',n:'Round-off, back handspring, quadruple full',d:'E',v:0.5,gn:'Backward acro',lv:'l910',ex:'Four twists in a stretched salto — watch travelling, off-axis.'}
  ,
-  {id:'fx_l56_fhs_pike',n:'Front handspring, piked front salto',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Block then a piked front salto — watch early pike, blind landing.'},
-  {id:'fx_l56_fhs_stepout',n:'Front handspring step-out, front tuck',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Step out then a tucked front salto — watch stalling, low set.'}
+  {id:'fx_l56_fhs_pike',n:'Front handspring, piked front salto',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Block then a piked front salto — watch early pike, blind landing.'}
  ,
   {id:'fx_penev',n:'Round-off, back handspring, Penev (double layout, two ½ twists)',d:'F',v:0.6,gn:'Backward acro',lv:'lelite',ex:'Double layout with two half twists — watch arch, off-axis, under-rotation.'},
   {id:'fx_dly_2_1',n:'Round-off, back handspring, double layout 2/1 twists',d:'G',v:0.7,gn:'Backward acro',lv:'lelite',ex:'Double layout with two full twists — watch travelling, off-axis.'},
@@ -1150,7 +1202,6 @@ const SKILLS = {
  ,
   {id:'fx_l56_ro_bhs_pike',n:'Round-off, back handspring, piked back salto',d:'A',v:0.1,gn:'Backward acro',lv:'l56',ex:'Hold the pike shape then open for landing — watch soft knees, short landing.'},
   {id:'fx_l56_fhs_layout',n:'Front handspring, front layout salto',d:'B',v:0.2,gn:'Forward acro',lv:'l56',ex:'Block hard then keep the body straight — watch early pike, blind landing.'},
-  {id:'fx_l56_ro_bhs_bhs_tuck',n:'Round-off, back handspring, back handspring, tucked back salto',d:'B',v:0.2,gn:'Backward acro',lv:'l56',ex:'Two back handsprings before the salto — watch losing speed through the second BHS, under-rotation.'},
   {id:'fx_l56_fhs_fhs',n:'Front handspring, front handspring',d:'A',v:0.1,gn:'Forward acro',lv:'l56',ex:'Connected front handsprings with a strong block each time — watch piking in flight, breaking rhythm.'},
   {id:'fx_l56_splits',n:'Splits (full split hold)',d:'Fdn',v:0,gn:'Strength / Hold',lv:'l56',ex:'Full split to the floor, hips square and even — watch turned-out hips, leaning forward.'},
   {id:'fx_l56_prone',n:'Prone (front support hold)',d:'Fdn',v:0,gn:'Strength / Hold',lv:'l56',ex:'Hold a flat front support, body in a straight line — watch sagging hips, piking.'}
@@ -1165,6 +1216,10 @@ const SKILLS = {
   {id:'ph_hs',n:'Circle to handstand',d:'B',v:0.2,gn:'Circles & flairs',lv:'l78',ex:'Reach vertical, controlled — watch over or under, bent arms.'},
   {id:'ph_travel',n:'Travel down the horse',d:'D',v:0.4,gn:'Travels',lv:'l910',ex:'Keep circle rhythm across — watch hesitation, hip drop.'},
   {id:'ph_magyar',n:'Magyar travel',d:'D',v:0.4,gn:'Travels',lv:'l910',ex:'Travel end to end without a break — watch stalling.'},
+  {id:'ph_half_spindle',n:'Circle with ½ spindle',d:'B',v:0.2,gn:'Circles & flairs',lv:'l56',ex:'Turn the body 180° while the circle keeps moving — watch stalling, hips dropping.'},
+  {id:'ph_rev_stockli',n:'Reverse Stöckli (180°)',d:'B',v:0.2,gn:'Circles & flairs',lv:'l78',ex:'Reverse-direction turn in one circle — watch hip drop, breaking rhythm.'},
+  {id:'ph_scissor_hs',n:'Scissor forward to handstand (Li Ning)',d:'D',v:0.4,gn:'Single-leg & scissors',lv:'l910',ex:'Scissor straight up through handstand, lower under control — watch short of vertical, bent arms.'},
+  {id:'ph_moguilny',n:'Moguilny (kehre fwd., reverse Stöckli, kehre fwd.)',d:'D',v:0.4,gn:'Travels',lv:'l910',ex:'Three linked kehre elements without losing the swing — watch stalling, hip drop.'},
   {id:'ph_dis_s',n:'Flank / scissor dismount',d:'A',v:0.1,gn:'Dismount',lv:'l78',ex:'Clear the horse, stick — watch low, step.'},
   {id:'ph_dis_hs',n:'Handstand dismount with turn',d:'C',v:0.3,gn:'Dismount',lv:'l78',ex:'Reach handstand, controlled landing — watch off-vertical, step.'},
   {id:'ph_r1080',n:'Russian wende 1080',d:'D',v:0.4,gn:'Circles & flairs',lv:'l910',ex:'Three turns within one circle, stay extended — watch break in rhythm, hip drop.'},
@@ -1228,16 +1283,20 @@ const SKILLS = {
   {id:'sr_fl',n:'Front lever (hold)',d:'B',v:0.2,gn:'Strength holds',lv:'l78',ex:'Straight horizontal body, hold 2 seconds — watch arch, high hips.'},
   {id:'sr_planche',n:'Planche (hold)',d:'C',v:0.3,gn:'Strength holds',lv:'l78',ex:'Body horizontal on straight arms — watch low or high, short hold.'},
   {id:'sr_cross',n:'Iron cross (hold)',d:'C',v:0.3,gn:'Strength holds',lv:'l78',ex:'Arms horizontal, rings turned out — watch arms above level, bent arms, short hold.'},
+  {id:'sr_strad_planche',n:'Straddle planche (hold 2s)',d:'A',v:0.1,gn:'Strength holds',lv:'l78',ex:'Body horizontal with legs straddled, arms straight — watch hips high, bent arms, short hold.'},
+  {id:'sr_l_cross',n:'L-cross (hold 2s)',d:'C',v:0.3,gn:'Strength holds',lv:'l78',ex:'Cross position with legs held at L — watch arms above level, legs dropping, short hold.'},
+  {id:'sr_dbl_pike_dis',n:'Double back pike dismount',d:'B',v:0.2,gn:'Dismount',lv:'l78',ex:'Hold the pike through both saltos then open to stick — watch early opening, under-rotation.'},
   {id:'sr_maltese',n:'Maltese (hold)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Body and arms horizontal at ring height — watch body too high, bent arms, short hold.'},
   {id:'sr_inv',n:'Inverted cross (hold)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Straight handstand-line cross — watch off-vertical, bent arms.'},
   {id:'sr_dt',n:'Double back dismount (tuck)',d:'C',v:0.3,gn:'Dismount',lv:'l78',ex:'Height and rotation, stick — watch swing in rings, step.'},
   {id:'sr_dl',n:'Double back dismount (layout)',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Straight body, complete rotation — watch arch, step.'},
-  {id:'sr_dd',n:'Double-double dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Two twists in a double salto, stick — watch under-rotation.'},
+  {id:'sr_dd_half_half',n:'Double back half-half dismount',d:'F',v:0.6,gn:'Dismount',lv:'l910',ex:'Half twist in each salto, finish square and stick — watch off-axis, under-rotation, step.'},
+  {id:'sr_dd',n:'Double-double back tuck dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Two twists in a double salto, stick — watch under-rotation.'},
   {id:'sr_azarian',n:'Azarian (roll to cross)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Backward roll straight to a held cross — watch arms above level, swing, short hold.'},
   {id:'sr_jonasson',n:'Jonasson to handstand',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Felge-style swing to handstand — watch swinging rings, bent arms, short of vertical.'},
   {id:'sr_yama_hs',n:'Yamawaki to handstand',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Turnover to a steady handstand — watch swing, off-vertical.'},
   {id:'sr_nakayama',n:'Nakayama (swing to cross)',d:'E',v:0.5,gn:'Strength holds',lv:'l910',ex:'Swing directly to a held cross — watch swing in rings, short hold.'},
-  {id:'sr_triple',n:'Triple back dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Three tight saltos, stick — watch low set, under-rotation, step.'},
+  {id:'sr_triple',n:'Triple back tuck dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Three tight saltos, stick — watch low set, under-rotation, step.'},
   {id:'sr_dd_layout',n:'Double-double layout dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Olympian-level — two twists in a stretched double salto — watch arch, under-rotation.'},
   {id:'sr_support',n:'Support hold (rings still)',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Tall support with the rings still — watch sagging, swinging rings.'},
   {id:'sr_inv_hang',n:'Inverted hang',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Hold the upside-down hang still — watch swing, bent body.'},
@@ -1265,11 +1324,9 @@ const SKILLS = {
   {id:'sr_l4_skincat_inv',n:'Skin-the-cat to inverted hang hold',d:'A',v:0.1,gn:'Strength holds',lv:'l4',ex:'Roll through to a still inverted hang — watch swing, dropping fast.'},
   {id:'sr_l4_german',n:'German hang (shoulder hold)',d:'A',v:0.1,gn:'Strength holds',lv:'l4',ex:'Controlled shoulder-stretch hang, rings still — watch swinging, rushing.'},
   {id:'sr_balandin',n:'Balandin (felge to cross)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Swing backward straight to a held cross — watch swing in rings, short hold.'},
-  {id:'sr_yang_wei',n:'Yang Wei (felge to Maltese)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Swing straight to a held Maltese — watch body height, bent arms, short hold.'},
-  {id:'sr_triple_layout_dis',n:'Triple back layout dismount',d:'H',v:0.8,gn:'Dismount',lv:'lelite',ex:'Three stretched saltos, stick — watch low set, under-rotation.'}
+  {id:'sr_yang_wei',n:'Yang Wei (felge to Maltese)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Swing straight to a held Maltese — watch body height, bent arms, short hold.'}
  ,
-  {id:'sr_pineda',n:'Pineda (back uprise to Maltese)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Uprise straight to a held Maltese — watch body height, bent arms, short hold.'},
-  {id:'sr_dd_pike_dis',n:'Double-double piked dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Two twists in a piked double salto, stick — watch under-rotation, step.'}
+  {id:'sr_pineda',n:'Pineda (back uprise to Maltese)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Uprise straight to a held Maltese — watch body height, bent arms, short hold.'}
  ],
  VT:[
   {id:'vt_hs',n:'Handspring',d:'',v:2.0,gn:'Vault',lv:'l78',ex:'Full extension and block, controlled landing — watch short support, pike, steps.'},
@@ -1278,6 +1335,9 @@ const SKILLS = {
   {id:'vt_tt',n:'Tsukahara (tuck)',d:'',v:3.2,gn:'Vault',lv:'l78',ex:'Quarter-on half-off entry, tight salto — watch direction, step.'},
   {id:'vt_tl',n:'Tsukahara (layout)',d:'',v:3.6,gn:'Vault',lv:'l78',ex:'Straight body, complete rotation — watch arch, step.'},
   {id:'vt_kas',n:'Kasamatsu',d:'',v:4.0,gn:'Vault',lv:'l910',ex:'Half-on with one and a quarter twist off — watch twist completion, landing.'},
+  {id:'vt_yur_tuck',n:'Yurchenko tucked (round-off entry)',d:'',v:1.8,gn:'Vault',lv:'l78',ex:'Round-off onto the board, tight tucked salto off the table — watch entry direction, under-rotation.'},
+  {id:'vt_tsuk_half',n:'Tsukahara tucked with ½ twist',d:'',v:2.0,gn:'Vault',lv:'l78',ex:'Add a half twist to the tucked Tsukahara — watch twist late, off-axis, step.'},
+  {id:'vt_yur_shewfelt',n:'Shewfelt (Yurchenko straight 5/2 twist)',d:'',v:4.8,gn:'Vault',lv:'lelite',ex:'Two and a half twists in a stretched Yurchenko — watch off-axis, under-twist, step.'},
   {id:'vt_roche',n:'Handspring double front (Roche)',d:'',v:5.6,gn:'Vault',lv:'lelite',ex:'Huge block, two front saltos, stick — watch under-rotation, deep landing.'},
   {id:'vt_drag',n:'Dragulescu',d:'',v:5.6,gn:'Vault',lv:'lelite',ex:'Double front with half twist out — watch blind landing.'},
   {id:'vt_akopian',n:'Tsukahara double back (Akopian)',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Tsukahara entry into a double back — watch under-rotation, deep landing.'},
@@ -1321,6 +1381,10 @@ const SKILLS = {
   {id:'pb_dt',n:'Double back dismount (tuck)',d:'C',v:0.3,gn:'Dismount',lv:'l78',ex:'Clear the bars, stick — watch low, step.'},
   {id:'pb_dp',n:'Double back dismount (pike)',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Hold pike, complete rotation — watch under-rotation.'},
   {id:'pb_tippelt',n:'Tippelt',d:'C',v:0.3,gn:'Under-bar elements',lv:'l78',ex:'Underbar long swing to support or handstand — watch low finish, bent arms.'},
+  {id:'pb_bwd_salto_ua',n:'Back salto with straddled cut to upper arm',d:'B',v:0.2,gn:'Upper-arm elements',lv:'l78',ex:'Cut the legs and catch cleanly in upper-arm support — watch hard catch, sagging shoulders.'},
+  {id:'pb_giant_half',n:'Giant swing with ½ turn to upper arm',d:'C',v:0.3,gn:'Support & long swing',lv:'l78',ex:'Half turn out of the giant into a controlled upper-arm catch — watch heavy catch, bent arms.'},
+  {id:'pb_felge_hs',n:'Felge (Stützkehre) to handstand',d:'D',v:0.4,gn:'Under-bar elements',lv:'l910',ex:'Swing through to a still handstand — watch bent arms, short of vertical, walking hands.'},
+  {id:'pb_dbl_layout_dis',n:'Double back layout dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Two fully stretched saltos off the end, stick — watch arch, under-rotation, step.'},
   {id:'pb_dia_full',n:'Diamidov 1/1 (Tanaka)',d:'D',v:0.4,gn:'Support & long swing',lv:'l910',ex:'Full turn to handstand — watch under-turn, off-balance.'},
   {id:'pb_makuts',n:'Makuts',d:'D',v:0.4,gn:'Support & long swing',lv:'l910',ex:'Back toss with turn to support — watch swing, under-turn.'},
   {id:'pb_belle',n:'Belle (front double pike dismount)',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Front double salto off the end — watch blind landing, under-rotation.'},
@@ -1368,6 +1432,10 @@ const SKILLS = {
   {id:'hb_adler',n:'Adler (hop to handstand)',d:'C',v:0.3,gn:'In-bar elements',lv:'l78',ex:'Hop turn to handstand — watch off-vertical, bent arms.'},
   {id:'hb_jaeger',n:'Jaeger (front release)',d:'C',v:0.3,gn:'Flight / release',lv:'l78',ex:'Height then clean regrasp — watch piked legs, late regrasp.'},
   {id:'hb_tkatchev',n:'Tkatchev',d:'C',v:0.3,gn:'Flight / release',lv:'l78',ex:'Clear the bar, straddle and regrasp — watch low, bent legs.'},
+  {id:'hb_deltchev',n:'Deltchev (swing fwd. ½ turn to straddled front salto)',d:'C',v:0.3,gn:'Flight / release',lv:'l78',ex:'Half turn then a straddled front salto back to the bar — watch low flight, late catch.'},
+  {id:'hb_rybalko',n:'Rybalko (giant with hop 3/2 turn)',d:'C',v:0.3,gn:'Long swings',lv:'l78',ex:'Hop the one-and-a-half turn cleanly in handstand — watch off-vertical, bent arms, pause.'},
+  {id:'hb_dbl_lay_full',n:'Full-twisting double layout dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'One twist across a stretched double salto, stick — watch arch, off-axis, under-rotation.'},
+  {id:'hb_dbl_lay_triple',n:'Triple-twisting double layout dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Three twists in a stretched double salto — watch travelling, off-axis, step.'},
   {id:'hb_kovacs',n:'Kovacs',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Double salto over the bar, regrasp — watch under-rotation.'},
   {id:'hb_gaylord',n:'Gaylord',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Front salto over the bar to regrasp — watch low, hard catch.'},
   {id:'hb_layout',n:'Layout flyaway dismount',d:'B',v:0.2,gn:'Dismount',lv:'l78',ex:'Height, straight body, stick — watch arch, step.'},
@@ -1410,7 +1478,7 @@ const SKILLS = {
   {id:'hb_miyachi',n:'Miyachi (layout Cassina with extra twist)',d:'G',v:0.7,gn:'Flight / release',lv:'lelite',ex:'Stretched double-twisting release over the bar, regrasp — watch travel, late catch.'}
  ,
   {id:'hb_pedro',n:'Pedro (stretched Tkatchev with full twist)',d:'F',v:0.6,gn:'Flight / release',lv:'lelite',ex:'Stretched Tkatchev with a full twist, regrasp — watch low, late catch.'},
-  {id:'hb_quad_dis',n:'Quadruple-twisting double layout dismount',d:'H',v:0.8,gn:'Dismount',lv:'lelite',ex:'Four twists in a stretched double salto, stick — watch under-rotation, step.'}
+  {id:'hb_quad_dis',n:'Quadruple-twisting double layout dismount',d:'J',v:1.0,gn:'Dismount',lv:'lelite',ex:'Four twists in a stretched double salto, stick — watch under-rotation, step.'}
  ]
 };
 
@@ -1542,7 +1610,7 @@ const GLOSSARY = [
   {t:"Handstand",d:"A straight upside-down position balanced on both hands. The goal is a perfectly vertical, tight body with pointed toes."},
   {t:"Inlocate",d:"A rings skill where you swing forward and rotate the shoulders inward through an inverted position."},
   {t:"Kip",d:"A swinging skill that uses momentum to move from a hang or low position up into a support above the bar. A key connecting skill on bars."},
-  {t:"LAT (Level Award Test)",d:"The all-around score a gymnast needs to have officially passed their level. For example, 30.00 AA for Levels 3 to 6."},
+  {t:"LAT (Level Award Test)",d:"The test where judges decide whether you have passed your level. You need both a minimum all-around score and a minimum score on every apparatus — for example 42.00 AA with at least 5.50 on each apparatus at Levels 1 to 6."},
   {t:"Layout",d:"A straight, fully extended body position during a salto or flight skill. The most stretched shape and usually the most difficult."},
   {t:"L-sit",d:"A strength hold where both legs are lifted horizontally in front of the body, forming an L shape. Used on rings and parallel bars."},
   {t:"Mushroom",d:"A small circular training apparatus used to learn pommel-horse circles before moving onto the full horse."},
@@ -1555,7 +1623,7 @@ const GLOSSARY = [
   {t:"Round-off",d:"A cartwheel where the legs snap together at the top and the gymnast lands facing the direction they came from — used to build power into backward tumbling."},
   {t:"Salto",d:"A somersault — a full rotation of the body in the air. Can be tucked (knees bent), piked (hips bent, legs straight) or layout (fully straight)."},
   {t:"Special Requirements",d:"Specific types of skills that optional routines must include. Missing one usually costs 0.50 points from the score."},
-  {t:"Start Value (SV)",d:"The maximum score a routine can reach before any deductions. In compulsory levels it is 9.0, with bonuses that can raise it to 9.5 or 10.0."},
+  {t:"Start Value (SV)",d:"The score a routine starts from before any deductions. In compulsory levels it is 10.0, and bonuses for harder skills can raise it to 10.5 or 11.0 — so your score is your start value minus everything the judges take off."},
   {t:"Support",d:"A position above the apparatus, bearing weight through the hands or upper arms. The opposite of a hang."},
   {t:"Travel",d:"On pommel horse, shifting both hands from one part of the horse to another while keeping the legs swinging continuously."},
   {t:"Tuck",d:"A body position where the knees and hips are both bent, pulling the body into a compact ball. The easiest shape for a salto."},
@@ -1711,14 +1779,36 @@ showHome();
 /* dots menu */
 document.getElementById('menu-logo').src=document.querySelector('.logo-img').src;
 document.getElementById('howto-logo').src=document.querySelector('.logo-img').src;
-document.getElementById('sn-dots').addEventListener('click',()=>document.getElementById('menu-overlay').classList.add('visible'));
+const menuOverlay=document.getElementById('menu-overlay');
+const menuBox=menuOverlay.querySelector('.modal-box');
+const dotsBtn=document.getElementById('sn-dots');
+/* drop the box just under the ··· button, nudged back on-screen if it would overflow */
+function placeMenu(){
+  const r=dotsBtn.getBoundingClientRect(), gap=8, edge=12;
+  const top=r.bottom+gap;
+  let left=r.left;
+  left=Math.min(left,window.innerWidth-menuBox.offsetWidth-edge);
+  left=Math.max(edge,left);
+  menuBox.style.top=top+'px';
+  menuBox.style.left=left+'px';
+  menuBox.style.maxHeight=(window.innerHeight-top-edge)+'px';
+}
+const openMenu=()=>{menuOverlay.classList.add('visible');placeMenu();};
+const closeMenu=()=>menuOverlay.classList.remove('visible');
+window.addEventListener('resize',()=>{if(menuOverlay.classList.contains('visible'))placeMenu();});
+window.addEventListener('scroll',()=>{if(menuOverlay.classList.contains('visible'))placeMenu();},{passive:true});
+dotsBtn.addEventListener('click',openMenu);
+document.getElementById('menu-close').addEventListener('click',closeMenu);
+/* tap the blurred background to dismiss */
+menuOverlay.addEventListener('click',e=>{if(e.target===menuOverlay)closeMenu();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
 document.getElementById('menu-howto').addEventListener('click',()=>{
-  document.getElementById('menu-overlay').classList.remove('visible');
+  closeMenu();
   document.getElementById('howto-page').classList.add('visible');
 });
 document.getElementById('howto-back').addEventListener('click',()=>{
   document.getElementById('howto-page').classList.remove('visible');
-  document.getElementById('menu-overlay').classList.add('visible');
+  openMenu();
 });
 </script>
 </body>
