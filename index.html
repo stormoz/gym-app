@@ -137,6 +137,76 @@
   .menu-dot-box{width:30px;height:30px;border:2px solid var(--blue);border-radius:7px;display:flex;align-items:center;justify-content:center;flex:none}
   .menu-dot{width:13px;height:13px;background:var(--blue);border-radius:50%}
   .menu-row-text{font-size:16px;font-weight:700;color:var(--ink)}
+  /* shared shell for the menu pages */
+  .pg-body{padding:24px;max-width:720px;margin:0 auto}
+  .pg-h{font-size:26px;color:var(--ink);margin:0 0 6px}
+  .pg-lead{font-size:15px;color:var(--muted);margin:0 0 26px;line-height:1.6}
+  .pg-note{font-size:12.5px;color:var(--muted);margin:26px 0 0;padding-top:16px;border-top:1px solid var(--line-2)}
+  .pg-card{border:1.5px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:14px;background:#fff}
+  .pg-card h3{font-size:15px;margin:0 0 14px;color:var(--blue-dark);letter-spacing:.2px}
+  .pg-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--line-2);font-size:14.5px}
+  .pg-row:last-child{border-bottom:none}
+  .pg-row .k{color:var(--muted);display:flex;align-items:center;gap:9px;min-width:0}
+  .pg-row .k svg{width:17px;height:17px;flex:none}
+  .pg-row .v{font-weight:700;color:var(--ink);white-space:nowrap}
+  .pg-ok{color:var(--ok)}.pg-bad{color:var(--red)}
+  .pg-big{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+  .pg-big b{font-family:Georgia,'Times New Roman',serif;font-size:38px;line-height:1;color:var(--blue-dark)}
+  .pg-big span{font-size:14px;color:var(--muted)}
+  .pg-bar{height:8px;border-radius:6px;background:var(--line-2);overflow:hidden;margin:12px 0 4px}
+  .pg-bar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--blue-2),var(--blue-dark))}
+  .pg-verdict{border-radius:12px;padding:14px 16px;font-size:14.5px;line-height:1.6;margin-bottom:14px}
+  .pg-verdict.good{background:var(--ok-soft);border:1.5px solid #bfe6cd;color:#14663a}
+  .pg-verdict.work{background:var(--blue-tint);border:1.5px solid #dbe7fb;color:var(--blue-dark)}
+  .pg-empty{background:var(--blue-tint);border:1.5px dashed #cfdff8;border-radius:12px;padding:18px;font-size:14.5px;color:var(--blue-dark);line-height:1.6}
+  .pg-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+  .pg-chip{font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:8px;background:var(--blue-tint);color:var(--blue-dark);border:1px solid #dbe7fb}
+  .pg-summary{background:var(--blue-tint);border-color:#dbe7fb}
+  .pg-summary p{margin:0;font-size:14.5px;line-height:1.8;color:var(--ink)}
+  .pg-summary b{color:var(--blue-dark)}
+  /* compare */
+  .cmp-pick{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+  .cmp-pick label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+  .cmp-pick select{font-family:inherit;font-size:15px;font-weight:700;color:var(--ink);padding:9px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;min-width:130px}
+  .cmp-pick select:focus{outline:none;border-color:var(--blue)}
+  .cmp-arrow{font-size:18px;color:var(--muted);padding-bottom:10px}
+  .cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .cmp-col h4{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+  .cmp-col.b h4{color:var(--red)}
+  .cmp-delta{font-size:12.5px;font-weight:700;color:var(--red);margin-left:6px}
+  @media(max-width:560px){.cmp-grid{grid-template-columns:1fr}.cmp-arrow{display:none}}
+  /* judge's eye */
+  .je-pick{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .je-lab{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;flex:none;width:74px}
+  .je-pills{display:flex;gap:6px;flex-wrap:wrap;flex:1;min-width:0}
+  .je-scroll{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  .je-scroll::-webkit-scrollbar{display:none}
+  .je-pill{font-family:inherit;font-size:12.5px;font-weight:700;padding:7px 12px;border:1.5px solid var(--line);
+    border-radius:9px;background:#fff;color:var(--muted);cursor:pointer;transition:.15s;flex:none;white-space:nowrap}
+  .je-pill:hover{border-color:var(--blue);color:var(--blue-dark)}
+  .je-pill[data-on="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+  .je-group{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin:20px 0 9px}
+  .je-group:first-child{margin-top:4px}
+  .je-sv{font-size:12.5px;color:var(--muted);margin-top:6px}
+  .je-bonus{font-family:inherit;font-size:13px;font-weight:700;padding:8px 14px;border:1.5px solid var(--ok);
+    border-radius:9px;background:var(--ok-soft);color:#14663a;cursor:pointer;transition:.15s}
+  .je-bonus:hover:not(:disabled){background:#d8f0e1}
+  .je-bonus:disabled{opacity:.5;cursor:default;border-color:var(--line);background:#fff;color:var(--muted)}
+  @media(max-width:520px){.je-pick{flex-direction:column;align-items:flex-start;gap:6px}.je-lab{width:auto}.je-pills{width:100%}}
+  .je-score{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    border:1.5px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:18px;background:var(--blue-tint)}
+  .je-num{font-family:Georgia,'Times New Roman',serif;font-size:44px;line-height:1;color:var(--blue-dark)}
+  .je-meta{display:flex;align-items:center;gap:14px;font-size:13.5px;color:var(--muted)}
+  .je-reset{font-family:inherit;font-size:13px;font-weight:700;padding:8px 14px;border:1.5px solid var(--line);
+    border-radius:9px;background:#fff;color:var(--muted);cursor:pointer;transition:.15s}
+  .je-reset:hover{border-color:var(--blue);color:var(--blue-dark);background:#fff}
+  .je-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font-family:inherit;
+    padding:11px 13px;margin-bottom:7px;border:1.5px solid var(--line);border-radius:11px;background:#fff;cursor:pointer;transition:.15s}
+  .je-item:hover{border-color:var(--blue);background:var(--blue-tint)}
+  .je-item .je-v{font-size:12.5px;font-weight:700;color:#fff;background:var(--muted);border-radius:7px;padding:4px 8px;flex:none;min-width:42px;text-align:center}
+  .je-item .je-n{font-size:14.5px;color:var(--ink);flex:1}
+  .je-item .je-c{font-size:13px;font-weight:700;color:var(--blue-dark);flex:none}
+  .je-item[data-on="true"]{border-color:var(--blue);background:var(--blue-soft)}
   .howto-body{padding:24px;max-width:720px;margin:0 auto}
   .howto-body h2{font-size:26px;color:var(--ink);margin:0 0 28px}
   .howto-sec{margin-bottom:30px;padding-bottom:30px;border-bottom:1px solid var(--line-2)}
@@ -453,6 +523,7 @@
   .gloss-term{font-weight:800;font-size:14.5px;color:var(--ink);padding-top:1px}
   .gloss-def{font-weight:600;font-size:13.5px;color:var(--muted);line-height:1.55}
   .gloss-none{text-align:center;padding:32px;color:var(--muted);font-weight:600}
+  .gloss-count{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.1px;padding:2px 2px 12px}
   .gloss-tag{font-family:Georgia,'Times New Roman',serif;font-weight:600;font-size:10.5px;color:var(--blue-dark);background:var(--blue-soft);border:1px solid #d6e4fd;border-radius:999px;padding:1px 8px;margin-left:7px;white-space:nowrap;vertical-align:middle}
   @media(max-width:560px){.gloss-item{grid-template-columns:1fr}.gloss-term{padding-bottom:2px}.gloss-def{grid-column:1}}
 </style>
@@ -689,6 +760,18 @@
         <div class="menu-dot-box"><div class="menu-dot"></div></div>
         <span class="menu-row-text">How to Use This App</span>
       </div>
+      <div class="menu-row" id="menu-levelup">
+        <div class="menu-dot-box"><div class="menu-dot"></div></div>
+        <span class="menu-row-text">What do I need to level up?</span>
+      </div>
+      <div class="menu-row" id="menu-compare">
+        <div class="menu-dot-box"><div class="menu-dot"></div></div>
+        <span class="menu-row-text">Compare two levels</span>
+      </div>
+      <div class="menu-row" id="menu-judge">
+        <div class="menu-dot-box"><div class="menu-dot"></div></div>
+        <span class="menu-row-text">Judge's eye</span>
+      </div>
     </div>
   </div>
 </div>
@@ -730,6 +813,74 @@
       <h3><span class="howto-num">7</span> Gymnastics Words</h3>
       <p>This is the app's dictionary. If you ever hear a word at training or in a competition that you don't understand — like "amplitude", "salto", or "pike position" — you can search for it here and get a simple explanation of what it means. It also includes every single skill in the whole program, so you can look up any move by name and find out what level it's from and what it's worth. You can search by typing in the search box at the top, or just scroll through the alphabet to explore.</p>
     </div>
+  </div>
+</div>
+
+<!-- WHAT DO I NEED TO LEVEL UP -->
+<div class="ov-page" id="levelup-page">
+  <div class="ov-header">
+    <span></span>
+    <img class="ov-logo" id="levelup-logo" alt="MAG Gymnastics">
+  </div>
+  <button class="ov-back" id="levelup-back">← Back</button>
+  <div class="pg-body">
+    <h2 class="pg-h">What do I need to level up?</h2>
+    <p class="pg-lead">Your scores and ticked skills, measured against the official pass mark for your level.</p>
+    <div id="lu-out"></div>
+    <p class="pg-note">Pass marks: Gymnastics Australia 2026 MAG Technical Regulations, Table 1.</p>
+  </div>
+</div>
+
+<!-- COMPARE TWO LEVELS -->
+<div class="ov-page" id="compare-page">
+  <div class="ov-header">
+    <span></span>
+    <img class="ov-logo" id="compare-logo" alt="MAG Gymnastics">
+  </div>
+  <button class="ov-back" id="compare-back">← Back</button>
+  <div class="pg-body">
+    <h2 class="pg-h">Compare two levels</h2>
+    <p class="pg-lead">See exactly what changes when you move up — the marks, the format and the skills.</p>
+    <div class="cmp-pick">
+      <label>From <select id="cmp-a"></select></label>
+      <span class="cmp-arrow">→</span>
+      <label>To <select id="cmp-b"></select></label>
+    </div>
+    <div id="cmp-out"></div>
+  </div>
+</div>
+
+<!-- JUDGE'S EYE -->
+<div class="ov-page" id="judge-page">
+  <div class="ov-header">
+    <span></span>
+    <img class="ov-logo" id="judge-logo" alt="MAG Gymnastics">
+  </div>
+  <button class="ov-back" id="judge-back">← Back</button>
+  <div class="pg-body">
+    <h2 class="pg-h">Judge's eye</h2>
+    <p class="pg-lead">Pick your level and apparatus, then tap the mistakes you made and watch what a judge takes off.</p>
+    <div class="je-pick">
+      <span class="je-lab">Level</span>
+      <div class="je-pills je-scroll" id="je-levels"></div>
+    </div>
+    <div class="je-pick">
+      <span class="je-lab">Apparatus</span>
+      <div class="je-pills" id="je-apps"></div>
+    </div>
+    <div class="je-score">
+      <div>
+        <div class="je-num" id="je-num">10.00</div>
+        <div class="je-sv" id="je-sv">Start value 10.00</div>
+      </div>
+      <div class="je-meta">
+        <span id="je-count">No deductions yet</span>
+        <button class="je-bonus" id="je-bonus">+ 0.5 bonus</button>
+        <button class="je-reset" id="je-reset">Start again</button>
+      </div>
+    </div>
+    <div id="je-out"></div>
+    <p class="pg-note">Deduction sizes follow the FIG 2025–2028 Code of Points: small 0.10, medium 0.30, large 0.50, fall 1.00.</p>
   </div>
 </div>
 
@@ -798,7 +949,7 @@ const LEVELS = {
   4:{band:'Junior',type:'Compulsory routine · Start Value 10.0 (bonuses: 10.5 / 11.0)',max:11,latPass:42,minApp:5.5,comp:50,pod:54,passLabel:'42.00 AA',
      blurb:'Skills connect into longer sequences. Amplitude, body tension and the first acrobatic flight begin to matter alongside form.'},
   5:{band:'Junior',type:'Compulsory routine · Start Value 10.0 (bonuses: 10.5 / 11.0)',max:11,latPass:42,minApp:5.5,comp:50,pod:54,passLabel:'42.00 AA',
-     blurb:'Power meets precision: round-off flic-flacs, continuous circles, swing to support and salto dismounts on several apparatus.'},
+     blurb:'Power meets precision: round-off back handsprings, continuous circles, swing to support and salto dismounts on several apparatus.'},
   6:{band:'Junior',type:'Compulsory: 42.00 AA (min 5.50)  ·  Level 6 Optional: 58.00 AA (min 8.00)',max:12,latPass:42,minApp:5.5,optPass:58,optMinApp:8,comp:58,pod:64,passLabel:'42.00 AA',
      blurb:'Scoring depends on the division. The compulsory routine is scored from a Start Value of 10.0, with bonuses available to 10.5 or 11.0; Level 6 Optional gymnasts build their own routine scored on D-score + E-score against a higher pass mark.'},
   7:{band:'Senior',type:'U13 compulsory: 45.00 AA (min 6.50)  ·  Level 7 Open: 60.00 AA (min 8.50)',max:13,latPass:45,minApp:6.5,optPass:60,optMinApp:8.5,comp:60,pod:66,passLabel:'45.00 AA',
@@ -841,13 +992,13 @@ const ELEM = {
      VT:['Front handspring to feet','Push for repulsion & height','Stick with chest up'],
      PB:['Upper-arm swing to support','Back uprise to support','Straddle cut & dismount'],
      HB:['Cast above horizontal','Back hip circle & mill circle','Underswing with ½ turn'] },
-  5:{FX:['Round-off flic-flac (back handspring)','Front limber / walkover','Planche lean & strength hold'],
+  5:{FX:['Round-off, back handspring','Front limber / walkover','Planche lean & strength hold'],
      PH:['Continuous circles on horse','Travel across the horse','Simple dismount off the end'],
      SR:['Swing to support','Dislocate','Salto dismount (tuck/pike)'],
      VT:['Front handspring with flight','Body extension off the table','Controlled landing, small step max'],
      PB:['Swing to support above the bars','Drop glide / under-bar swing','Straddle cut catch & dismount'],
      HB:['Free hip circle attempt','Undershoot','Cast toward handstand'] },
-  6:{FX:['Round-off flic-flac → tucked back salto','Press to handstand','Strength hold & salto finish'],
+  6:{FX:['Round-off, back handspring → tucked back salto','Press to handstand','Strength hold & salto finish'],
      PH:['Circles + travel + flair attempt','Continuous rhythm, no stops','Dismount off the end'],
      SR:['Dislocate & inlocate','L-sit to support (strength)','Salto dismount'],
      VT:['Front handspring, big repulsion','Height & body line in flight','Stick the landing'],
@@ -947,7 +1098,7 @@ function renderLevels(){
 function renderOverview(){
   const L=LEVELS[state.level];
   document.getElementById('ov-about').innerHTML=`
-    <span class="kicker">Level ${state.level} · ${L.band}</span>
+    <span class="kicker">${state.level>=11?levelName(state.level):`Level ${state.level} · ${L.band}`}</span>
     <h3>${L.band==='Foundation'?'Foundation level':L.band==='Junior'?'Junior compulsory':L.band==='Senior'?'Senior optional':L.band==='International'?'Senior International':'Olympian / Elite'}</h3>
     <div class="scoretype">${L.type}</div>
     <p>${L.blurb}</p>`;
@@ -979,7 +1130,7 @@ function renderDetail(){
   document.getElementById('app-detail').innerHTML=`
     <div class="head">
       <div class="ic">${ICONS[a.k]}</div>
-      <div><h3>${a.full} <span style="color:var(--muted);font-size:15px;font-weight:600">· Level ${state.level}</span></h3>
+      <div><h3>${a.full} <span style="color:var(--muted);font-size:15px;font-weight:600">· ${levelName(state.level)}</span></h3>
       <p>${a.about}</p></div>
     </div>
     <div class="block">
@@ -1002,10 +1153,12 @@ function renderDetail(){
 
 /* ---------- TRACKER ---------- */
 function num(v){ const n=parseFloat(v); return isFinite(n)?n:null; }
+/* the two elite levels are always shown by name, never as a number */
+function levelName(n){ return +n===12?'Olympian':+n===11?'Senior International':'Level '+n; }
 
 function renderTracker(){
   const L=LEVELS[state.level];
-  document.getElementById('t-level').textContent='Level '+state.level;
+  document.getElementById('t-level').textContent=levelName(state.level);
 
   // sync + clamp inputs to level max
   document.querySelectorAll('#inputs input').forEach(inp=>{
@@ -1147,7 +1300,7 @@ const SKILLS = {
   {id:'fx_btuck',n:'Round-off, back handspring, back tuck',d:'A',v:0.1,gn:'Backward acro',lv:'l78',ex:'Tight tuck, open early — watch under-rotation, low height, hop.'},
   {id:'fx_blay',n:'Round-off, back handspring, back layout',d:'B',v:0.2,gn:'Backward acro',lv:'l78',ex:'Straight body, toes pointed — watch leg split, arch, under-rotation.'},
   {id:'fx_bfull',n:'Round-off, back handspring, back full twist',d:'B',v:0.2,gn:'Backward acro',lv:'l78',ex:'Finish twist before landing — watch leg separation, late twist.'},
-  {id:'fx_dbt',n:'Round-off, back handspring, double back tuck',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Enough set and rotation, tight tuck — watch low set, step.'},
+  {id:'fx_dbt',n:'Round-off, back handspring, double back tuck',d:'C',v:0.3,gn:'Backward acro',lv:'l910',ex:'Enough set and rotation, tight tuck — watch low set, step.'},
   {id:'fx_dbp',n:'Round-off, back handspring, double back pike',d:'D',v:0.4,gn:'Backward acro',lv:'l910',ex:'Hold pike through both saltos — watch early opening.'},
   {id:'fx_rudi',n:'Front handspring, Rudi (front 1½)',d:'C',v:0.3,gn:'Forward acro',lv:'l78',ex:'Complete the 1½ twist and square the landing — watch under-twist, step.'},
   {id:'fx_arabian',n:'Round-off, back handspring, Arabian double front pike',d:'E',v:0.5,gn:'Forward acro',lv:'l910',ex:'Half-turn into a double front pike — watch under-rotation, deep landing.'},
@@ -1212,7 +1365,7 @@ const SKILLS = {
   {id:'ph_flair',n:'Flair (Thomas flair)',d:'B',v:0.2,gn:'Circles & flairs',lv:'l78',ex:'Straddle high and straight, even — watch low legs, hip drop.'},
   {id:'ph_r360',n:'Russian wende 360',d:'B',v:0.2,gn:'Circles & flairs',lv:'l78',ex:'Keep the circle through the turn — watch hesitation, hip drop.'},
   {id:'ph_r720',n:'Russian wende 720',d:'C',v:0.3,gn:'Circles & flairs',lv:'l78',ex:'Continuous turn and circle — watch break in rhythm.'},
-  {id:'ph_spindle',n:'Spindle (full)',d:'C',v:0.3,gn:'Circles & flairs',lv:'l78',ex:'Turn while circling, stay extended — watch pike, stop.'},
+  {id:'ph_spindle',n:'Spindle (full)',d:'D',v:0.4,gn:'Circles & flairs',lv:'l78',ex:'Turn while circling, stay extended — watch pike, stop.'},
   {id:'ph_hs',n:'Circle to handstand',d:'B',v:0.2,gn:'Circles & flairs',lv:'l78',ex:'Reach vertical, controlled — watch over or under, bent arms.'},
   {id:'ph_travel',n:'Travel down the horse',d:'D',v:0.4,gn:'Travels',lv:'l910',ex:'Keep circle rhythm across — watch hesitation, hip drop.'},
   {id:'ph_magyar',n:'Magyar travel',d:'D',v:0.4,gn:'Travels',lv:'l910',ex:'Travel end to end without a break — watch stalling.'},
@@ -1280,7 +1433,7 @@ const SKILLS = {
   {id:'sr_yama',n:'Yamawaki',d:'C',v:0.3,gn:'Swing to handstand',lv:'l78',ex:'Clean turnover to support — watch swing, bent arms.'},
   {id:'sr_lsit',n:'L-sit (hold 2s)',d:'A',v:0.1,gn:'Strength holds',lv:'l78',ex:'Legs horizontal, hold 2 seconds — watch low legs, short hold.'},
   {id:'sr_bl',n:'Back lever (hold)',d:'A',v:0.1,gn:'Strength holds',lv:'l78',ex:'Body horizontal, hold 2 seconds — watch high hips, short hold.'},
-  {id:'sr_fl',n:'Front lever (hold)',d:'B',v:0.2,gn:'Strength holds',lv:'l78',ex:'Straight horizontal body, hold 2 seconds — watch arch, high hips.'},
+  {id:'sr_fl',n:'Front lever (hold)',d:'A',v:0.1,gn:'Strength holds',lv:'l78',ex:'Straight horizontal body, hold 2 seconds — watch arch, high hips.'},
   {id:'sr_planche',n:'Planche (hold)',d:'C',v:0.3,gn:'Strength holds',lv:'l78',ex:'Body horizontal on straight arms — watch low or high, short hold.'},
   {id:'sr_cross',n:'Iron cross (hold)',d:'C',v:0.3,gn:'Strength holds',lv:'l78',ex:'Arms horizontal, rings turned out — watch arms above level, bent arms, short hold.'},
   {id:'sr_strad_planche',n:'Straddle planche (hold 2s)',d:'A',v:0.1,gn:'Strength holds',lv:'l78',ex:'Body horizontal with legs straddled, arms straight — watch hips high, bent arms, short hold.'},
@@ -1288,16 +1441,16 @@ const SKILLS = {
   {id:'sr_dbl_pike_dis',n:'Double back pike dismount',d:'B',v:0.2,gn:'Dismount',lv:'l78',ex:'Hold the pike through both saltos then open to stick — watch early opening, under-rotation.'},
   {id:'sr_maltese',n:'Maltese (hold)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Body and arms horizontal at ring height — watch body too high, bent arms, short hold.'},
   {id:'sr_inv',n:'Inverted cross (hold)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Straight handstand-line cross — watch off-vertical, bent arms.'},
-  {id:'sr_dt',n:'Double back dismount (tuck)',d:'C',v:0.3,gn:'Dismount',lv:'l78',ex:'Height and rotation, stick — watch swing in rings, step.'},
-  {id:'sr_dl',n:'Double back dismount (layout)',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Straight body, complete rotation — watch arch, step.'},
-  {id:'sr_dd_half_half',n:'Double back half-half dismount',d:'F',v:0.6,gn:'Dismount',lv:'l910',ex:'Half twist in each salto, finish square and stick — watch off-axis, under-rotation, step.'},
-  {id:'sr_dd',n:'Double-double back tuck dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Two twists in a double salto, stick — watch under-rotation.'},
+  {id:'sr_dt',n:'Double back dismount (tuck)',d:'B',v:0.2,gn:'Dismount',lv:'l78',ex:'Height and rotation, stick — watch swing in rings, step.'},
+  {id:'sr_dl',n:'Double back dismount (layout)',d:'C',v:0.3,gn:'Dismount',lv:'l910',ex:'Straight body, complete rotation — watch arch, step.'},
+  {id:'sr_dd_half_half',n:'Double back half-half dismount',d:'C',v:0.3,gn:'Dismount',lv:'l910',ex:'Half twist in each salto, finish square and stick — watch off-axis, under-rotation, step.'},
+  {id:'sr_dd',n:'Double-double back tuck dismount',d:'E',v:0.5,gn:'Dismount',lv:'lelite',ex:'Two twists in a double salto, stick — watch under-rotation.'},
   {id:'sr_azarian',n:'Azarian (roll to cross)',d:'D',v:0.4,gn:'Strength holds',lv:'l910',ex:'Backward roll straight to a held cross — watch arms above level, swing, short hold.'},
   {id:'sr_jonasson',n:'Jonasson to handstand',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Felge-style swing to handstand — watch swinging rings, bent arms, short of vertical.'},
   {id:'sr_yama_hs',n:'Yamawaki to handstand',d:'D',v:0.4,gn:'Swing to handstand',lv:'l910',ex:'Turnover to a steady handstand — watch swing, off-vertical.'},
   {id:'sr_nakayama',n:'Nakayama (swing to cross)',d:'E',v:0.5,gn:'Strength holds',lv:'l910',ex:'Swing directly to a held cross — watch swing in rings, short hold.'},
   {id:'sr_triple',n:'Triple back tuck dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Three tight saltos, stick — watch low set, under-rotation, step.'},
-  {id:'sr_dd_layout',n:'Double-double layout dismount',d:'G',v:0.7,gn:'Dismount',lv:'lelite',ex:'Olympian-level — two twists in a stretched double salto — watch arch, under-rotation.'},
+  {id:'sr_dd_layout',n:'Double-double layout dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Olympian-level — two twists in a stretched double salto — watch arch, under-rotation.'},
   {id:'sr_support',n:'Support hold (rings still)',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Tall support with the rings still — watch sagging, swinging rings.'},
   {id:'sr_inv_hang',n:'Inverted hang',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Hold the upside-down hang still — watch swing, bent body.'},
   {id:'sr_tuck_hang',n:'Tuck / pike hang',d:'Fdn',v:0,gn:'Strength holds',lv:'l13',ex:'Controlled tuck or pike hang — watch swinging.'},
@@ -1329,45 +1482,41 @@ const SKILLS = {
   {id:'sr_pineda',n:'Pineda (back uprise to Maltese)',d:'F',v:0.6,gn:'Strength holds',lv:'lelite',ex:'Uprise straight to a held Maltese — watch body height, bent arms, short hold.'}
  ],
  VT:[
-  {id:'vt_hs',n:'Handspring',d:'',v:2.0,gn:'Vault',lv:'l78',ex:'Full extension and block, controlled landing — watch short support, pike, steps.'},
-  {id:'vt_hsft',n:'Handspring front (tuck)',d:'',v:3.2,gn:'Vault',lv:'l78',ex:'Block off the table, complete salto, stick — watch low flight, hop.'},
-  {id:'vt_hsfp',n:'Handspring front (pike)',d:'',v:3.6,gn:'Vault',lv:'l78',ex:'Hold the pike, complete rotation — watch under-rotation, step.'},
-  {id:'vt_tt',n:'Tsukahara (tuck)',d:'',v:3.2,gn:'Vault',lv:'l78',ex:'Quarter-on half-off entry, tight salto — watch direction, step.'},
-  {id:'vt_tl',n:'Tsukahara (layout)',d:'',v:3.6,gn:'Vault',lv:'l78',ex:'Straight body, complete rotation — watch arch, step.'},
-  {id:'vt_kas',n:'Kasamatsu',d:'',v:4.0,gn:'Vault',lv:'l910',ex:'Half-on with one and a quarter twist off — watch twist completion, landing.'},
+  {id:'vt_hs',n:'Handspring',d:'',v:1.2,gn:'Vault',lv:'l78',ex:'Full extension and block, controlled landing — watch short support, pike, steps.'},
+  {id:'vt_hsft',n:'Handspring front (tuck)',d:'',v:2.0,gn:'Vault',lv:'l78',ex:'Block off the table, complete salto, stick — watch low flight, hop.'},
+  {id:'vt_hsfp',n:'Handspring front (pike)',d:'',v:2.4,gn:'Vault',lv:'l78',ex:'Hold the pike, complete rotation — watch under-rotation, step.'},
+  {id:'vt_tt',n:'Tsukahara (tuck)',d:'',v:1.8,gn:'Vault',lv:'l78',ex:'Quarter-on half-off entry, tight salto — watch direction, step.'},
+  {id:'vt_tl',n:'Tsukahara (layout)',d:'',v:2.8,gn:'Vault',lv:'l78',ex:'Straight body, complete rotation — watch arch, step.'},
+  {id:'vt_kas',n:'Kasamatsu',d:'',v:2.4,gn:'Vault',lv:'l910',ex:'Half-on with one and a quarter twist off — watch twist completion, landing.'},
   {id:'vt_yur_tuck',n:'Yurchenko tucked (round-off entry)',d:'',v:1.8,gn:'Vault',lv:'l78',ex:'Round-off onto the board, tight tucked salto off the table — watch entry direction, under-rotation.'},
   {id:'vt_tsuk_half',n:'Tsukahara tucked with ½ twist',d:'',v:2.0,gn:'Vault',lv:'l78',ex:'Add a half twist to the tucked Tsukahara — watch twist late, off-axis, step.'},
   {id:'vt_yur_shewfelt',n:'Shewfelt (Yurchenko straight 5/2 twist)',d:'',v:4.8,gn:'Vault',lv:'lelite',ex:'Two and a half twists in a stretched Yurchenko — watch off-axis, under-twist, step.'},
-  {id:'vt_roche',n:'Handspring double front (Roche)',d:'',v:5.6,gn:'Vault',lv:'lelite',ex:'Huge block, two front saltos, stick — watch under-rotation, deep landing.'},
-  {id:'vt_drag',n:'Dragulescu',d:'',v:5.6,gn:'Vault',lv:'lelite',ex:'Double front with half twist out — watch blind landing.'},
-  {id:'vt_akopian',n:'Tsukahara double back (Akopian)',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Tsukahara entry into a double back — watch under-rotation, deep landing.'},
-  {id:'vt_lou_yun',n:'Kasamatsu 1/1 (Lou Yun)',d:'',v:4.4,gn:'Vault',lv:'l910',ex:'Kasamatsu with an extra half twist — watch twist completion, step.'},
-  {id:'vt_shewfelt',n:'Handspring front double full',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Two twists in a single front salto — watch off-axis, blind landing.'},
-  {id:'vt_yang',n:'Yang Hak Seon (Tsukahara triple twist)',d:'',v:6.0,gn:'Vault',lv:'lelite',ex:'Olympian-level — three twists off a Tsukahara entry — watch twist completion, landing.'},
-  {id:'vt_rise',n:'Ri Se Gwang (handspring double front twist)',d:'',v:6.2,gn:'Vault',lv:'lelite',ex:'Olympian-level — handspring double front with a twist — watch rotation, deep landing.'},
-  {id:'vt_squat',n:'Squat-on, straight jump off',d:'',v:1.2,gn:'Vault',lv:'l13',ex:'Squat through and stand tall — watch feet hitting, sitting back.'},
-  {id:'vt_flatback',n:'Handspring to flat back (timer)',d:'',v:1.6,gn:'Vault',lv:'l13',ex:'Handspring shape onto the mat — watch piking, no push.'},
-  {id:'vt_l35_handspring',n:'Run, hurdle, front handspring to stand (Level 5)',d:'',v:2.0,gn:'Vault',lv:'l56',ex:'Full extension and block, controlled landing — watch short support, pike, step.'},
-  {id:'vt_yurchenko',n:'Yurchenko layout (round-off entry)',d:'',v:3.6,gn:'Vault',lv:'l78',ex:'Round-off onto the table into a stretched salto — watch direction, step.'},
-  {id:'vt_lopez',n:'Lopez (handspring ½ on)',d:'',v:3.2,gn:'Vault',lv:'l78',ex:'Half-turn on, salto off — watch twist completion, step.'},
-  {id:'vt_hs_dbl_tuck',n:'Handspring double front (tuck)',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Big block into a tucked double front, stick — watch under-rotation, deep landing.'},
-  {id:'vt_l4_handspring',n:'Front handspring to feet (Level 4)',d:'',v:2.0,gn:'',lv:'l4',ex:'Block and stand tall on landing — watch short support, sitting back.'},
-  {id:'vt_l4_handspring_mat',n:'Handspring onto a raised mat stack',d:'',v:1.6,gn:'',lv:'l4',ex:'Drive through to the mat with a strong block — watch piking, short block.'},
-  {id:'vt_l56_block',n:'Front handspring, strong block & repulsion',d:'',v:2.0,gn:'',lv:'l56',ex:'Punch off the table with full extension — watch short support, piking early.'},
-  {id:'vt_l56_hollow',n:'Front handspring, hollow body to feet',d:'',v:2.0,gn:'',lv:'l56',ex:'Hold a tight hollow through flight — watch arch, sitting back on landing.'},
-  {id:'vt_l56_tuck_drill',n:'Handspring front tuck (into pit / timer)',d:'',v:2.4,gn:'',lv:'l56',ex:'Block then start the tuck rotation — watch early tuck, short block.'},
-  {id:'vt_l56_half',n:'Handspring with half turn to feet',d:'',v:2.4,gn:'',lv:'l56',ex:'Add the half turn after a full block — watch early turn, off-line landing.'},
-  {id:'vt_l56_over_table',n:'Front handspring over the vault table',d:'',v:2.0,gn:'',lv:'l56',ex:'Clear the full table with a strong block and reach — watch short support, piking over the table.'},
-  {id:'vt_l56_front_tuck_mat',n:'Front tuck onto a mat',d:'',v:2.4,gn:'',lv:'l56',ex:'Block then a tucked front salto landing on the mat — watch early tuck, under-rotation.'},
-  {id:'vt_l56_front_layout_mat',n:'Front layout onto a mat',d:'',v:2.8,gn:'',lv:'l56',ex:'Block into a stretched front salto onto the mat — watch arch, short rotation.'},
-  {id:'vt_driggs',n:'Kasamatsu double salto (Driggs)',d:'',v:5.6,gn:'',lv:'lelite',ex:'Kasamatsu entry into a double salto — watch under-rotation, deep landing.'},
-  {id:'vt_yeo',n:'Yeo Hyung Chul 2 (handspring double front ½)',d:'',v:6.0,gn:'',lv:'lelite',ex:'Handspring double front with a half twist out — watch blind landing.'}
+  {id:'vt_roche',n:'Handspring double front (Roche)',d:'',v:4.8,gn:'Vault',lv:'lelite',ex:'Huge block, two front saltos, stick — watch under-rotation, deep landing.'},
+  {id:'vt_drag',n:'Dragulescu',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Double front with half twist out — watch blind landing.'},
+  {id:'vt_akopian',n:'Akopian (Tsukahara straight, double twist)',d:'',v:4.4,gn:'Vault',lv:'l910',ex:'Tsukahara entry, two twists in a stretched salto — watch off-axis, under-twist, step.'},
+  {id:'vt_lou_yun',n:'Lou Yun (handspring straight, 3/2 twist)',d:'',v:4.4,gn:'Vault',lv:'l910',ex:'Handspring entry, one and a half twists stretched — watch off-axis, under-twist, step.'},
+  {id:'vt_shewfelt',n:'Handspring front double full',d:'',v:4.8,gn:'Vault',lv:'lelite',ex:'Two twists in a single front salto — watch off-axis, blind landing.'},
+  {id:'vt_yang',n:'Yang Hak Seon (Tsukahara triple twist)',d:'',v:5.6,gn:'Vault',lv:'lelite',ex:'Olympian-level — three twists off a Tsukahara entry — watch twist completion, landing.'},
+  {id:'vt_rise',n:'Ri Se Gwang (handspring double front twist)',d:'',v:5.6,gn:'Vault',lv:'lelite',ex:'Olympian-level — handspring double front with a twist — watch rotation, deep landing.'},
+  {id:'vt_squat',n:'Squat-on, straight jump off',d:'Fdn',v:0,gn:'Vault',lv:'l13',ex:'Squat through and stand tall — watch feet hitting, sitting back.'},
+  {id:'vt_flatback',n:'Handspring to flat back (timer)',d:'Fdn',v:0,gn:'Vault',lv:'l13',ex:'Handspring shape onto the mat — watch piking, no push.'},
+  {id:'vt_l35_handspring',n:'Run, hurdle, front handspring to stand (Level 5)',d:'',v:1.2,gn:'Vault',lv:'l56',ex:'Full extension and block, controlled landing — watch short support, pike, step.'},
+  {id:'vt_yurchenko',n:'Yurchenko layout (round-off entry)',d:'',v:2.8,gn:'Vault',lv:'l78',ex:'Round-off onto the table into a stretched salto — watch direction, step.'},
+  {id:'vt_lopez',n:'Lopez (Tsukahara straight, triple twist)',d:'',v:5.2,gn:'Vault',lv:'lelite',ex:'Tsukahara entry, three twists in a stretched salto — watch off-axis, under-twist, deep landing.'},
+  {id:'vt_l4_handspring',n:'Front handspring to feet (Level 4)',d:'',v:1.2,gn:'',lv:'l4',ex:'Block and stand tall on landing — watch short support, sitting back.'},
+  {id:'vt_l4_handspring_mat',n:'Handspring onto a raised mat stack',d:'Fdn',v:0,gn:'Vault',lv:'l4',ex:'Drive through to the mat with a strong block — watch piking, short block.'},
+  {id:'vt_l56_half',n:'Handspring with half turn to feet',d:'',v:1.4,gn:'',lv:'l56',ex:'Add the half turn after a full block — watch early turn, off-line landing.'},
+  {id:'vt_l56_over_table',n:'Front handspring over the vault table',d:'',v:1.2,gn:'',lv:'l56',ex:'Clear the full table with a strong block and reach — watch short support, piking over the table.'},
+  {id:'vt_l56_front_tuck_mat',n:'Front tuck onto a mat',d:'Fdn',v:0,gn:'Vault',lv:'l56',ex:'Block then a tucked front salto landing on the mat — watch early tuck, under-rotation.'},
+  {id:'vt_l56_front_layout_mat',n:'Front layout onto a mat',d:'Fdn',v:0,gn:'Vault',lv:'l56',ex:'Block into a stretched front salto onto the mat — watch arch, short rotation.'},
+  {id:'vt_driggs',n:'Driggs (Tsukahara straight, 5/2 twist)',d:'',v:4.8,gn:'Vault',lv:'lelite',ex:'Tsukahara entry, two and a half twists stretched — watch off-axis, under-twist, deep landing.'},
+  {id:'vt_yeo',n:'Yeo Hyung Chul 2 (handspring double front ½)',d:'',v:5.2,gn:'',lv:'lelite',ex:'Handspring double front with a half twist out — watch blind landing.'}
  ,
   {id:'vt_hs_front_full',n:'Handspring front salto with full twist',d:'',v:4.0,gn:'',lv:'l910',ex:'Block then a full-twisting front salto, stick — watch off-axis, blind landing.'},
-  {id:'vt_tsuk_full',n:'Tsukahara with full twist',d:'',v:4.4,gn:'',lv:'l910',ex:'Tsukahara entry with a full twist off — watch twist completion, step.'},
-  {id:'vt_kas_half',n:'Kasamatsu with half twist (Barbieri)',d:'',v:4.4,gn:'',lv:'l910',ex:'Kasamatsu with an extra half twist — watch twist completion, landing.'},
-  {id:'vt_yurchenko_full',n:'Yurchenko with full twist',d:'',v:4.4,gn:'',lv:'l910',ex:'Round-off entry with a full twist off — watch direction, step.'},
-  {id:'vt_lou_yun_half',n:'Lou Yun with half twist (Lopez)',d:'',v:4.8,gn:'',lv:'l910',ex:'Kasamatsu with an added half twist — watch twist completion, deep landing.'}
+  {id:'vt_tsuk_full',n:'Tsukahara with full twist',d:'',v:3.6,gn:'',lv:'l910',ex:'Tsukahara entry with a full twist off — watch twist completion, step.'},
+  {id:'vt_kas_half',n:'Kasamatsu with half twist (Barbieri)',d:'',v:3.2,gn:'',lv:'l910',ex:'Kasamatsu with an extra half twist — watch twist completion, landing.'},
+  {id:'vt_yurchenko_full',n:'Yurchenko with full twist',d:'',v:3.6,gn:'',lv:'l910',ex:'Round-off entry with a full twist off — watch direction, step.'},
+  {id:'vt_lou_yun_half',n:'Lou Yun with half twist',d:'',v:4.8,gn:'Vault',lv:'l910',ex:'Handspring entry, two twists in a stretched salto — watch twist completion, deep landing.'}
  ],
  PB:[
   {id:'pb_kip',n:'Glide kip to support',d:'A',v:0.1,gn:'Upper-arm elements',lv:'l78',ex:'Smooth kip to support — watch bent arms, extra swing.'},
@@ -1377,7 +1526,7 @@ const SKILLS = {
   {id:'pb_dia',n:'Diamidov (half turn to handstand)',d:'C',v:0.3,gn:'Support & long swing',lv:'l78',ex:'Complete the turn to handstand — watch under-turn, off-balance.'},
   {id:'pb_stutz',n:'Stützkehre to support',d:'B',v:0.2,gn:'Support & long swing',lv:'l78',ex:'Controlled back toss to support — watch swing, low finish.'},
   {id:'pb_healy',n:'Healy turn',d:'D',v:0.4,gn:'Support & long swing',lv:'l910',ex:'Full turn to support or handstand — watch under-turn.'},
-  {id:'pb_peach',n:'Peach (basket) to handstand',d:'C',v:0.3,gn:'Under-bar elements',lv:'l78',ex:'Extend to handstand, bars steady — watch low handstand, bent arms.'},
+  {id:'pb_peach',n:'Peach (basket) to handstand',d:'D',v:0.4,gn:'Under-bar elements',lv:'l78',ex:'Extend to handstand, bars steady — watch low handstand, bent arms.'},
   {id:'pb_dt',n:'Double back dismount (tuck)',d:'C',v:0.3,gn:'Dismount',lv:'l78',ex:'Clear the bars, stick — watch low, step.'},
   {id:'pb_dp',n:'Double back dismount (pike)',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Hold pike, complete rotation — watch under-rotation.'},
   {id:'pb_tippelt',n:'Tippelt',d:'C',v:0.3,gn:'Under-bar elements',lv:'l78',ex:'Underbar long swing to support or handstand — watch low finish, bent arms.'},
@@ -1437,16 +1586,16 @@ const SKILLS = {
   {id:'hb_dbl_lay_full',n:'Full-twisting double layout dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'One twist across a stretched double salto, stick — watch arch, off-axis, under-rotation.'},
   {id:'hb_dbl_lay_triple',n:'Triple-twisting double layout dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Three twists in a stretched double salto — watch travelling, off-axis, step.'},
   {id:'hb_kovacs',n:'Kovacs',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Double salto over the bar, regrasp — watch under-rotation.'},
-  {id:'hb_gaylord',n:'Gaylord',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Front salto over the bar to regrasp — watch low, hard catch.'},
+  {id:'hb_gaylord',n:'Gaylord',d:'E',v:0.5,gn:'Flight / release',lv:'l910',ex:'Front salto over the bar to regrasp — watch low, hard catch.'},
   {id:'hb_layout',n:'Layout flyaway dismount',d:'B',v:0.2,gn:'Dismount',lv:'l78',ex:'Height, straight body, stick — watch arch, step.'},
-  {id:'hb_dl',n:'Double layout dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Two straight saltos, stick — watch under-rotation, step.'},
+  {id:'hb_dl',n:'Double layout dismount',d:'C',v:0.3,gn:'Dismount',lv:'l910',ex:'Two straight saltos, stick — watch under-rotation, step.'},
   {id:'hb_triple',n:'Triple back dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Three tight saltos, stick — watch low set, under-rotation.'},
   {id:'hb_piked_tkatchev',n:'Piked Tkatchev',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Piked clear over the bar then regrasp — watch leg bend, low height.'},
-  {id:'hb_kolman',n:'Kolman (layout Kovacs, full twist)',d:'F',v:0.6,gn:'Flight / release',lv:'lelite',ex:'Stretched Kovacs with a full twist — watch under-rotation, late regrasp.'},
+  {id:'hb_kolman',n:'Kolman (layout Kovacs, full twist)',d:'E',v:0.5,gn:'Flight / release',lv:'lelite',ex:'Stretched Kovacs with a full twist — watch under-rotation, late regrasp.'},
   {id:'hb_cassina',n:'Cassina',d:'F',v:0.6,gn:'Flight / release',lv:'lelite',ex:'Stretched Kovacs with full twist over the bar — watch travel, late regrasp.'},
   {id:'hb_bretschneider',n:'Bretschneider',d:'H',v:0.8,gn:'Flight / release',lv:'lelite',ex:'Olympian-level — double-twisting double-layout over the bar — watch rotation, regrasp.'},
   {id:'hb_quast',n:'Quast (Adler 1/1)',d:'D',v:0.4,gn:'In-bar elements',lv:'l910',ex:'In-bar element with a full turn to handstand — watch off-vertical, bent legs.'},
-  {id:'hb_watanabe',n:'Double-twisting double layout dismount',d:'F',v:0.6,gn:'Dismount',lv:'lelite',ex:'Two twists in a stretched double salto, stick — watch under-rotation, step.'},
+  {id:'hb_watanabe',n:'Double-twisting double layout dismount',d:'E',v:0.5,gn:'Dismount',lv:'lelite',ex:'Two twists in a stretched double salto, stick — watch under-rotation, step.'},
   {id:'hb_support',n:'Support hold',d:'Fdn',v:0,gn:'Long swings',lv:'l13',ex:'Tall support over the bar — watch sagging, bent arms.'},
   {id:'hb_cast',n:'Cast',d:'Fdn',v:0,gn:'Long swings',lv:'l13',ex:'Lift the hips off the bar with straight arms — watch bent arms, small cast.'},
   {id:'hb_back_hip',n:'Back hip circle',d:'Fdn',v:0,gn:'In-bar elements',lv:'l13',ex:'Wrap the hips around the bar smoothly — watch loose hips, stopping.'},
@@ -1462,7 +1611,7 @@ const SKILLS = {
   {id:'hb_gienger',n:'Gienger',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Backward salto with a half turn over the bar, regrasp — watch low, late catch.'},
   {id:'hb_markelov',n:'Markelov (straddle Jaeger)',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Straddled front release, regrasp — watch piked legs, late regrasp.'},
   {id:'hb_def',n:'Def (Tkatchev with ½ turn)',d:'E',v:0.5,gn:'Flight / release',lv:'l910',ex:'Tkatchev with a half turn, regrasp — watch low, late catch.'},
-  {id:'hb_dd_dismount',n:'Double-twisting double tuck dismount',d:'E',v:0.5,gn:'Dismount',lv:'l910',ex:'Two twists in a double tuck, stick — watch under-rotation, step.'},
+  {id:'hb_dd_dismount',n:'Double-twisting double tuck dismount',d:'D',v:0.4,gn:'Dismount',lv:'l910',ex:'Two twists in a double tuck, stick — watch under-rotation, step.'},
   {id:'hb_l4_glide_kip',n:'Glide kip to support',d:'A',v:0.1,gn:'In-bar elements',lv:'l4',ex:'Glide long then kip to support — watch bent arms, early kip.'},
   {id:'hb_l4_kip_cast',n:'Glide kip, cast to horizontal',d:'A',v:0.1,gn:'In-bar elements',lv:'l4',ex:'Kip then cast with straight arms — watch bent arms, small cast.'},
   {id:'hb_l4_back_hip_under',n:'Back hip circle, underswing dismount',d:'A',v:0.1,gn:'Dismount',lv:'l4',ex:'Wrap the hips then swing under to land — watch loose hips, low dismount.'},
@@ -1473,8 +1622,8 @@ const SKILLS = {
   {id:'hb_l56_stoop',n:'Stoop-in, undershoot to support',d:'A',v:0.1,gn:'In-bar elements',lv:'l56',ex:'Stoop the legs through and undershoot to support — watch bent legs, stalling.'},
   {id:'hb_l56_flyaway_tuck',n:'Tucked flyaway dismount',d:'A',v:0.1,gn:'Dismount',lv:'l56',ex:'Swing and release to a tucked salto, stick — watch low release, step.'},
   {id:'hb_l56_flyaway_layout',n:'Layout flyaway dismount (basic)',d:'B',v:0.2,gn:'Dismount',lv:'l56',ex:'Stretched flyaway off the bar, stick — watch arch, step.'},
-  {id:'hb_pegan',n:'Pegan (piked Tkatchev half turn)',d:'D',v:0.4,gn:'Flight / release',lv:'l910',ex:'Piked Tkatchev with a half turn, regrasp — watch bend, late catch.'},
-  {id:'hb_liukin',n:'Liukin (Tkatchev with full twist)',d:'E',v:0.5,gn:'Flight / release',lv:'l910',ex:'Tkatchev with a full twist, regrasp — watch low, late catch.'},
+  {id:'hb_pegan',n:'Pegan (piked Tkatchev half turn)',d:'F',v:0.6,gn:'Flight / release',lv:'l910',ex:'Piked Tkatchev with a half turn, regrasp — watch bend, late catch.'},
+  {id:'hb_liukin',n:'Liukin (Tkatchev with full twist)',d:'F',v:0.6,gn:'Flight / release',lv:'l910',ex:'Tkatchev with a full twist, regrasp — watch low, late catch.'},
   {id:'hb_miyachi',n:'Miyachi (layout Cassina with extra twist)',d:'G',v:0.7,gn:'Flight / release',lv:'lelite',ex:'Stretched double-twisting release over the bar, regrasp — watch travel, late catch.'}
  ,
   {id:'hb_pedro',n:'Pedro (stretched Tkatchev with full twist)',d:'F',v:0.6,gn:'Flight / release',lv:'lelite',ex:'Stretched Tkatchev with a full twist, regrasp — watch low, late catch.'},
@@ -1505,13 +1654,13 @@ function buildRBTabs(){
   document.getElementById('rb-tabs').innerHTML=APP.map(a=>`<button class="rb-tab" data-rb="${a.k}">${ICONS[a.k]}<span class="ab">${a.name}</span><span class="rb-count">${SKILLS[a.k].length} skills</span></button>`).join('');
   document.querySelectorAll('.rb-tab').forEach(b=>b.addEventListener('click',()=>{ state.rbApp=b.dataset.rb; saveState(); renderRB(); }));
 }
-function ddBadge(k,s){ const isVT=(k==='VT'); const badge=isVT?s.v.toFixed(1):s.d; const col=isVT?vtColor(s.v):dvColor(s.v); return `<span class="dv" style="background:${col}">${badge}</span>`; }
+function ddBadge(k,s){ const isVT=(k==='VT'); const badge=isVT?(s.d==='Fdn'?'Fdn':s.v.toFixed(1)):s.d; const col=isVT?vtColor(s.v):dvColor(s.v); return `<span class="dv" style="background:${col}">${badge}</span>`; }
 function renderDDOptions(filter){
   const k=state.rbApp, f=(filter||'').trim().toLowerCase();
   let list=SKILLS[k]; if(f) list=list.filter(s=>s.n.toLowerCase().includes(f)||(s.gn&&s.gn.toLowerCase().includes(f)));
   const box=document.getElementById('rb-options');
   if(!list.length){ box.innerHTML='<div class="rb-noopt">No skills match that search</div>'; return; }
-  const bands=[['l13','Levels 1\u20133'],['l4','Level 4'],['l56','Levels 5\u20136'],['l78','Levels 7\u20138'],['l910','Levels 9\u201310'],['lelite','Olympian']];
+  const bands=[['l13','Levels 1\u20133'],['l4','Level 4'],['l56','Levels 5\u20136'],['l78','Levels 7\u20138'],['l910','Levels 9\u201310'],['lelite','Elite']];
   const TORDER={'Buck':0,'Single-leg & scissors':2,'Circles & flairs':3,'Travels':4,'Strength / Hold':2,'Forward acro':3,'Backward acro':4,'Kip / uprise to support':2,'Swing to handstand':3,'Strength holds':4,'Upper-arm elements':2,'Support & long swing':3,'Under-bar elements':4,'Long swings':2,'In-bar elements':3,'Flight / release':4,'Dismount':8,'Vault':9};
   let out='';
   bands.forEach(function(band){
@@ -1548,7 +1697,7 @@ function renderRoutine(){
   const full=APP.find(a=>a.k===k).full;
   if(!r.length){ list.innerHTML='<div class="rb-empty">No skills yet — add '+(isVT?'a vault':'skills')+' above to build your '+full+' routine.</div>'; sum.innerHTML=''; return; }
   list.innerHTML=r.map((id,i)=>{ const s=skillById(k,id); if(!s)return'';
-    const badge=isVT?s.v.toFixed(1):s.d, col=isVT?vtColor(s.v):dvColor(s.v);
+    const badge=isVT?(s.d==='Fdn'?'Fdn':s.v.toFixed(1)):s.d, col=isVT?vtColor(s.v):dvColor(s.v);
     return `<div class="rb-item" draggable="true" data-i="${i}">
       <div class="rb-handle" title="Drag to reorder"><span class="grip">⠿</span><span class="ord">${i+1}</span></div>
       <div><div class="nm"><span class="dv" style="background:${col}">${badge}</span>${s.n}${isVT?'':`<span class="grp">${s.gn}</span>`}</div><div class="ex">${s.ex}</div></div>
@@ -1628,13 +1777,49 @@ const GLOSSARY = [
   {t:"Travel",d:"On pommel horse, shifting both hands from one part of the horse to another while keeping the legs swinging continuously."},
   {t:"Tuck",d:"A body position where the knees and hips are both bent, pulling the body into a compact ball. The easiest shape for a salto."},
   {t:"Twist",d:"A rotation around the body's long axis while in the air — spinning like a corkscrew during a salto."},
-  {t:"Vault",d:"Both the apparatus (a padded table) and the skill performed over it. The gymnast runs, hurdles, blocks off the table and lands."}
+  {t:"Vault",d:"Both the apparatus (a padded table) and the skill performed over it. The gymnast runs, hurdles, blocks off the table and lands."},
+
+  /* the six apparatus, one entry each */
+  {t:"Floor Exercise (FX)",d:"One of the six apparatus — a sprung 12m by 12m mat. Routines mix tumbling passes with strength holds and balance, and you must stay inside the white line."},
+  {t:"Still Rings (SR)",d:"One of the six apparatus — two rings hanging from straps above the mats. The hardest part is holding them perfectly still while you swing and press into strength positions."},
+  {t:"Parallel Bars (PB)",d:"One of the six apparatus — two flexible rails set about shoulder-width apart. Routines swing both above and below the rails and finish with a dismount."},
+  {t:"High Bar (HB)",d:"One of the six apparatus — a single steel bar 2.6m above the mats, also called the Horizontal Bar. Routines are continuous giant swings with release moves and a big dismount."},
+
+  /* the levels at the top of the pathway */
+  {t:"Elite",d:"The top of the pathway — Senior International and Olympian. Elite gymnasts compete under the full FIG Code of Points, where difficulty is not capped."},
+  {t:"Senior International",d:"The level above Level 10. Gymnasts compete at national and open international competitions, meeting the full Code of Points Special Requirements."},
+  {t:"Olympian",d:"The highest level in this app — the standard of the Olympic Games and World Championships. Routines carry the hardest skills in the Code and are performed almost perfectly."},
+  {t:"ALP (Australian Levels Program)",d:"Gymnastics Australia's competition pathway. It sets the levels, the compulsory routines and the pass marks used right across the country."},
+  {t:"Under-age & Open",d:"The two divisions offered at some levels. Under-age gymnasts compete the set compulsory routine; Open gymnasts build their own optional routine against a higher pass mark."},
+
+  /* scoring and judging */
+  {t:"Code of Points",d:"The official FIG rulebook. It lists every skill, what each is worth, and every deduction a judge can take. The current one runs from 2025 to 2028."},
+  {t:"FIG",d:"The Fédération Internationale de Gymnastique — the world governing body for gymnastics. It writes the Code of Points that every country follows."},
+  {t:"Difficulty value",d:"The letter given to a skill showing how hard it is, from A (easiest) up to J (hardest). A is worth 0.1, B is 0.2, and so on up to J at 1.0."},
+  {t:"Execution",d:"How cleanly and correctly you perform, as opposed to how hard the skills are. Execution is exactly what the E-score measures."},
+  {t:"Bonus",d:"Extra value added to your start value in the compulsory levels for showing harder skills, lifting it from 10.0 up to 10.5 or 11.0."},
+  {t:"Neutral deduction",d:"A penalty taken off at the very end, for things outside the routine itself — stepping outside the floor area, going over time, or an incorrect uniform."},
+  {t:"Connection",d:"Two skills performed straight after one another with no stop in between. Good connections can earn extra points in optional routines."},
+  {t:"Amplitude",d:"How big, high and stretched a skill looks. Judges reward height and full extension, and take marks off when a skill looks small or cramped."},
+  {t:"Stick",d:"Landing with both feet planted and no extra step or hop. Sticking a dismount can earn a small bonus on top of your score."},
+  {t:"Under-rotation",d:"Not turning far enough in a salto, so you land short and low. It is one of the most common reasons for a large deduction."},
+  {t:"Spotting",d:"When a coach helps or catches you during a skill. It is essential in training, but being spotted in a competition costs you marks."},
+
+  /* shapes and positions */
+  {t:"Hang",d:"A position below the apparatus, holding your weight on straight arms. The opposite of a support."},
+  {t:"Swing",d:"Moving around or under the apparatus using momentum rather than strength. Most of pommel horse, bars and rings work is swing."},
+  {t:"Uprise",d:"A swinging skill that carries you from a hang up into a support on rings or bars."},
+  {t:"Flyaway",d:"A dismount off the bar or rings where you swing, let go and salto to the landing."},
+  {t:"Straddle",d:"A shape with the legs wide apart and straight. Used in shapes, jumps, and release moves like the Tkatchev."},
+  {t:"Block",d:"The fast, powerful push off the hands — off the vault table or the floor — that sends you up into the air. A strong block means more height."},
+  {t:"Cross",d:"A rings strength hold with the arms straight out sideways and the body upright, forming a cross shape. Held for 2 seconds to count."},
+  {t:"Hold",d:"A strength position that must be kept still for 2 seconds to count. Let go early and the judges take marks off."}
 ];
 
 let _glossAll=[];
 
 function buildGlossary(){
-  const bandLabel={'l13':'L1–3','l4':'L4','l56':'L5–6','l78':'L7–8','l910':'L9–10','lelite':'Olympian'};
+  const bandLabel={'l13':'L1–3','l4':'L4','l56':'L5–6','l78':'L7–8','l910':'L9–10','lelite':'Elite'};
   const appName={FX:'Floor',PH:'Pommel',SR:'Rings',VT:'Vault',PB:'P-Bars',HB:'High Bar'};
   _glossAll=GLOSSARY.map(g=>({t:g.t,d:g.d,tag:''}));
   for(const k of Object.keys(SKILLS)){
@@ -1651,13 +1836,50 @@ function buildGlossary(){
   renderGlossary('');
 }
 
+/* edit distance, bailing out early once it can't possibly be close enough */
+function glossLev(a,b){
+  if(Math.abs(a.length-b.length)>2) return 99;
+  let prev=Array.from({length:b.length+1},(_,j)=>j);
+  for(let i=1;i<=a.length;i++){
+    const cur=[i];
+    for(let j=1;j<=b.length;j++)
+      cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
+    prev=cur;
+  }
+  return prev[b.length];
+}
+/* how well one entry matches the query — lower is better, null means no match */
+function glossScore(g,q){
+  const t=g.t.toLowerCase(), d=g.d.toLowerCase(), tag=(g.tag||'').toLowerCase();
+  const words=t.split(/[^a-z0-9½]+/).filter(Boolean);
+  if(t===q) return 0;                                     // exact term
+  if(t.startsWith(q)) return 1;                           // term starts with it
+  if(words.some(w=>w.startsWith(q))) return 2;            // any word in the term
+  if(t.includes(q)) return 3;                             // anywhere in the term
+  const tol=q.length<=4?1:2;                              // near-misses and typos
+  if(q.length>=3){
+    if(glossLev(t,q)<=tol) return 4;
+    if(words.some(w=>Math.abs(w.length-q.length)<=tol&&glossLev(w,q)<=tol)) return 4;
+  }
+  if(tag.includes(q)) return 5;                           // apparatus / level tag
+  if(d.includes(q)) return 6;                             // mentioned in the definition
+  return null;
+}
 function renderGlossary(q){
   const list=document.getElementById('gloss-list');
   const lq=q.trim().toLowerCase();
-  const terms=lq?_glossAll.filter(g=>g.t.toLowerCase().includes(lq)||g.d.toLowerCase().includes(lq)||g.tag.toLowerCase().includes(lq)):_glossAll;
-  if(!terms.length){list.innerHTML='<div class="gloss-none">No results — try a different word.</div>';return;}
+  let terms;
+  if(lq){
+    terms=_glossAll.map(g=>({g,s:glossScore(g,lq)})).filter(x=>x.s!==null)
+      .sort((a,b)=>a.s-b.s || a.g.t.localeCompare(b.g.t))
+      .map(x=>x.g);
+  } else terms=_glossAll;
+  if(!terms.length){list.innerHTML=`<div class="gloss-none">Nothing matches “${q.trim()}” — try a shorter word, or check the spelling.</div>`;return;}
   const row=g=>`<div class="gloss-item"><span class="gloss-term">${g.t}${g.tag?`<span class="gloss-tag">${g.tag}</span>`:''}</span><span class="gloss-def">${g.d}</span></div>`;
-  if(lq){list.innerHTML=terms.map(row).join('');return;}
+  if(lq){
+    list.innerHTML=`<div class="gloss-count">${terms.length} match${terms.length>1?'es':''} — closest first</div>`+terms.map(row).join('');
+    return;
+  }
   const grouped={};
   for(const g of terms){const l=g.t[0].toUpperCase();if(!grouped[l])grouped[l]=[];grouped[l].push(g);}
   list.innerHTML=Object.keys(grouped).sort().map(l=>
@@ -1672,7 +1894,7 @@ const CL_BANDS=[
   {code:'l56',label:'Levels 5–6'},
   {code:'l78',label:'Levels 7–8'},
   {code:'l910',label:'Levels 9–10'},
-  {code:'lelite',label:'Olympian'}
+  {code:'lelite',label:'Elite'}
 ];
 
 function buildCLTabs(){
@@ -1810,6 +2032,293 @@ document.getElementById('howto-back').addEventListener('click',()=>{
   document.getElementById('howto-page').classList.remove('visible');
   openMenu();
 });
+
+/* ---------- MENU PAGES ---------- */
+function bandForLevel(n){ return n<=3?'l13':n===4?'l4':n<=6?'l56':n<=8?'l78':n<=10?'l910':'lelite'; }
+const BAND_LABEL={l13:'Levels 1–3',l4:'Level 4',l56:'Levels 5–6',l78:'Levels 7–8',l910:'Levels 9–10',lelite:'Elite'};
+
+/* wire a menu row to its page, and the page's back arrow to the menu.
+   Open first, then build the content: that way a render fault can never
+   leave you with the menu shut and no page showing. */
+function wirePage(rowId,pageId,backId,onOpen){
+  document.getElementById(rowId).addEventListener('click',()=>{
+    const pg=document.getElementById(pageId);
+    closeMenu();
+    pg.classList.add('visible'); pg.scrollTop=0;
+    try{ if(onOpen) onOpen(); }
+    catch(err){ console.error('menu page "'+pageId+'" failed to build:',err); }
+  });
+  document.getElementById(backId).addEventListener('click',()=>{
+    document.getElementById(pageId).classList.remove('visible'); openMenu();
+  });
+}
+
+/* ---- What do I need to level up? ---- */
+function renderLevelUp(){
+  const L=LEVELS[state.level], out=document.getElementById('lu-out');
+  const entered=APP.filter(a=>num(state.scores[a.k])!==null);
+  const total=entered.reduce((t,a)=>t+num(state.scores[a.k]),0);
+
+  if(!entered.length){
+    out.innerHTML=`<div class="pg-empty"><b>No scores yet.</b><br>Head to <b>3 · Track Scores</b> and enter your six apparatus scores. This page will then show exactly how far you are from passing ${levelName(state.level)}, and which apparatus is holding you back.</div>`;
+    return;
+  }
+  const hasPass=L.latPass>0;
+  const gap=L.latPass-total, pct=hasPass?Math.min(100,(total/L.latPass)*100):0;
+  const under=entered.filter(a=>num(state.scores[a.k])<L.minApp);
+  const missingCount=6-entered.length;
+
+  /* skills still unticked in this level's band */
+  const band=bandForLevel(state.level); let bandTotal=0, ticked=0, todo=[];
+  for(const k of Object.keys(SKILLS)) for(const s of SKILLS[k].filter(Boolean)){
+    if(s.lv!==band) continue; bandTotal++;
+    if(state.checklist[s.id]) ticked++; else todo.push(s.n);
+  }
+
+  let verdict;
+  if(!hasPass) verdict=`<div class="pg-verdict work">There is no published pass mark at this level — selection happens through national pathways rather than a fixed all-around score.</div>`;
+  else if(missingCount>0) verdict=`<div class="pg-verdict work"><b>${missingCount} apparatus still to enter.</b> Your running total is ${total.toFixed(2)}. Add the rest to see your real gap to ${L.latPass.toFixed(2)}.</div>`;
+  else if(gap>0) verdict=`<div class="pg-verdict work"><b>You need ${gap.toFixed(2)} more.</b> That's about <b>${(gap/6).toFixed(2)}</b> on every apparatus, or one bigger jump on your weakest.</div>`;
+  else if(under.length) verdict=`<div class="pg-verdict work"><b>Your all-around clears the mark</b>, but ${under.length===1?'one apparatus is':under.length+' apparatus are'} below the ${L.minApp.toFixed(2)} minimum. You need both to pass.</div>`;
+  else verdict=`<div class="pg-verdict good"><b>You've passed ${levelName(state.level)}.</b> Your all-around is over ${L.latPass.toFixed(2)} and every apparatus clears ${L.minApp.toFixed(2)}.</div>`;
+
+  const rows=APP.map(a=>{
+    const v=num(state.scores[a.k]);
+    if(v===null) return `<div class="pg-row"><div class="k">${ICONS[a.k]}${a.name}</div><div class="v" style="color:var(--muted)">not entered</div></div>`;
+    const ok=v>=L.minApp;
+    return `<div class="pg-row"><div class="k">${ICONS[a.k]}${a.name}</div>
+      <div class="v ${ok?'pg-ok':'pg-bad'}">${v.toFixed(2)} ${hasPass?(ok?'✓':'− '+(L.minApp-v).toFixed(2)+' short'):''}</div></div>`;
+  }).join('');
+
+  out.innerHTML=`${verdict}
+    <div class="pg-card">
+      <h3>All-around</h3>
+      <div class="pg-big"><b>${total.toFixed(2)}</b><span>${hasPass?'of '+L.latPass.toFixed(2)+' needed':'no pass mark set'}</span></div>
+      ${hasPass?`<div class="pg-bar"><i style="width:${pct}%"></i></div>`:''}
+    </div>
+    <div class="pg-card">
+      <h3>Every apparatus${hasPass?' · minimum '+L.minApp.toFixed(2):''}</h3>${rows}
+    </div>
+    <div class="pg-card">
+      <h3>Skills for ${BAND_LABEL[band]}</h3>
+      <div class="pg-big"><b>${ticked}</b><span>of ${bandTotal} ticked in Skills I Can Do</span></div>
+      <div class="pg-bar"><i style="width:${bandTotal?(ticked/bandTotal)*100:0}%"></i></div>
+      ${todo.length?`<div class="pg-chips" style="margin-top:14px">${todo.slice(0,6).map(n=>`<span class="pg-chip">${n}</span>`).join('')}${todo.length>6?`<span class="pg-chip" style="background:none">+${todo.length-6} more</span>`:''}</div>`:''}
+    </div>
+    <div class="pg-card pg-summary">
+      <h3>Your progress in a nutshell</h3>
+      <p>${luSummary({L,total,entered,missingCount,hasPass,gap,under,ticked,bandTotal,todo,band})}</p>
+    </div>`;
+}
+
+/* plain-English wrap-up of everything above */
+function luSummary(d){
+  const {L,total,entered,missingCount,hasPass,gap,under,ticked,bandTotal,todo,band}=d;
+  const nm=a=>a.name, s=[];
+  const scored=entered.map(a=>({a,v:num(state.scores[a.k])})).sort((x,y)=>y.v-x.v);
+  const best=scored[0], worst=scored[scored.length-1];
+
+  /* 1 — where the all-around sits */
+  if(missingCount>0){
+    s.push(`So far you've entered <b>${entered.length} of 6</b> apparatus for <b>${levelName(state.level)}</b>, adding up to <b>${total.toFixed(2)}</b>.`);
+    if(hasPass) s.push(`The pass mark is <b>${L.latPass.toFixed(2)}</b>, so fill in the last ${missingCount===1?'one':missingCount} to see where you really stand.`);
+  } else {
+    s.push(`Your all-around for <b>${levelName(state.level)}</b> is <b>${total.toFixed(2)}</b>${hasPass?` against a pass mark of <b>${L.latPass.toFixed(2)}</b>`:''}.`);
+    if(hasPass && gap>0) s.push(`You're <b>${gap.toFixed(2)}</b> away — roughly <b>${(gap/6).toFixed(2)}</b> per apparatus if you spread it evenly.`);
+    else if(hasPass && !under.length) s.push(`That clears it, and every apparatus is above the <b>${L.minApp.toFixed(2)}</b> minimum, so you've met both conditions to pass.`);
+  }
+
+  /* 2 — strongest and weakest, and any blockers */
+  if(scored.length>1 && best.v!==worst.v){
+    s.push(`<b>${nm(best.a)}</b> is your strongest at <b>${best.v.toFixed(2)}</b>, and <b>${nm(worst.a)}</b> your weakest at <b>${worst.v.toFixed(2)}</b>.`);
+  }
+  if(hasPass && under.length){
+    const names=under.map(a=>`<b>${nm(a)}</b>`);
+    const list=names.length===1?names[0]:names.slice(0,-1).join(', ')+' and '+names[names.length-1];
+    s.push(`Whatever your total, ${list} ${under.length===1?'sits':'sit'} under the <b>${L.minApp.toFixed(2)}</b> minimum — you need the all-around <em>and</em> every apparatus above that line, so ${under.length===1?'that one is':'those are'} the priority.`);
+  }
+
+  /* 3 — skills */
+  if(bandTotal){
+    const p=Math.round((ticked/bandTotal)*100);
+    if(ticked===0) s.push(`You haven't ticked any of the <b>${bandTotal}</b> skills for ${BAND_LABEL[band]} yet — working through <b>6 · Skills I Can Do</b> will show what's still to learn.`);
+    else if(todo.length) s.push(`On skills you've ticked <b>${ticked} of ${bandTotal}</b> (<b>${p}%</b>) for ${BAND_LABEL[band]}, with <b>${todo.length}</b> to go.`);
+    else s.push(`You've ticked all <b>${bandTotal}</b> skills for ${BAND_LABEL[band]} — the full set for this level.`);
+  }
+
+  /* 4 — the single next thing to do */
+  if(hasPass && missingCount===0){
+    if(gap<=0 && !under.length) s.push(`Next step: talk to your coach about moving up to <b>${levelName(Math.min(12,state.level+1))}</b>.`);
+    else if(under.length) s.push(`Next step: put your training into <b>${nm(under.sort((a,b)=>num(state.scores[a.k])-num(state.scores[b.k]))[0])}</b>.`);
+    else s.push(`Next step: <b>${nm(worst.a)}</b> has the most room in it — that's where the ${gap.toFixed(2)} is easiest to find.`);
+  }
+  return s.join(' ');
+}
+
+/* ---- Compare two levels ---- */
+function renderCompare(){
+  const a=+document.getElementById('cmp-a').value, b=+document.getElementById('cmp-b').value;
+  const A=LEVELS[a], B=LEVELS[b];
+  const passRow=(L)=>L.latPass>0?L.latPass.toFixed(2):'—';
+  const minRow=(L)=>L.latPass>0?L.minApp.toFixed(2):'—';
+  const dPass=(A.latPass>0&&B.latPass>0)?B.latPass-A.latPass:0;
+
+  const bandA=bandForLevel(a), bandB=bandForLevel(b);
+  const newSkills=bandA===bandB?[]:Object.keys(SKILLS).flatMap(k=>SKILLS[k].filter(Boolean).filter(s=>s.lv===bandB).map(s=>s.n));
+
+  const col=(L,n,cls)=>`<div class="cmp-col ${cls}"><h4>${levelName(n)}</h4>
+    <div class="pg-card">
+      <div class="pg-row"><div class="k">Format</div><div class="v" style="font-size:12.5px;text-align:right;white-space:normal">${L.band}</div></div>
+      <div class="pg-row"><div class="k">Pass mark</div><div class="v">${passRow(L)}</div></div>
+      <div class="pg-row"><div class="k">Min / apparatus</div><div class="v">${minRow(L)}</div></div>
+      ${L.optPass?`<div class="pg-row"><div class="k">Optional pass</div><div class="v">${L.optPass.toFixed(2)}</div></div>`:''}
+      <div class="pg-row"><div class="k">Skill band</div><div class="v">${BAND_LABEL[bandForLevel(n)]}</div></div>
+    </div></div>`;
+
+  document.getElementById('cmp-out').innerHTML=`
+    <div class="cmp-grid">${col(A,a,'a')}${col(B,b,'b')}</div>
+    ${dPass?`<div class="pg-verdict work">Moving from ${levelName(a)} to ${levelName(b)} raises the pass mark by <b>${dPass>0?'+':''}${dPass.toFixed(2)}</b> all-around${B.minApp!==A.minApp?`, and the minimum on every apparatus goes from <b>${A.minApp.toFixed(2)}</b> to <b>${B.minApp.toFixed(2)}</b>`:''}.</div>`:''}
+    <div class="pg-card"><h3>What ${levelName(b)} asks for</h3><p style="margin:0;font-size:14.5px;line-height:1.7;color:var(--ink)">${B.blurb}</p></div>
+    ${newSkills.length?`<div class="pg-card"><h3>New skills at ${BAND_LABEL[bandB]} · ${newSkills.length}</h3>
+      <div class="pg-chips">${newSkills.slice(0,14).map(n=>`<span class="pg-chip">${n}</span>`).join('')}${newSkills.length>14?`<span class="pg-chip" style="background:none">+${newSkills.length-14} more</span>`:''}</div></div>`
+      :`<div class="pg-card"><h3>Skills</h3><p style="margin:0;font-size:14.5px;color:var(--muted)">Both levels draw on the same skill band (${BAND_LABEL[bandA]}), so the skill list doesn't change — the pass mark and execution standard do.</p></div>`}`;
+}
+
+/* ---- Judge's eye ---- */
+/* faults every apparatus shares */
+const JE_COMMON=[
+  {id:'c1',n:'Bent arms or bent legs',v:0.10},
+  {id:'c2',n:'Legs or feet apart when they should be together',v:0.10},
+  {id:'c3',n:'Toes not pointed',v:0.10},
+  {id:'c4',n:'Body not straight / poor alignment',v:0.30},
+  {id:'c5',n:'Not enough height or amplitude',v:0.30},
+  {id:'c6',n:'Small hop or step on landing',v:0.10},
+  {id:'c7',n:'Large step or lunge on landing',v:0.30},
+  {id:'c8',n:'Fall on the apparatus or on landing',v:1.00}
+];
+/* faults that only make sense on one apparatus */
+const JE_APP={
+  FX:[{id:'fx1',n:'Stepping outside the floor area',v:0.10},
+      {id:'fx2',n:'Deep landing — hips below knees',v:0.30},
+      {id:'fx3',n:'Under-rotated salto',v:0.30},
+      {id:'fx4',n:'Strength hold not held for 2 seconds',v:0.30}],
+  PH:[{id:'ph1',n:'Legs or feet touching the horse',v:0.30},
+      {id:'ph2',n:'Hips too low through the circles',v:0.30},
+      {id:'ph3',n:'Uneven or broken circle rhythm',v:0.10},
+      {id:'ph4',n:'Stop or pause in the swing',v:0.50}],
+  SR:[{id:'sr1',n:'Swinging or crossing the cables',v:0.30},
+      {id:'sr2',n:'Arms above horizontal in a cross',v:0.30},
+      {id:'sr3',n:'Bent arms in a strength hold',v:0.30},
+      {id:'sr4',n:'Hold not held for the full 2 seconds',v:0.30}],
+  VT:[{id:'vt1',n:'Short support — soft block off the table',v:0.30},
+      {id:'vt2',n:'Body piked or arched in flight',v:0.30},
+      {id:'vt3',n:'Not enough height off the table',v:0.30},
+      {id:'vt4',n:'Deep or squatted landing',v:0.30}],
+  PB:[{id:'pb1',n:'Bent arms in support',v:0.30},
+      {id:'pb2',n:'Body brushing or touching the rails',v:0.30},
+      {id:'pb3',n:'Stop or pause in the swing',v:0.50},
+      {id:'pb4',n:'Handstand short of vertical',v:0.30}],
+  HB:[{id:'hb1',n:'Bent arms on the regrasp',v:0.30},
+      {id:'hb2',n:'Legs apart over the bar',v:0.10},
+      {id:'hb3',n:'Body touching the bar',v:0.30},
+      {id:'hb4',n:'Not extended before regrasping',v:0.30}]
+};
+/* faults that depend on which level you compete */
+const JE_LEVEL=[
+  {max:3,label:'Levels 1–3',f:[
+    {id:'l1a',n:'Coach had to help or spot you',v:0.50},
+    {id:'l1b',n:'A skill was left out of the routine',v:0.50},
+    {id:'l1c',n:'Shape not held long enough',v:0.30}]},
+  {max:6,label:'Levels 4–6',f:[
+    {id:'l2a',n:'An element was missing or changed',v:0.50},
+    {id:'l2b',n:'Skills performed out of order',v:0.30},
+    {id:'l2c',n:'Extra skill added to the set routine',v:0.30}]},
+  {max:8,label:'Levels 7–8',f:[
+    {id:'l3a',n:'An element was missing or changed',v:0.50},
+    {id:'l3b',n:'Skills performed out of order',v:0.30},
+    {id:'l3c',n:'Not enough amplitude for this level',v:0.30}]},
+  {max:10,label:'Levels 9–10',f:[
+    {id:'l4a',n:'Missing a Special Requirement',v:0.50},
+    {id:'l4b',n:'Fewer elements than required',v:0.50},
+    {id:'l4c',n:'Not enough difficulty in the routine',v:0.30}]},
+  {max:12,label:'International & Olympian',f:[
+    {id:'l5a',n:'Routine too short — not enough elements',v:0.50},
+    {id:'l5b',n:'Routine too long — over the time limit',v:0.30},
+    {id:'l5c',n:'Missing a Special Requirement',v:0.50},
+    {id:'l5d',n:'Weak composition or connections',v:0.30}]}
+];
+function jeLevelSet(lv){ return JE_LEVEL.find(g=>lv<=g.max); }
+
+let jeCounts={}, jeBonus=0, jeLevel=3, jeApp='FX';
+const JE_MAX_BONUS=2;   /* start value tops out at 11.0 */
+/* vault carries no bonus below Level 7 */
+function jeBonusAllowed(){ return !(jeApp==='VT' && jeLevel<=6); }
+
+function jeActive(){
+  const g=jeLevelSet(jeLevel);
+  return [{t:'Any apparatus',list:JE_COMMON},
+          {t:APP.find(a=>a.k===jeApp).full+' only',list:JE_APP[jeApp]},
+          {t:g.label,list:g.f}];
+}
+function renderJudge(){
+  /* selectors */
+  document.getElementById('je-levels').innerHTML=Object.keys(LEVELS)
+    .map(n=>`<button class="je-pill" data-jelv="${n}" data-on="${+n===jeLevel}">${n>10?(n==='11'?'INT':'OLY'):'L'+n}</button>`).join('');
+  document.getElementById('je-apps').innerHTML=APP
+    .map(a=>`<button class="je-pill" data-jeapp="${a.k}" data-on="${a.k===jeApp}">${a.name}</button>`).join('');
+  document.querySelectorAll('[data-jelv]').forEach(b=>b.addEventListener('click',()=>{ jeLevel=+b.dataset.jelv; renderJudge(); }));
+  document.querySelectorAll('[data-jeapp]').forEach(b=>b.addEventListener('click',()=>{ jeApp=b.dataset.jeapp; renderJudge(); }));
+
+  /* fault list, grouped */
+  document.getElementById('je-out').innerHTML=jeActive().map(g=>
+    `<h4 class="je-group">${g.t}</h4>`+g.list.map(f=>{
+      const c=jeCounts[f.id]||0;
+      return `<button class="je-item" data-je="${f.id}" data-v="${f.v}" data-on="${c>0}">
+        <span class="je-v">−${f.v.toFixed(2)}</span>
+        <span class="je-n">${f.n}</span>
+        <span class="je-c">${c>0?'× '+c:''}</span></button>`;
+    }).join('')).join('');
+  document.querySelectorAll('[data-je]').forEach(b=>b.addEventListener('click',()=>{
+    jeCounts[b.dataset.je]=(jeCounts[b.dataset.je]||0)+1; renderJudge();
+  }));
+
+  /* score — only faults currently on screen count toward it */
+  const allowed=jeBonusAllowed();
+  if(!allowed) jeBonus=0;                     /* no bonus exists here, so drop any carried over */
+  const shown=jeActive().flatMap(g=>g.list);
+  const taken=shown.reduce((t,f)=>t+f.v*(jeCounts[f.id]||0),0);
+  const sv=10+jeBonus*0.5;
+  document.getElementById('je-num').textContent=Math.max(0,sv-taken).toFixed(2);
+  document.getElementById('je-sv').textContent=`Start value ${sv.toFixed(2)}`
+    +(jeBonus?` · ${jeBonus} bonus${jeBonus>1?'es':''}`:'')
+    +(allowed?'':' · no bonus on vault below Level 7');
+  const n=shown.reduce((t,f)=>t+(jeCounts[f.id]||0),0);
+  document.getElementById('je-count').textContent=n?`${n} deduction${n>1?'s':''} · −${taken.toFixed(2)} taken off`:'No deductions yet';
+  const bb=document.getElementById('je-bonus');
+  bb.disabled=!allowed||jeBonus>=JE_MAX_BONUS;
+  bb.textContent=!allowed?'No bonus here':(jeBonus>=JE_MAX_BONUS?'Max bonus 11.0':'+ 0.5 bonus');
+}
+document.getElementById('je-bonus').addEventListener('click',()=>{ if(jeBonusAllowed()&&jeBonus<JE_MAX_BONUS){jeBonus++; renderJudge();} });
+document.getElementById('je-reset').addEventListener('click',()=>{ jeCounts={}; jeBonus=0; renderJudge(); });
+
+/* build the compare pickers once */
+(function(){
+  const opts=Object.keys(LEVELS).map(n=>`<option value="${n}">${levelName(n)}</option>`).join('');
+  const A=document.getElementById('cmp-a'), B=document.getElementById('cmp-b');
+  A.innerHTML=opts; B.innerHTML=opts;
+  A.addEventListener('change',renderCompare); B.addEventListener('change',renderCompare);
+})();
+
+['levelup','compare','judge'].forEach(k=>{
+  document.getElementById(k+'-logo').src=document.querySelector('.logo-img').src;
+});
+wirePage('menu-levelup','levelup-page','levelup-back',renderLevelUp);
+wirePage('menu-compare','compare-page','compare-back',()=>{
+  const a=state.level, b=Math.min(12,state.level+1);
+  document.getElementById('cmp-a').value=a; document.getElementById('cmp-b').value=b;
+  renderCompare();
+});
+wirePage('menu-judge','judge-page','judge-back',()=>{ jeCounts={}; jeBonus=0; jeLevel=state.level; jeApp=state.app||'FX'; renderJudge(); });
 </script>
 </body>
 </html>
