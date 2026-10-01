@@ -523,6 +523,41 @@
   .gloss-term{font-weight:800;font-size:14.5px;color:var(--ink);padding-top:1px}
   .gloss-def{font-weight:600;font-size:13.5px;color:var(--muted);line-height:1.55}
   .gloss-none{text-align:center;padding:32px;color:var(--muted);font-weight:600}
+  /* ---- section 8: best possible routine ---- */
+  .bp-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    padding:20px 22px;border-bottom:1.5px solid var(--line)}
+  .bp-d{display:flex;align-items:baseline;gap:11px}
+  .bp-d b{font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1;color:var(--blue-dark)}
+  .bp-d span{font-size:13.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+  .bp-sub{font-size:13px;color:var(--muted);margin-top:7px;line-height:1.6}
+  .bp-legal{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .bp-tag{font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:8px;white-space:nowrap}
+  .bp-tag.ok{background:var(--ok-soft);color:#14663a;border:1px solid #bfe6cd}
+  .bp-tag.no{background:var(--red-soft);color:var(--red-dark);border:1px solid #f6ccd2}
+  .bp-body{padding:18px 22px 22px}
+  .bp-h{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin:0 0 11px}
+  .bp-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1.5px solid var(--line);
+    border-radius:11px;margin-bottom:7px;background:#fff}
+  .bp-row.dis{border-color:#dbe7fb;background:var(--blue-tint)}
+  .bp-ord{font-family:Georgia,'Times New Roman',serif;font-size:13px;font-weight:600;color:var(--muted);width:17px;flex:none;text-align:right}
+  .bp-dv{font-size:12.5px;font-weight:700;color:#fff;border-radius:7px;padding:4px 8px;flex:none;min-width:34px;text-align:center}
+  .bp-n{font-size:14.5px;color:var(--ink);flex:1;min-width:0}
+  .bp-g{display:block;font-size:11.5px;color:var(--muted);font-weight:700;margin-top:2px}
+  .bp-split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+  .bp-box{border:1.5px solid var(--line);border-radius:12px;padding:14px 16px}
+  .bp-box h5{margin:0 0 9px;font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.1px}
+  .bp-line{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;padding:5px 0;color:var(--ink)}
+  .bp-line b{color:var(--blue-dark)}
+  .bp-next{margin-top:20px;background:var(--blue-tint);border:1.5px solid #dbe7fb;border-radius:12px;padding:16px 18px}
+  .bp-next h5{margin:0 0 8px;font-size:11.5px;font-weight:700;color:var(--blue-dark);text-transform:uppercase;letter-spacing:1.1px}
+  .bp-next p{margin:0;font-size:14.5px;line-height:1.7;color:var(--ink)}
+  .bp-next b{color:var(--blue-dark)}
+  .bp-gain{display:inline-block;font-size:12.5px;font-weight:700;background:var(--ok-soft);color:#14663a;
+    border:1px solid #bfe6cd;border-radius:7px;padding:3px 8px;margin-left:4px}
+  .bp-empty{padding:30px 22px;text-align:center;color:var(--muted);font-size:14.5px;line-height:1.7}
+  .bp-empty b{color:var(--ink)}
+  .bp-note{font-size:12.5px;color:var(--muted);line-height:1.65;margin:20px 0 0;padding-top:15px;border-top:1px solid var(--line-2)}
+  @media(max-width:600px){.bp-split{grid-template-columns:1fr}}
   .gloss-count{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.1px;padding:2px 2px 12px}
   .gloss-tag{font-family:Georgia,'Times New Roman',serif;font-weight:600;font-size:10.5px;color:var(--blue-dark);background:var(--blue-soft);border:1px solid #d6e4fd;border-radius:999px;padding:1px 8px;margin-left:7px;white-space:nowrap;vertical-align:middle}
   @media(max-width:560px){.gloss-item{grid-template-columns:1fr}.gloss-term{padding-bottom:2px}.gloss-def{grid-column:1}}
@@ -557,6 +592,7 @@
     <a class="sn-btn" data-sec="s5"><span class="sn-num">5</span><span class="sn-lab">How Scoring Works</span></a>
     <a class="sn-btn" data-sec="s6"><span class="sn-num">6</span><span class="sn-lab">Skills I Can Do</span></a>
     <a class="sn-btn" data-sec="s7"><span class="sn-num">7</span><span class="sn-lab">Gymnastics Words</span></a>
+    <a class="sn-btn" data-sec="s8"><span class="sn-num">8</span><span class="sn-lab">My Best Routine</span></a>
   </div>
 </nav>
 
@@ -739,6 +775,17 @@
       <input class="gloss-search" id="gloss-search" type="text" placeholder="Search a word, like &quot;salto&quot; or &quot;D-score&quot;&hellip;" autocomplete="off">
       <div class="gloss-list" id="gloss-list"></div>
     </div>
+  </section>
+
+  <!-- MY BEST POSSIBLE ROUTINE -->
+  <section id="s8">
+    <div class="sec-head">
+      <span class="num">8</span>
+      <h2>My best possible routine</h2>
+      <p>The strongest legal routine you could compete right now, built only from the skills you've ticked off.</p>
+    </div>
+    <div class="cl-tabs" id="bp-tabs"></div>
+    <div class="card" id="bp-card"></div>
   </section>
 
 </div>
@@ -1636,7 +1683,7 @@ state.routines={FX:[],PH:[],SR:[],VT:[],PB:[],HB:[]};
 state.clApp='FX';
 state.checklist={};
 const STORE_KEY='mag_levels_hub_v1';
-function saveState(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({level:state.level, app:state.app, scores:state.scores, rbApp:state.rbApp, routines:state.routines, clApp:state.clApp, checklist:state.checklist})); }catch(e){} }
+function saveState(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify({level:state.level, app:state.app, scores:state.scores, rbApp:state.rbApp, routines:state.routines, clApp:state.clApp, checklist:state.checklist, bestApp:state.bestApp})); }catch(e){} }
 function loadState(){ try{ const raw=localStorage.getItem(STORE_KEY); if(!raw) return; const o=JSON.parse(raw)||{};
   if(typeof o.level==='number' && LEVELS[o.level]) state.level=o.level;
   if(o.app && APP.some(a=>a.k===o.app)) state.app=o.app;
@@ -1644,6 +1691,7 @@ function loadState(){ try{ const raw=localStorage.getItem(STORE_KEY); if(!raw) r
   if(o.scores) for(const k in state.scores){ const v=o.scores[k]; if(typeof v==='string'||typeof v==='number') state.scores[k]=String(v); }
   if(o.routines) for(const k in state.routines){ if(Array.isArray(o.routines[k])) state.routines[k]=o.routines[k].filter(id=>skillById(k,id)); }
   if(o.clApp && APP.some(a=>a.k===o.clApp)) state.clApp=o.clApp;
+  if(o.bestApp && APP.some(a=>a.k===o.bestApp)) state.bestApp=o.bestApp;
   if(o.checklist && typeof o.checklist==='object'){ for(const id in o.checklist){ if(o.checklist[id]===true) state.checklist[id]=true; } }
 }catch(e){} }
 function dvColor(v){ if(v<=0)return'#2f9e6e'; if(v>=0.6)return'var(--red)'; if(v>=0.5)return'#e0552b'; if(v>=0.4)return'#e8a32a'; if(v>=0.3)return'var(--blue-dark)'; if(v>=0.2)return'var(--blue-2)'; return'#5b8def'; }
@@ -1905,13 +1953,13 @@ function buildCLTabs(){
       <span class="cl-cnt" id="cl-cnt-${a.k}">0/${SKILLS[a.k].length}</span>
       <div class="cl-bar" id="cl-bar-${a.k}" style="width:0%"></div>
     </button>`).join('');
-  document.querySelectorAll('.cl-tab').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#cl-pills .cl-tab').forEach(b=>b.addEventListener('click',()=>{
     state.clApp=b.dataset.cl; saveState(); renderChecklist();
   }));
 }
 
 function renderCLTabs(){
-  document.querySelectorAll('.cl-tab').forEach(b=>{
+  document.querySelectorAll('#cl-pills .cl-tab').forEach(b=>{
     b.dataset.active=(b.dataset.cl===state.clApp);
     const k=b.dataset.cl, total=SKILLS[k].length;
     const done=SKILLS[k].filter(s=>state.checklist[s.id]).length;
@@ -1955,18 +2003,219 @@ function renderChecklist(){
     el.addEventListener('click',()=>{
       const id=el.dataset.id;
       if(state.checklist[id]) delete state.checklist[id]; else state.checklist[id]=true;
-      saveState(); renderChecklist();
+      saveState(); renderChecklist(); renderBest();
     });
   });
   document.getElementById('cl-clear-btn').addEventListener('click',e=>{
     e.stopPropagation();
     SKILLS[k].forEach(s=>delete state.checklist[s.id]);
-    saveState(); renderChecklist();
+    saveState(); renderChecklist(); renderBest();
   });
 }
 
 /* init */
-buildLevels(); buildApps(); buildInputs(); buildRBTabs(); buildCLTabs(); loadState(); render(); renderRB(); renderChecklist(); buildGlossary();
+
+/* ---------- 8 · MY BEST POSSIBLE ROUTINE ---------- */
+/* Element Group I always earns 0.5; the app's own skill groups stand in for the Code's
+   element groups, so this is an estimate — see the note printed under the routine. */
+const BP_EG1={FX:'Strength / Hold',PH:'Single-leg & scissors',SR:'Kip / uprise to support',
+              PB:'Support & long swing',HB:'Long swings'};
+const BP_MAX_PER_GROUP=4;
+
+/* pick the highest-value set under a total cap and a per-group cap */
+function bpPick(pool,total){
+  const out=[],used={};
+  for(const sk of [...pool].sort((a,b)=>b.v-a.v)){
+    if(out.length>=total) break;
+    const g=sk.gn||'—';
+    if((used[g]||0)>=BP_MAX_PER_GROUP) continue;
+    used[g]=(used[g]||0)+1; out.push(sk);
+  }
+  return out;
+}
+/* same, but guarantee one element from every group first so no group bonus is wasted */
+function bpPickCovering(pool,total){
+  const byGroup={};
+  for(const sk of pool){ (byGroup[sk.gn||'—']=byGroup[sk.gn||'—']||[]).push(sk); }
+  const out=[],used={};
+  Object.values(byGroup).map(g=>g.sort((a,b)=>b.v-a.v)[0])
+    .sort((a,b)=>b.v-a.v).forEach(sk=>{
+      if(out.length>=total) return;
+      const g=sk.gn||'—'; used[g]=(used[g]||0)+1; out.push(sk);
+    });
+  for(const sk of [...pool].sort((a,b)=>b.v-a.v)){
+    if(out.length>=total) break;
+    if(out.includes(sk)) continue;
+    const g=sk.gn||'—';
+    if((used[g]||0)>=BP_MAX_PER_GROUP) continue;
+    used[g]=(used[g]||0)+1; out.push(sk);
+  }
+  return out;
+}
+/* element-group bonus: 0.5 for EG I or any group led by a D or harder, otherwise 0.3 */
+function bpGroupBonus(k,counting){
+  const best={};
+  counting.forEach(sk=>{ const g=sk.gn||'—'; best[g]=Math.max(best[g]||0,sk.v); });
+  let total=0; const detail=[];
+  for(const g in best){
+    const b=(g===BP_EG1[k]||best[g]>=0.4)?0.5:0.3;
+    total+=b; detail.push({g,b});
+  }
+  return {total,detail:detail.sort((a,b)=>b.b-a.b)};
+}
+/* build the strongest legal routine from a given set of skills */
+function bpBuild(k,pool){
+  if(k==='VT'){
+    const best=[...pool].sort((a,b)=>b.v-a.v)[0];
+    return best?{vault:true,counting:[best],d:best.v,groups:{total:0,detail:[]},dismount:null}:null;
+  }
+  const usable=pool.filter(s=>s.gn!=='Buck');           /* the buck is a training apparatus */
+  const isFX=(k==='FX');                                 /* floor has no separate dismount group */
+  const dismounts=usable.filter(s=>s.gn==='Dismount');
+  const rest=isFX?usable:usable.filter(s=>s.gn!=='Dismount');
+  if(!usable.length) return null;
+
+  const dismount=isFX?null:(dismounts.sort((a,b)=>b.v-a.v)[0]||null);
+  const slots=isFX?8:7;
+  let bestResult=null;
+  for(const picker of [bpPick,bpPickCovering]){
+    const body=picker(rest,slots);
+    const counting=dismount?[...body,dismount]:body;
+    const gb=bpGroupBonus(k,isFX?counting:body);
+    /* the dismount's own value counts again as its element-group value (not on floor) */
+    const d=counting.reduce((t,s)=>t+s.v,0)+gb.total+(dismount?dismount.v:0);
+    if(!bestResult||d>bestResult.d) bestResult={counting:body,dismount,d,groups:gb};
+  }
+  return bestResult;
+}
+function bpFor(k){
+  const ticked=SKILLS[k].filter(s=>s&&state.checklist[s.id]);
+  return {ticked,res:bpBuild(k,ticked)};
+}
+/* the single unticked skill that would add the most */
+function bpBestNext(k,ticked,currentD){
+  const have=new Set(ticked.map(s=>s.id));
+  let best=null;
+  for(const sk of SKILLS[k].filter(s=>s&&!have.has(s.id)&&s.gn!=='Buck')){
+    const r=bpBuild(k,[...ticked,sk]);
+    if(!r) continue;
+    const gain=+(r.d-currentD).toFixed(2);
+    if(gain>0&&(!best||gain>best.gain)) best={sk,gain};
+  }
+  return best;
+}
+
+function buildBPTabs(){
+  document.getElementById('bp-tabs').innerHTML=APP.map(a=>`
+    <button class="cl-tab" data-bp="${a.k}">
+      ${ICONS[a.k]}
+      <span class="ab">${a.name}</span>
+      <span class="cl-cnt" id="bp-cnt-${a.k}">—</span>
+    </button>`).join('');
+  document.querySelectorAll('#bp-tabs [data-bp]').forEach(b=>b.addEventListener('click',()=>{
+    state.bestApp=b.dataset.bp; saveState(); renderBest();
+  }));
+}
+
+function renderBest(){
+  const k=state.bestApp||'FX', isVT=(k==='VT');
+  document.querySelectorAll('#bp-tabs [data-bp]').forEach(b=>b.dataset.active=(b.dataset.bp===k));
+  /* per-apparatus D on the tabs */
+  APP.forEach(a=>{
+    const el=document.getElementById('bp-cnt-'+a.k); if(!el) return;
+    const r=bpFor(a.k).res;
+    el.textContent=r?(a.k==='VT'?r.d.toFixed(1):r.d.toFixed(1)):'—';
+  });
+
+  const card=document.getElementById('bp-card');
+  const {ticked,res}=bpFor(k);
+  const full=APP.find(a=>a.k===k).full;
+
+  if(!res){
+    card.innerHTML=`<div class="bp-empty">You haven't ticked any <b>${full}</b> skills yet.<br>
+      Go to <b>6 · Skills I Can Do</b> and tick what you can already perform — this page will then build the
+      strongest legal routine those skills allow.</div>`;
+    return;
+  }
+
+  if(isVT){
+    const v=res.counting[0];
+    const next=bpBestNext(k,ticked,res.d);
+    card.innerHTML=`
+      <div class="bp-top">
+        <div><div class="bp-d"><b>${res.d.toFixed(1)}</b><span>vault value</span></div>
+          <div class="bp-sub">On vault only your single best attempt counts — there is no routine to build.</div></div>
+        <div class="bp-legal"><span class="bp-tag ok">${ticked.length} vault${ticked.length>1?'s':''} ticked</span></div>
+      </div>
+      <div class="bp-body">
+        <h4 class="bp-h">Your best vault</h4>
+        <div class="bp-row dis"><span class="bp-ord">1</span>
+          <span class="bp-dv" style="background:${vtColor(v.v)}">${v.v.toFixed(1)}</span>
+          <span class="bp-n">${v.n}</span></div>
+        ${next?`<div class="bp-next"><h5>Learn this next</h5>
+          <p><b>${next.sk.n}</b> would take your vault value to <b>${(res.d+next.gain).toFixed(1)}</b>
+          <span class="bp-gain">+${next.gain.toFixed(1)}</span></p></div>`:''}
+        <p class="bp-note">Vault values follow the FIG 2025–2028 Code of Points.</p>
+      </div>`;
+    return;
+  }
+
+  const body=res.counting, dis=res.dismount;
+  const slots=(k==='FX')?8:7;
+  const shortBy=slots-body.length;
+  const diffSum=(body.reduce((t,s)=>t+s.v,0)+(dis?dis.v:0));
+  const next=bpBestNext(k,ticked,res.d);
+
+  const rows=body.map((s,i)=>`
+    <div class="bp-row"><span class="bp-ord">${i+1}</span>
+      <span class="bp-dv" style="background:${dvColor(s.v)}">${s.d||'Fdn'}</span>
+      <span class="bp-n">${s.n}<span class="bp-g">${s.gn}</span></span></div>`).join('')
+    +(dis?`<div class="bp-row dis"><span class="bp-ord">${body.length+1}</span>
+      <span class="bp-dv" style="background:${dvColor(dis.v)}">${dis.d||'Fdn'}</span>
+      <span class="bp-n">${dis.n}<span class="bp-g">Dismount — counts twice: difficulty + element group</span></span></div>`:'');
+
+  const tags=[];
+  tags.push(shortBy>0
+    ? `<span class="bp-tag no">${shortBy} element${shortBy>1?'s':''} short of a full routine</span>`
+    : `<span class="bp-tag ok">Full ${slots+(dis?1:0)} counting elements</span>`);
+  if(k!=='FX') tags.push(dis?`<span class="bp-tag ok">Dismount included</span>`:`<span class="bp-tag no">No dismount ticked</span>`);
+  tags.push(`<span class="bp-tag ok">${res.groups.detail.length} element group${res.groups.detail.length===1?'':'s'} covered</span>`);
+
+  card.innerHTML=`
+    <div class="bp-top">
+      <div><div class="bp-d"><b>${res.d.toFixed(1)}</b><span>estimated D-score</span></div>
+        <div class="bp-sub">Built from the <b>${ticked.length}</b> ${full} skill${ticked.length===1?'':'s'} you've ticked.</div></div>
+      <div class="bp-legal">${tags.join('')}</div>
+    </div>
+    <div class="bp-body">
+      <h4 class="bp-h">The routine</h4>
+      ${rows}
+      <div class="bp-split">
+        <div class="bp-box"><h5>How the score is built</h5>
+          <div class="bp-line"><span>Difficulty of counting elements</span><b>${diffSum.toFixed(1)}</b></div>
+          ${res.groups.detail.map(g=>`<div class="bp-line"><span>${g.g}</span><b>+${g.b.toFixed(1)}</b></div>`).join('')}
+          ${dis?`<div class="bp-line"><span>Dismount group value</span><b>+${dis.v.toFixed(1)}</b></div>`:''}
+          <div class="bp-line" style="border-top:1px solid var(--line-2);margin-top:5px;padding-top:9px">
+            <span><b>Total D-score</b></span><b>${res.d.toFixed(1)}</b></div>
+        </div>
+        <div class="bp-box"><h5>Rules applied</h5>
+          <div class="bp-line"><span>Counting elements</span><b>${body.length+(dis?1:0)} of ${slots+(k==='FX'?0:1)}</b></div>
+          <div class="bp-line"><span>Max from one group</span><b>${BP_MAX_PER_GROUP}</b></div>
+          <div class="bp-line"><span>Groups you can fill</span><b>${res.groups.detail.length}</b></div>
+          <div class="bp-line"><span>Skills ticked here</span><b>${ticked.length}</b></div>
+        </div>
+      </div>
+      ${next?`<div class="bp-next"><h5>Biggest gain from one new skill</h5>
+        <p>Learn <b>${next.sk.n}</b> (${next.sk.d||'Fdn'}) and your best routine becomes
+        <b>${(res.d+next.gain).toFixed(1)}</b> <span class="bp-gain">+${next.gain.toFixed(1)}</span></p></div>`:''}
+      <p class="bp-note">An estimate. Counting elements, the four-per-group cap and the element-group bonuses follow the
+        FIG 2025–2028 Code of Points, but this app's skill groupings stand in for the Code's official Element Groups,
+        so a judge's D-score may differ. Connection bonuses are not included.</p>
+    </div>`;
+}
+
+state.bestApp='FX';
+buildLevels(); buildApps(); buildInputs(); buildRBTabs(); buildCLTabs(); loadState(); render(); renderRB(); renderChecklist(); buildGlossary(); buildBPTabs(); renderBest();
 
 /* hero logo */
 document.getElementById('hero-logo').src=document.querySelector('.logo-img').src;
